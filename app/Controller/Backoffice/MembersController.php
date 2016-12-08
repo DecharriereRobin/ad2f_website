@@ -2,21 +2,22 @@
 
 namespace Controller\Backoffice;
 
-use \W\Controller\Controller;
+use Model\MembersModel as Member;
 
 
-class MembersController extends Controller
+class MembersController extends \W\Controller\Controller
 {
 
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function liste()
+	public function membersList()
 	{
-		$this->show('backoffice/membersList');
+		$member = new Member();
+		$this->show('backoffice/membersList',['member'=>$member->findAll()]);
 	}
 
-	public function edit()
+	public function membersEdit()
 	{
 		$this->show('backoffice/membersEdit');
 	}

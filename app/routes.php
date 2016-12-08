@@ -29,6 +29,7 @@
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
 		//Adherent
+
 		['GET', '/backoffice/membersList', 'Backoffice\\Members#liste', 'backoffice_Memberslist'],
 		['GET|POST', '/backoffice/membersEdit', 'Backoffice\\Members#edit', 'backoffice_MembersEdit'],
 
