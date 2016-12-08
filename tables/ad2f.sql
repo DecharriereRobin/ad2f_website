@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 08 Décembre 2016 à 09:54
+-- Généré le :  Jeu 08 Décembre 2016 à 14:00
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -38,10 +38,10 @@ CREATE TABLE `administrators` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `articles`
+-- Structure de la table `events`
 --
 
-CREATE TABLE `articles` (
+CREATE TABLE `events` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(60) NOT NULL,
   `content` varchar(255) NOT NULL,
@@ -141,9 +141,9 @@ ALTER TABLE `administrators`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Index pour la table `articles`
+-- Index pour la table `events`
 --
-ALTER TABLE `articles`
+ALTER TABLE `events`
   ADD PRIMARY KEY (`id`),
   ADD KEY `picture_id` (`media_id`);
 
@@ -191,9 +191,9 @@ ALTER TABLE `members`
 ALTER TABLE `administrators`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `articles`
+-- AUTO_INCREMENT pour la table `events`
 --
-ALTER TABLE `articles`
+ALTER TABLE `events`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `garage_sale`
@@ -225,17 +225,11 @@ ALTER TABLE `members`
 --
 
 --
--- Contraintes pour la table `articles`
+-- Contraintes pour la table `events`
 --
-ALTER TABLE `articles`
-  ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `medias` (`id`),
-  ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`id`) REFERENCES `garage_sale` (`event_id`);
-
---
--- Contraintes pour la table `listings`
---
-ALTER TABLE `listings`
-  ADD CONSTRAINT `listings_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`);
+ALTER TABLE `events`
+  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`),
+  ADD CONSTRAINT `events_ibfk_2` FOREIGN KEY (`id`) REFERENCES `garage_sale` (`event_id`);
 
 --
 -- Contraintes pour la table `listings_users`
@@ -247,7 +241,7 @@ ALTER TABLE `listings_users`
 -- Contraintes pour la table `media`
 --
 ALTER TABLE `media`
-  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`id`) REFERENCES `articles` (`media_id`);
+  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`id`) REFERENCES `listings` (`media_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
