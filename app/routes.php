@@ -20,11 +20,11 @@
 		['GET|POST', '/membersEdit', 'Backoffice\\Members#edit', 'backoffice_MembersEdit'],
 
 
-		// EVent
-		['GET|POST', '/eventCreate', 'Backoffice\\Event#create', 'backoffice_EventCreate'],
-		['GET', '/eventList', 'Backoffice\\Event#liste', 'backoffice_EventList'],
-		['GET|POST', '/eventEdit', 'Backoffice\\Event#edit', 'backoffice_EventEdit'],
-		['GET|POST', '/eventDelete', 'Backoffice\\Event#delete', 'backoffice_EventDelete'],
+		// Event
+		['GET|POST', '/eventCreate', 'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
+		['GET', '/eventList', 'Backoffice\\Event#eventList', 'backoffice_EventList'],
+		['GET|POST', '/eventEdit', 'Backoffice\\Event#eventEdit', 'backoffice_EventEdit'],
+		['GET|POST', '/eventDelete', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 		// BRADERIE
 		['GET', '/garageList', 'Backoffice\\Garage#liste', 'backoffice_GarageList'],
