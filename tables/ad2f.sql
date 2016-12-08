@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `administrators`
 --
 
-CREATE TABLE `administrators` (
+CREATE TABLE `admin` (
   `id` int(10) UNSIGNED NOT NULL,
   `firstname` varchar(60) NOT NULL,
   `lastname` varchar(60) NOT NULL,
@@ -134,9 +134,9 @@ CREATE TABLE `members` (
 --
 
 --
--- Index pour la table `administrators`
+-- Index pour la table `admin`
 --
-ALTER TABLE `administrators`
+ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -188,7 +188,7 @@ ALTER TABLE `members`
 --
 -- AUTO_INCREMENT pour la table `administrators`
 --
-ALTER TABLE `administrators`
+ALTER TABLE `admin`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `events`
