@@ -1,3 +1,4 @@
+
 <?php $this->layout('layoutBack', ['title' => 'Liste des évenements']) ?>
 
 <?php $this->start('main_content') ?>

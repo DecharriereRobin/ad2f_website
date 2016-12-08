@@ -14,10 +14,12 @@ use Model\EventsModel as Event;
    */
 class EventController extends \W\Controller\Controller
 {
+
     /**
      * Get one page
      * @return View
      */
+
 	public function eventList()
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
@@ -32,10 +34,13 @@ class EventController extends \W\Controller\Controller
 		$this->show('backoffice/eventCreate');
 	}
 
+
 	public function eventEdit($id)
+
 	{
 		$this->show('backoffice/eventEdit');
 	}
+
 
 	public function eventDelete($id)
 	{
