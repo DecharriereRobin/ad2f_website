@@ -17,12 +17,12 @@ class AssociationController extends Controller
 
 	public function contact()
 	{
-		$this->show('front/home');
+		$this->show('front/contact');
 	}
 
 	public function adhesion()
 	{
-		$this->show('front/home');
+		$this->show('front/adhesion');
 	}
 
 }
