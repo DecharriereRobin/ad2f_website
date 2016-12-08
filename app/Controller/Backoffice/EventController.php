@@ -2,33 +2,49 @@
 
 namespace Controller\Backoffice;
 
-use \W\Controller\Controller;
+use Model\EventsModel as Event;
 
-
-class EventController extends Controller
+  /**
+   * List of event
+   * 
+   * 
+   * @package    W
+   * @subpackage Controller
+   * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
+   */
+class EventController extends \W\Controller\Controller
 {
-
-	/**
-	 * Page d'accueil par défaut
-	 */
+    /**
+     * Get one page
+     * @return View
+     */
 	public function eventList()
 	{
-		$this->show('backoffice/eventList');
+        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $event = new Event();
+
+		$this->show('backoffice/eventList', ['events' => $event->findAll()]);
 	}
 
 	public function eventCreate()
 	{
+        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
 		$this->show('backoffice/eventCreate');
 	}
 
-	public function eventEdit()
+	public function eventEdit($id)
 	{
 		$this->show('backoffice/eventEdit');
 	}
 
-	public function eventDelete()
+	public function eventDelete($id)
 	{
-		$this->show('backoffice/eventDelete');
+        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $event = new Event();
+        $event->delete($id);
+        $uri = $this->generateUrl('backoffice_EventList');
+		header("Location: $uri?message=1");
+        die();
 	}
 
 
