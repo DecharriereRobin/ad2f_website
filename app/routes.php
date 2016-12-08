@@ -32,7 +32,6 @@
 		['GET', '/backoffice/membersList', 'Backoffice\\Members#liste', 'backoffice_Memberslist'],
 		['GET|POST', '/backoffice/membersEdit', 'Backoffice\\Members#edit', 'backoffice_MembersEdit'],
 
-
 		// EVent
 		['GET|POST', '/backoffice/eventCreate', 'Backoffice\\Event#create', 'backoffice_EventCreate'],
 		['GET', '/backoffice/eventList', 'Backoffice\\Event#liste', 'backoffice_EventList'],
