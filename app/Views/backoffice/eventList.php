@@ -3,21 +3,26 @@
 
 <?php $this->start('main_content') ?>
 
+<?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
+<?php unset($_SESSION['message']); ?>
+
+<a href="<?= $this->url('backoffice_EventCreate') ?>" class="btn btn-primary" >Créer un nouvel évenement</a>
+
 <table class="table table-hover table-striped">
         <thead>
             <th>#</th>
-            <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par titre">Title</a></th>
+            <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par titre">Titre</a></th>
             <th>Date</th>
             <th>Categorie</th>
             <th>Actions</th>
         </thead>
         <tbody>
-            <?php foreach($events as $key  => $event){ ?>
+            <?php foreach($events as $event){ ?>
                 <tr>
                     <td><?= $event['id'] ?></td>
-                    <td><?= $event['title'] ?></td>
+                    <td><?= ucfirst($event['title']) ?></td>
                     <td><?= $event['date'] ?></td>
-                    <td><?= $event['category'] ?></td>
+                    <td><?= ucfirst($event['category']) ?></td>
                     <td>
                         <a href="<?= $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" class="btn btn-primary">Modifier</a>
                         <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id']]) ?>" class="btn btn-danger">Supprimer</a>
@@ -44,5 +49,4 @@
             <?php } ?>
         </tbody>
     </table>
-<?php var_dump($_SESSION); unset($_SESSION['message']); ?>
 <?php $this->stop('main_content') ?>
