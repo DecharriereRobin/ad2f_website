@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Liste des membres']) ?>
+<?php $this->layout('layoutBack', ['title' => 'Liste des membres']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -6,14 +6,14 @@
     echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';
 
 ?>
-
-<table class="table table-striped">
+<a href="<?= $this->url('backoffice_MembersCreate') ?>" class="btn btn-primary">Créer un membre</a>
+<table class="table table-hover table-striped">
 
     <caption>Informations sur les adhérents de l'association</caption>
 
     <thead> <!-- En-tête du tableau -->
     <tr>
-        <th><a href="<?php  ?>">Nom</a></th>
+        <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par nom">Nom</a></th>
         <th>Prénom</th>
         <th>Adresse</th>
         <th>Téléphone</th>
@@ -29,14 +29,36 @@
     foreach($members as $member){
 ?>
     <tr>
-        <td><?php echo ucfirst($member['firstname'])               ?></td>
-        <td><?php echo ucfirst($member['lastname'])                ?></td>
-        <td><?php echo ucfirst($member['address'])                 ?></td>
-        <td><?php echo ucfirst($member['phone'])                   ?></td>
-        <td><?php echo ucfirst($member['email'])                   ?></td>
-        <td><?php echo ucfirst($member['creation_date'])           ?></td>
-        <td><?php echo ucfirst($member['subscription_date'])       ?></td>
-        <td><?php echo \Model\MembersModel::getPaidStatus($member) ?></td>
+        <td><?= ucfirst($member['firstname'])               ?></td>
+        <td><?= ucfirst($member['lastname'])                ?></td>
+        <td><?= ucfirst($member['address'])                 ?></td>
+        <td><?= ucfirst($member['phone'])                   ?></td>
+        <td><?= ucfirst($member['email'])                   ?></td>
+        <td><?= ucfirst($member['creation_date'])           ?></td>
+        <td><?= ucfirst($member['subscription_date'])       ?></td>
+        <td><?= \Model\MembersModel::getPaidStatus($member) ?></td>
+        <td>
+            <a href="<?= $this->url('backoffice_MembersEdit', ['id' => $member['id']])?>" class="btn btn-primary">Modifier</a>
+            <a href="<?= $this->url('backoffice_MembersDelete', ['id' => $member['id']]) ?>" class="btn btn-danger">Supprimer</a>
+            <!--<button class="btn btn-default" data-toggle="modal" data-target="#deleteModal-">Supprimer</button>-->
+            <div class="modal fade" id="deleteModal-<?= $member['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel-<?= $member['id'] ?>">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="deleteModalLabel-<?= $member['id'] ?>">Êtes-vous sûr de vouloir supprimer ce membre ?</h4>
+                        </div>
+                        <div class="modal-body">
+                            Êtes-vous sûr de vouloir supprimer ce membre ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+                            <a href="" class="btn btn-primary">Oui</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
     </tr>
 <?php
         
@@ -44,9 +66,5 @@
 ?>
     </tbody>
 </table>
-
-
-
-
 
 <?php $this->stop('main_content') ?>
