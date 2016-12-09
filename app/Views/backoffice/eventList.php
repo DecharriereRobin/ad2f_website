@@ -4,24 +4,22 @@
 
 <table class="table table-hover table-striped">
         <thead>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
+            <th>#</th>
+            <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par titre">Title</a></th>
             <th>Date</th>
             <th>Categorie</th>
             <th>Actions</th>
         </thead>
         <tbody>
-            <?php foreach($events as $event){ ?>
+            <?php foreach($events as $key  => $event){ ?>
                 <tr>
                     <td><?= $event['id'] ?></td>
                     <td><?= $event['title'] ?></td>
-                    <td><?= $event['content'] ?></td>
                     <td><?= $event['date'] ?></td>
                     <td><?= $event['category'] ?></td>
                     <td>
-                        <a href="" class="btn btn-default">Modifier</a>
-                        <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id']]) ?>" class="btn btn-default">Supprimer</a>
+                        <a href="<?= $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" class="btn btn-primary">Modifier</a>
+                        <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id']]) ?>" class="btn btn-danger">Supprimer</a>
                         <!--<button class="btn btn-default" data-toggle="modal" data-target="#deleteModal-">Supprimer</button>-->
                         <div class="modal fade" id="deleteModal-<?= $event['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel-<?= $event['id'] ?>">
                             <div class="modal-dialog" role="document">
@@ -45,5 +43,5 @@
             <?php } ?>
         </tbody>
     </table>
-
+<?php var_dump($_SESSION); unset($_SESSION['message']); ?>
 <?php $this->stop('main_content') ?>

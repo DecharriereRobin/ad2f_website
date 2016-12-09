@@ -34,10 +34,10 @@
 
 
 		// EVENT ROUTE
-		['GET|POST', '/eventCreate',        'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
-		['GET',      '/eventList',          'Backoffice\\Event#eventList',   'backoffice_EventList'],
-		['GET|POST', '/eventEdit',          'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
-		['GET|POST', '/eventDelete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
+		['GET|POST', '/event/create',        'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
+		['GET',      '/event/list',          'Backoffice\\Event#eventList',   'backoffice_EventList'],
+		['GET|POST', '/event/edit/[i:id]',   'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
+		['GET|POST', '/event/delete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 
 		// BRADERIE
