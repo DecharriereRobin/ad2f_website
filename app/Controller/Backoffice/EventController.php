@@ -40,7 +40,7 @@ class EventController extends \W\Controller\Controller
                     'title' => trim($_POST['title']),
                     'content' => trim($_POST['content']),
                     'date' => trim($_POST['date']),
-                    'category' => $_POST['category']
+                    'category' => $_POST['category'][0]
                 ], $id, true);
                 
             $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
@@ -66,7 +66,7 @@ class EventController extends \W\Controller\Controller
                     'title' => trim($_POST['title']),
                     'content' => trim($_POST['content']),
                     'date' => trim($_POST['date']),
-                    'category' => trim($_POST['category'])
+                    'category' => $_POST['category'][0]
                 ], $id, true);
                 
             $message = "<div class='alert alert-success'>L'évenement a bien été modifié.</div>";
@@ -76,7 +76,7 @@ class EventController extends \W\Controller\Controller
         }
         
         $this->show('backoffice/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
-
+    }
 
 
 	public function eventDelete($id)

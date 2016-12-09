@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="category">Catégorie</label>
-        <select class="form-control" id="category" name="category">
+        <select class="form-control" id="category" name="category[]">
             <option value="braderie">Braderie</option>
             <option value="carnaval">Carnaval</option>
             <option value="Fete-de-quartier">Fete de quartier</option>
