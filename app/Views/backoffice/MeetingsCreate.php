@@ -1,6 +1,23 @@
-<?php $this->layout('layout', ['title' => 'Creer des reunions']) ?>
+<?php $this->layout('layoutBack', ['title' => 'Remplir l\'agenda']) ?>
 
 <?php $this->start('main_content') ?>
+ 
+<?= $message ?>
 
+<form action="<?php $this->url('backoffice_MeetingsCreate')?>" method="POST">
+    <div class="form-group">
+        <label for="date">Date de l'évenement </label>
+        <input id="date" name="date" type="date" class="form-control calendar" value="" /> 
+    </div>
+    <div class="form-group">
+        <label for="address">Adresse</label>
+        <textarea id="content" name="address" class="form-control">Adresse de la réunion</textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">Description</label>
+        <textarea id="content" name="content" class="form-control">Sujet de la réunion</textarea>
+    </div>
+    <button class="btn btn-default" name="createMeetings">Inserer</button>
+</form>
 
 <?php $this->stop('main_content') ?>
