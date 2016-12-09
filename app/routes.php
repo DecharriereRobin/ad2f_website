@@ -28,19 +28,18 @@
 		['GET|POST', '/backoffice/adminLogin' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
-		//Members
-
-		['GET'     , '/members/list'  , 'Backoffice\\Members#membersList', 'backoffice_Memberslist'],
-		['GET|POST', '/members/edit'  , 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
-		['GET|POST', '/members/create', 'Backoffice\\Members#membersEdit', 'backoffice_MembersCreate'],
-		['GET|POST', '/members/delete', 'Backoffice\\Members#membersEdit', 'backoffice_MembersDelete'],
+		//MEMBERS
+		['GET|POST', '/members/create'        , 'Backoffice\\Members#membersCreate', 'backoffice_MembersCreate'],
+		['GET'     , '/members/list'          , 'Backoffice\\Members#membersList'  , 'backoffice_MembersList'],
+		['GET|POST', '/members/edit/[i:id]'   , 'Backoffice\\Members#membersEdit'  , 'backoffice_MembersEdit'],
+		['GET|POST', '/members/delete/[i:id]' , 'Backoffice\\Members#membersDelete', 'backoffice_MembersDelete'],
 
 
 		// EVENT ROUTE
-		['GET|POST', '/event/create',        'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
-		['GET',      '/event/list',          'Backoffice\\Event#eventList',   'backoffice_EventList'],
-		['GET|POST', '/event/edit/[i:id]',   'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
-		['GET|POST', '/event/delete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
+		['GET|POST', '/event/create'          , 'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
+		['GET',      '/event/list'            , 'Backoffice\\Event#eventList',   'backoffice_EventList'],
+		['GET|POST', '/event/edit/[i:id]'     , 'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
+		['GET|POST', '/event/delete/[i:id]'   , 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 
 

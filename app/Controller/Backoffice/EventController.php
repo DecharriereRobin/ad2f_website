@@ -81,10 +81,10 @@ class EventController extends \W\Controller\Controller
 
 	public function eventDelete($id)
 	{
-        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $event->delete($id);
-        $_SESSION['message'] = "Test";
+        //$_SESSION['message'] = "Test";
 		$this->redirectToRoute('backoffice_EventList');
 	}
 
