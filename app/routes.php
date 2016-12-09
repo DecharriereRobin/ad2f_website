@@ -28,12 +28,15 @@
 		['GET|POST', '/backoffice/adminEdit', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
 		['GET|POST', '/backoffice/adminDelete', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
 		['GET|POST', '/backoffice/adminForgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
-		['GET|POST', '/backoffice/adminLogin', 'Backoffice\\Admin#login', 'backoffice_AdminLogin'],
+		['GET|POST', '/backoffice/adminLogin' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
-		//Adherent
-		['GET', '/backoffice/membersList', 'Backoffice\\Members#liste', 'backoffice_Memberslist'],
-		['GET|POST', '/backoffice/membersEdit', 'Backoffice\\Members#edit', 'backoffice_MembersEdit'],
+		//Members
+
+		['GET'     , '/backoffice/members/list'  , 'Backoffice\\Members#membersList', 'backoffice_Memberslist'],
+		['GET|POST', '/backoffice/members/edit'  , 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/create', 'Backoffice\\Members#membersEdit', 'backoffice_MembersCreate'],
+		['GET|POST', '/backoffice/members/delete', 'Backoffice\\Members#membersEdit', 'backoffice_MembersDelete'],
 
 
 		// EVENT ROUTE
@@ -43,15 +46,16 @@
 		['GET|POST', '/event/delete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 
+
 		// BRADERIE
-		['GET', '/backoffice/garageList', 'Backoffice\\Garage#liste', 'backoffice_GarageList'],
+		['GET'     , '/backoffice/garageList'  , 'Backoffice\\Garage#liste' , 'backoffice_GarageList'],
 		['GET|POST', '/backoffice/garageDelete', 'Backoffice\\Garage#delete', 'backoffice_GarageDelete'],
-		['GET|POST', '/backoffice/garageEdit', 'Backoffice\\Garage#edit', 'backoffice_GarageEdit'],
+		['GET|POST', '/backoffice/garageEdit'  , 'Backoffice\\Garage#edit'  , 'backoffice_GarageEdit'],
 
 		//REUNIONS-MEETING
 		['GET|POST', '/backoffice/meetingsCreate', 'Backoffice\\Meetings#create', 'backoffice_MeetingsCreate'],
-		['GET', '/backoffice/meetingsList', 'Backoffice\\Meetings#liste', 'backoffice_MeetingsList'],
-		['GET|POST', '/backoffice/meetingsEdit', 'Backoffice\\Meetings#edit', 'backoffice_MeetingsEdit'],
+		['GET'     , '/backoffice/meetingsList'  , 'Backoffice\\Meetings#liste' , 'backoffice_MeetingsList'],
+		['GET|POST', '/backoffice/meetingsEdit'  , 'Backoffice\\Meetings#edit'  , 'backoffice_MeetingsEdit'],
 		['GET|POST', '/backoffice/meetingsDelete', 'Backoffice\\Meetings#delete', 'backoffice_MeetingsDelete'],
 
 
