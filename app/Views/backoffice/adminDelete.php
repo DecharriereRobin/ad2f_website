@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Admin delete']) ?>
+<?php $this->layout('layoutBack', ['title' => 'Admin delete']) ?>
 
 <?php $this->start('main_content') ?>
 

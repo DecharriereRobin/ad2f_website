@@ -25,8 +25,8 @@
 		//Admin
 		['GET|POST', '/backoffice/adminView', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/adminCreate', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
-		['GET|POST', '/backoffice/adminEdit', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
-		['GET|POST', '/backoffice/adminDelete', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
+		['GET|POST', '/backoffice/adminEdit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
+		['GET|POST', '/backoffice/adminDelete/[i:id]', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
 		['GET|POST', '/backoffice/adminForgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
 		['GET|POST', '/backoffice/adminLogin' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],

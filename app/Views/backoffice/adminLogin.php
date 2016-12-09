@@ -3,17 +3,17 @@
 <?php $this->start('main_content') ?>
 
 <form action="<?php $this->url('backoffice_AdminLogin') ?>" method="POST">
-        <div>
+        <div class="form-group">
             <label for="email">Email :</label>
-            <input  id="email" name="email" type="email">
+            <input  id="email" name="email" type="email" class="form-control">
         </div>
-            <div>
+            <div class="form-group">
                 <label for="password">Mot de passe :</label>
-                <input id="password" name="password" type="password">
+                <input id="password" name="password" type="password" class="form-control">
             </div>
-        <button name="LoginAdmin" >connexion</button>
+        <button name="LoginAdmin" class="btn btn-default" >connexion</button>
         </br>
-        <a href="adminForgot" >mot de passe oublié ?</a>
+        <a href="adminForgot" class="btn btn-default" >mot de passe oublié ?</a>
 
     </form>
 

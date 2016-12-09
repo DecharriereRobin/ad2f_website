@@ -2,13 +2,13 @@
 
 <?php $this->start('main_content') ?>
 
-<!-- Return Modification message On success Or Error--> 
+<!-- Return Modification message On success Or Error-->
 <?= $message ?>
 <?php var_dump($_POST); ?>
 <form action="<?php $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" method="POST">
     <div class="form-group">
         <label for="title">Modifier le titre de l'évenement: </label>
-        <input id="title" name="title" type="text" class="form-control" value="<?= $event['title']?> " /> 
+        <input id="title" name="title" type="text" class="form-control" value="<?= $event['title']?> " />
     </div>
     <div class="form-group">
         <label for="category">Catégorie</label>
@@ -25,9 +25,10 @@
     <div class="form-group">
         <?php $dateTime = $event['date']?>
             <label for="date">Date </label>
-            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" /> 
+            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" />
     </div>
     <button class="btn btn-default" name="editEvent">Modifier l'évenement</button>
 </form>
+<?= $message ?>
 
 <?php $this->stop('main_content') ?>
