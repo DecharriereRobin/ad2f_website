@@ -32,8 +32,8 @@
 
 		['GET'     , '/backoffice/members/list'  , 'Backoffice\\Members#membersList', 'backoffice_Memberslist'],
 		['GET|POST', '/backoffice/members/edit'  , 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
-		['GET|POST', '/backoffice/members/create', 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
-		['GET|POST', '/backoffice/members/delete', 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/create', 'Backoffice\\Members#membersEdit', 'backoffice_MembersCreate'],
+		['GET|POST', '/backoffice/members/delete', 'Backoffice\\Members#membersEdit', 'backoffice_MembersDelete'],
 
 
 		// EVENT ROUTE
