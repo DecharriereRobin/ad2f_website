@@ -4,10 +4,10 @@
  
 <?= $message ?>
 
-<form action="<?php $this->url('backoffice_EventCreate', ['id' => $event['id']])?>" method="POST">
+<form action="<?php $this->url('backoffice_EventCreate')?>" method="POST">
     <div class="form-group">
         <label for="title">Titre </label>
-        <input id="title" name="title" type="text" class="form-control" value="Titre de l'évenement" /> 
+        <input id="title" name="title" type="text" class="form-control" placeholder="Titre de l'évenement" /> 
     </div>
     <div class="form-group">
         <label for="category">Catégorie</label>
@@ -19,14 +19,14 @@
     </div>
     <div class="form-group">
         <label for="content">Description</label>
-        <textarea id="content" name="content" class="form-control">Description complète de l'évenement</textarea>
+        <textarea id="content" name="content" class="form-control" placeholder="Description complète de l'évenement"></textarea>
     </div>
     <div class="form-group">
-        <?php $dateTime = (new \DateTime('now'))->format('Y-m-d')?>
+            <?php $dateTime = (new \DateTime('now'))->format('Y-m-d')?>
             <label for="date">Date de l'évenement</label>
             <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" /> 
     </div>
-    <button class="btn btn-default" name="createEvent">Créer l'évenement</button>
+    <button class="btn btn-primary" name="createEvent">Créer l'évenement</button>
 </form>
 
 <?php $this->stop('main_content') ?>
