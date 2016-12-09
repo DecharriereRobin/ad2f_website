@@ -74,13 +74,8 @@ class EventController extends \W\Controller\Controller
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
             }
         }
-<<<<<<< HEAD
 
-        $this->show('backoffice/eventEdit', ['event' => $event->find($id), 'message' => $message]);
-=======
-        
         $this->show('backoffice/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
->>>>>>> 41cff60da01e80d15b79a247f6f4cb97ea1f5522
     }
 
 
