@@ -20,7 +20,7 @@
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
 		//BACKOFFICE
-
+         ['GET|POST', '/backoffice/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
 		['GET|POST', '/backoffice/adminView', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
