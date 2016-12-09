@@ -4,6 +4,7 @@
 
 <?php
     echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';
+
 ?>
 
 <table class="table table-striped">
@@ -12,7 +13,7 @@
 
     <thead> <!-- En-tête du tableau -->
     <tr>
-        <th><a href="<?php echo $membersAsc  ?>">Nom</a></th>
+        <th><a href="<?php  ?>">Nom</a></th>
         <th>Prénom</th>
         <th>Adresse</th>
         <th>Téléphone</th>

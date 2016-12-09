@@ -28,10 +28,12 @@
 		['GET|POST', '/backoffice/adminLogin' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
-		//Adherent
+		//Members
 
-		['GET'     , '/backoffice/membersList', 'Backoffice\\Members#membersList', 'backoffice_Memberslist'],
-		['GET|POST', '/backoffice/membersEdit', 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
+		['GET'     , '/backoffice/members/list'  , 'Backoffice\\Members#membersList', 'backoffice_Memberslist'],
+		['GET|POST', '/backoffice/members/edit'  , 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/create', 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/delete', 'Backoffice\\Members#membersEdit', 'backoffice_MembersEdit'],
 
 
 		// EVent
