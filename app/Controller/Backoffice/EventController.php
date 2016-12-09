@@ -13,11 +13,14 @@ use Model\EventsModel as Event;
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
 class EventController extends \W\Controller\Controller
+
 {    
+
     /**
      * Get one page
      * @return View
      */
+
 	public function eventList()
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
@@ -50,6 +53,7 @@ class EventController extends \W\Controller\Controller
 		
 	}
 
+
 	public function eventEdit($id)
 	{  
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
@@ -72,7 +76,8 @@ class EventController extends \W\Controller\Controller
         }
         
         $this->show('backoffice/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
-	}
+
+
 
 	public function eventDelete($id)
 	{

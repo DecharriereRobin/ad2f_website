@@ -11,6 +11,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="<?= $this->assetUrl('css/backoffice/bootstrap.min.css') ?>">
 		<?= $this->section('css') ?>
+
 	</head>
 	<body>
 <!-- header -->
@@ -22,7 +23,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
             <a class="navbar-brand" href="#"><?= $w_site_name ?> - Administration</a>
+
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -53,6 +56,7 @@
                 <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
                     <ul class="nav nav-stacked collapse in" id="userMenu">
                         <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+
                         <li><a href="<?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-envelope"></i> Adhérents <span class="badge badge-info">4</span></a></li>
                         <li><a href="<?= ($w_current_route == 'backoffice_EventList') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-cog"></i> Événements</a></li>
                         <li><a href="<?= ($w_current_route == 'backoffice_AdminCreate') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-user"></i> Membres CA admin</a></li>
@@ -61,6 +65,7 @@
                         <li><a href=""><i class="glyphicon glyphicon-exclamation-sign"></i> Map Interactive (soon)</a></li>
                         <li><a href=""><i class="glyphicon glyphicon-exclamation-sign"></i> Bon Coin (soon)</a></li>
                         <li><a href=""><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -69,12 +74,14 @@
         </div>
         <!-- /col-3 -->
         <div class="col-sm-9">
+
             <a href="#"><strong><i class="glyphicon glyphicon-dashboard"></i><?= $this->e($title) ?></strong></a>
 
             <div class="row">
                 <!-- center left-->
                 <div class="col-md-9">
                     <?= $this->section('main_content'); ?>
+
                 </div>
                 <!--/col-span-6-->
             </div>
@@ -93,5 +100,6 @@
         <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('js/backoffice/script.js') ?>"></script>
         <?= $this->section('js') ?>
+
 	</body>
 </html>
