@@ -131,14 +131,13 @@
                 <!--/col-span-6-->
             </div>
             <!--/row-->
-            <hr>
         </div>
         <!--/col-span-9-->
     </div>
 </div>
 <!-- /Main -->
 
-<footer class="text-center"><?= date('Y-m-d') ?></footer>
+<footer class="text-center"></footer>
 
 	<!-- script references -->
 		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
