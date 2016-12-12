@@ -60,7 +60,11 @@ class EventController extends \W\Controller\Controller
                     'date' => trim($_POST['date']),
                     'category' => $_POST['category']
                 ], true);
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> 82d405da8ba3405ef84039ba94e62a88f8458486
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
                 
             } else{
