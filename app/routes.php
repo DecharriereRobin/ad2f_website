@@ -21,7 +21,12 @@
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
 		//BACKOFFICE
+<<<<<<< HEAD
       ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
+=======
+        ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
+
+>>>>>>> d2b297dfcdab3fbc47e8023da2e42657f49abd9a
 
 		//Admin
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
@@ -34,10 +39,10 @@
 		['GET|POST', '/backoffice/admin/logout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
 		//MEMBERS
-		['GET|POST', '/members/create'        , 'Backoffice\\Members#membersCreate', 'backoffice_MembersCreate'],
-		['GET'     , '/members/list'          , 'Backoffice\\Members#membersList'  , 'backoffice_MembersList'],
-		['GET|POST', '/members/edit/[i:id]'   , 'Backoffice\\Members#membersEdit'  , 'backoffice_MembersEdit'],
-		['GET|POST', '/members/delete/[i:id]' , 'Backoffice\\Members#membersDelete', 'backoffice_MembersDelete'],
+		['GET|POST', '/backoffice/members/create'        , 'Backoffice\\Members#membersCreate', 'backoffice_MembersCreate'],
+		['GET'     , '/backoffice/members/list'          , 'Backoffice\\Members#membersList'  , 'backoffice_MembersList'],
+		['GET|POST', '/backoffice/members/edit/[i:id]'   , 'Backoffice\\Members#membersEdit'  , 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/delete/[i:id]' , 'Backoffice\\Members#membersDelete', 'backoffice_MembersDelete'],
 
 
 		// EVENT ROUTE
