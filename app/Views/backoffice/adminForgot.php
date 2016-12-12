@@ -12,7 +12,7 @@
         </div>
         <button name="adminForgot" class="btn btn-default">recreer un nouveau mot de passe</button>
     </form>
-
+</br>
 <?= $message ?>
 
 

@@ -1,10 +1,12 @@
 <?php
-
 namespace Controller\Backoffice;
 use \W\Controller\Controller;
+use \W\Model\UsersModel as Users;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
-use Model\AdminModel as Admins;
+use \Model\AdminModel as Admins;
+
+
 
 class AdminController extends Controller
 {
@@ -20,8 +22,6 @@ class AdminController extends Controller
 	/**
 	 * Enregistrement de nouveau administrateurs
 	 */
-
-<<<<<<< HEAD
 	public function create()
 	{
 		//$this->allowTo('admin');
@@ -54,6 +54,8 @@ class AdminController extends Controller
 		$this->show('backoffice/adminCreate', ['message'=>$message]);
 	} // fin public function create
 
+
+    // edit
 	public function edit($id)
 	{
 		//$this->allowTo('admin');
@@ -86,7 +88,6 @@ class AdminController extends Controller
 	/**
 	 * Supprimer un administrateurs
 	 */
-
 	public function delete($id)
 	{
 		//$this->allowTo('admin');
@@ -95,32 +96,7 @@ class AdminController extends Controller
 		$this->redirectToRoute('backoffice_AdminView');
     }
 
-	public function edit($id)
-	{
-		$admins = new Admins();
-        //Editer la table
-		if(isset($_POST['EditAdmin'])){
-            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-                // Ajout à la bdd
-                $admins = new Admins();
-                $admins->update([
-                    'firstname' => $_POST['firstname'],
-                    'lastname' => $_POST['lastname'],
-                    'email' => $_POST['email'],
-                    'password' =>password_hash($_POST['password'], PASSWORD_DEFAULT),
-                    'token' => 0
-                ]);
-        }
-	}
-		//	afficher la vue
-		$this->show('backoffice/adminEdit', ['admin' => $admins->find($id)]);
-	}
-
-
-
-
 	//LOGIN
-
 	public function login()
 	{
 		// login
@@ -147,6 +123,7 @@ class AdminController extends Controller
 	} // FIN Function logout
 
 
+
 	public function home()
 	{
     $auth = new Auth();
@@ -162,64 +139,75 @@ class AdminController extends Controller
 
 		public function forgot()
 		{
-
-
-
-
-
-
 		$message = "";
 		if(isset($_POST['adminForgot'])){ // Quand le formulaire est soumis
-			//var_dump($_POST);
+			// verification de l existance du mail
+			$user = new Users();
+            $emailexist = $user->emailExists($_POST['email']);
+			if ($emailexist == true){
+			//var_dump($user->emailExists($_POST['email']));
+
+			// recupère le token
+    		$information =$user->getUserByUsernameOrEmail($_POST['email']);
+
+			//var_dump($information['token']);
+
 			// Envoi du mail
 			$mail = new \PHPMailer();
 			$mail->setFrom('vincentjenni@gmail.com', 'Association AD2F');
 			$mail->addAddress($_POST['email']);
 			$mail->Subject = "Ad2F nouveaux mot de passe";
-			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe";
+			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/ad2f/public/backoffice/admin/newPassword/" .$information['token'] ;
 			$mail->send();
 			$message = "Un email pour créer un nouveau mot de passe vous a été envoyé";
+		}
+		else {
+			echo "Ce mail n'existe pas";
+		}
 		}
 		$this->show('backoffice/adminForgot', ['message' => $message]);
 	}
 
-	public function newpassword()
+
+
+
+    // recupérer ID en fonction du token
+
+	public function findId($token)
+	{
+		$sql = 'SELECT id FROM ' . $this->table . ' WHERE ' . $this->token .'  = :token LIMIT 1';
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':token', $token);
+		$sth->execute();
+		return $sth->fetch();
+	}
+
+	public function newpassword($token)
 	{
 		//$this->allowTo('admin');
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
+
+		// trouver le id par rapport au token
+         $id =$this->findId($token);
+		 var_dump($id);
         //Editer la table
-		if(isset($_POST['newpassword'])){
-            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
+		if(isset($_POST['createNewPaswword'])){
+
+            if(!empty($_POST['password']) && ($_POST['password']) == ($_POST['cf-password'])) {
                 // Ajout à la bdd
                 $admins->update([
-                    'password' =>$auth->hashPassword($_POST['password'])
-                ],$token,true);
+                    'password' => $_POST['password'],
+					'token' => "newToken"
+                ],$id,true);
 				//redirection vers page de vue
-				//$this->redirectToRoute('backoffice_AdminView');
-				$message = "<div class='alert alert-success'>L'administrateurs a bien été modifié.</div>";
+				$message = "<div class='alert alert-success'>Le mot de passe a été changé.</div>";
 				}else{
-					$message = "<div class='alert alert-danger'>L'administrateurs n'a pas été modifié.</div>";
+					$message = "<div class='alert alert-danger'>Le mot de passe n'a pas été changé.</div>";
 				}
 			}
 	//	afficher la vue
 	$this->show('backoffice/adminNewPassword', ['admin' => $admins->find($token), 'message'=>$message]);
-
 	}
-
-
-	public function home()
-	{
-        $auth = new Auth();
-		$auth->getLoggedUser();
-		//print_r($_SESSION);
-		echo "bonjour ";
-		echo $_SESSION['user']['firstname'];
-		echo $_SESSION['user']['lastname'];
-
-		//affiche page
-		$this->show('backoffice/backofficeAccueil');
-	}
-
 } // fin class AdminController

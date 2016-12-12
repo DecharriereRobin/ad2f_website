@@ -20,7 +20,7 @@
             <th>Actions</th>
         </thead>
         <tbody>
-<<<<<<< HEAD
+
             <?php foreach($events as $event){ ?>
                 <tr>
                     <td><?= $event['id'] ?></td>

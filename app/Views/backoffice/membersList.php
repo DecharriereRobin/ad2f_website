@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 
 <?php
-<<<<<<< HEAD
+
     echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';
 
 ?>
@@ -22,27 +22,12 @@
         <th>Date d'inscription</th>
         <th>Date de paiement</th>
         <th>Paiement</th>
-=======
-    echo '<h3>Liste des réunions : </h3>';
-
-?>
-
-<table class="table table-striped">
-
-    <caption>Liste des réunions</caption>
-
-    <thead> <!-- En-tête du tableau -->
-    <tr>
-        <th>Date</th>
-        <th>Adresse de la réunion</th>
-        <th>Sujet de la réunion</th>
->>>>>>> 48bc55b28745d2069a27cc8b5cc60cb7d0fcc92f
     </tr>
     </thead>
     <tbody> <!-- Corps du tableau -->
-    
+
 <?php
-<<<<<<< HEAD
+
     foreach($members as $member){
 ?>
     <tr>
@@ -76,27 +61,13 @@
                 </div>
             </div>
         </td>
-=======
-    foreach($meetings as $meeting){
-?>
-    <tr>
-        <td><?php echo ucfirst($meeting['date'])               ?></td>
-        <td><?php echo ucfirst($meeting['address'])                ?></td>
-        <td><?php echo ucfirst($meeting['content'])                 ?></td>
->>>>>>> 48bc55b28745d2069a27cc8b5cc60cb7d0fcc92f
+
     </tr>
 <?php
-        
+
     }
 ?>
     </tbody>
 </table>
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 48bc55b28745d2069a27cc8b5cc60cb7d0fcc92f
 
 <?php $this->stop('main_content') ?>
