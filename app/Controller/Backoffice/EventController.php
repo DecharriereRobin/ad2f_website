@@ -43,19 +43,14 @@ class EventController extends \W\Controller\Controller
             $errorMessages = [];
             
             if(empty($_POST['title'])){
-                $errorMessages[] = 'Le titre doit être complété';
-                $errorClass[] = 'has-error';
+                $errorMessages[] = 'Le titre est obligatoire. Merci de l\'indiquer.';
+                $errorClass['title'] = 'has-error';
             }
             
             if(empty($_POST['content'])){
                 $errorMessages[] = 'Au moins une description doit être renseignée';
-                $errorClass[] = 'has-error';
+                $errorClass['content'] = 'has-error';
             } 
-            
-            if(empty($_POST['date'])){
-                $errorMessages[] = 'Le date doit être indiquée';
-                $errorClass[] = 'has-error';
-            }
             
             if(count($errorMessages)== 0){
                 $event->insert([
@@ -90,15 +85,15 @@ class EventController extends \W\Controller\Controller
         if(isset($_POST['editEvent'])){
             
             if(empty($_POST['title'])){
-                $errorMessages[] = 'Le titre doit être complété';
+                $errorMessages[] = 'Le titre est obligatoire. Merci de l\'indiquer.';
             }
             
             if(empty($_POST['content'])){
-                $errorMessages[] = 'Au moins une doit être renseignée';
+                $errorMessages[] = 'La description de l\'évenement est vide';
             } 
             
             if(empty($_POST['date'])){
-                $errorMessages[] = 'Le titre doit être indiquée';
+                $errorMessages[] = 'La date est obligatoire. Merci de l\'indiquer.';
             }
             
             if(!count($errorMessages)){

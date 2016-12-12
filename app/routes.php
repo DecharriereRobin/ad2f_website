@@ -20,17 +20,22 @@
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
 		//BACKOFFICE
-
+        ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
+		['GET|POST', '/backoffice/adminView', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/adminCreate', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
+		['GET|POST', '/backoffice/adminEdit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
+		['GET|POST', '/backoffice/adminDelete/[i:id]', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
 		['GET|POST', '/backoffice/adminForgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
-		['GET|POST', '/backoffice/adminLogin', 'Backoffice\\Admin#login', 'backoffice_AdminLogin'],
+		['GET|POST', '/backoffice/adminLogin' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/adminLogout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 
-		//Adherent
-		['GET', '/backoffice/membersList', 'Backoffice\\Members#liste', 'backoffice_Memberslist'],
-		['GET|POST', '/backoffice/membersEdit', 'Backoffice\\Members#edit', 'backoffice_MembersEdit'],
+		//MEMBERS
+		['GET|POST', '/backoffice/members/create'        , 'Backoffice\\Members#membersCreate', 'backoffice_MembersCreate'],
+		['GET'     , '/backoffice/members/list'          , 'Backoffice\\Members#membersList'  , 'backoffice_MembersList'],
+		['GET|POST', '/backoffice/members/edit/[i:id]'   , 'Backoffice\\Members#membersEdit'  , 'backoffice_MembersEdit'],
+		['GET|POST', '/backoffice/members/delete/[i:id]' , 'Backoffice\\Members#membersDelete', 'backoffice_MembersDelete'],
 
 
 		// EVENT ROUTE
