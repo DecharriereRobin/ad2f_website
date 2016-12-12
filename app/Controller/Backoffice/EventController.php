@@ -27,6 +27,7 @@ class EventController extends \W\Controller\Controller
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
 
+
         // Get Pagination
         $nbOfEvent = $event->allEvent();
         $nbOfEventByPage = 10;
@@ -40,6 +41,8 @@ class EventController extends \W\Controller\Controller
 
         // Return results to View
 		$this->show('backoffice/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
+
+
 	}
 
 	public function eventCreate()

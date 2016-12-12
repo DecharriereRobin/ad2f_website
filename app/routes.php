@@ -22,6 +22,7 @@
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
+
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/admin/create', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
 		['GET|POST', '/backoffice/admin/edit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],

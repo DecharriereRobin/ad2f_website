@@ -56,9 +56,11 @@
                 <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#members" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Adhérents <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="members">
 
+
                         <li <?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
 
                         <li <?= ($w_current_route == 'backoffice_Memberscreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
+
 
                     </ul>
                 </li>
