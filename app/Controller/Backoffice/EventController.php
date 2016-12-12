@@ -6,15 +6,15 @@ use Model\EventsModel as Event;
 
   /**
    * List of event
-   * 
-   * 
+   *
+   *
    * @package    W
    * @subpackage Controller
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
 class EventController extends \W\Controller\Controller
 
-{    
+{
 
     /**
      * Get one page
@@ -25,7 +25,7 @@ class EventController extends \W\Controller\Controller
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
-		$this->show('backoffice/eventList', ['events' => $event->findAll()]);
+		$this->show('eventList', ['events' => $event->findAll()]);
 	}
 
 	public function eventCreate()
@@ -40,6 +40,7 @@ class EventController extends \W\Controller\Controller
         $errorClass = [];
         
         if(isset($_POST['createEvent'])){
+
             $errorMessages = [];
             
             if(empty($_POST['title'])){
@@ -59,6 +60,16 @@ class EventController extends \W\Controller\Controller
                     'date' => trim($_POST['date']),
                     'category' => $_POST['category']
                 ], true);
+
+            $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
+            }else{
+                $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
+            }
+        }
+        $this->show('eventCreate', ['message'=>$message]);
+
+
+                ], true);
                 
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
                 
@@ -68,15 +79,15 @@ class EventController extends \W\Controller\Controller
         }
         
         $this->show('backoffice/eventCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
-		
 	}
 
 
 	public function eventEdit($id)
-	{  
+    {
+
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
-        
+
         // Variables to diplay error
         $message = "";
         $errorMessages = [];
@@ -97,20 +108,21 @@ class EventController extends \W\Controller\Controller
             }
             
             if(!count($errorMessages)){
+
                 $event->update([
                     'title' => trim($_POST['title']),
                     'content' => trim($_POST['content']),
                     'date' => trim($_POST['date']),
                     'category' => $_POST['category']
                 ], $id, true);
-                
+
                 $message = "<div class='alert alert-success'>L'évenement a bien été modifié.</div>";
-                
-            } else{
+            } else {
+
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
             }
         }
-        
+
         $this->show('backoffice/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
     }
 
@@ -120,7 +132,9 @@ class EventController extends \W\Controller\Controller
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $event->delete($id);
+
         $_SESSION['message'] = "L'évenement a été supprimé avec succés ";
+
 		$this->redirectToRoute('backoffice_EventList');
 	}
 

@@ -22,6 +22,7 @@
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
+
 		//Admin
 		['GET|POST', '/backoffice/adminView', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/adminCreate', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
@@ -39,21 +40,23 @@
 
 
 		// EVENT ROUTE
+
 		['GET|POST', '/backoffice/event/create',        'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
 		['GET',      '/backoffice/event/list',          'Backoffice\\Event#eventList',   'backoffice_EventList'],
 		['GET|POST', '/backoffice/event/edit/[i:id]',   'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
 		['GET|POST', '/backoffice/event/delete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 
+
 		// BRADERIE
-		['GET', '/backoffice/garageList', 'Backoffice\\Garage#liste', 'backoffice_GarageList'],
+		['GET'     , '/backoffice/garageList'  , 'Backoffice\\Garage#liste' , 'backoffice_GarageList'],
 		['GET|POST', '/backoffice/garageDelete', 'Backoffice\\Garage#delete', 'backoffice_GarageDelete'],
-		['GET|POST', '/backoffice/garageEdit', 'Backoffice\\Garage#edit', 'backoffice_GarageEdit'],
+		['GET|POST', '/backoffice/garageEdit'  , 'Backoffice\\Garage#edit'  , 'backoffice_GarageEdit'],
 
 		//REUNIONS-MEETING
 		['GET|POST', '/backoffice/meetingsCreate', 'Backoffice\\Meetings#create', 'backoffice_MeetingsCreate'],
-		['GET', '/backoffice/meetingsList', 'Backoffice\\Meetings#liste', 'backoffice_MeetingsList'],
-		['GET|POST', '/backoffice/meetingsEdit', 'Backoffice\\Meetings#edit', 'backoffice_MeetingsEdit'],
+		['GET'     , '/backoffice/meetingsList'  , 'Backoffice\\Meetings#liste' , 'backoffice_MeetingsList'],
+		['GET|POST', '/backoffice/meetingsEdit'  , 'Backoffice\\Meetings#edit'  , 'backoffice_MeetingsEdit'],
 		['GET|POST', '/backoffice/meetingsDelete', 'Backoffice\\Meetings#delete', 'backoffice_MeetingsDelete'],
 
 

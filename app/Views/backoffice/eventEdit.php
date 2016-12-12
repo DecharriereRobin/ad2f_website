@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
+
 <?= $message /*Return message On success Or on Error*/ ?>
 
 <form action="<?php $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" method="POST">
@@ -24,9 +25,10 @@
     <div class="form-group">
         <?php $dateTime = $event['date']?>
             <label for="date">Date </label>
-            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" /> 
+            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" />
     </div>
     <button class="btn btn-primary" name="editEvent">Modifier l'évenement</button>
 </form>
+<?= $message ?>
 
 <?php $this->stop('main_content') ?>
