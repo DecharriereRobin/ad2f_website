@@ -61,16 +61,6 @@ class EventController extends \W\Controller\Controller
                     'category' => $_POST['category']
                 ], true);
 
-            $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
-            }else{
-                $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
-            }
-        }
-        $this->show('eventCreate', ['message'=>$message]);
-
-
-                ], true);
-                
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
                 
             } else{
