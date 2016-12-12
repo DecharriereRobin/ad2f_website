@@ -4,6 +4,7 @@
 
 <!-- Formulaire d'ajout administateur -->
 
+
 <form action="<?php $this->url('backoffice_AdminCreate') ?>" method="POST">
         <div class="form-group">
             <label for="firstname">Nom :</label>
@@ -29,6 +30,7 @@
         <button name="createAdmin" class="btn btn-default">Ajouter</button>
     </form>
 <?= $message ?>
+
 
 
 

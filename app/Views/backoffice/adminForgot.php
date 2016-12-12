@@ -5,6 +5,7 @@
 
 <form action="<?php $this->url('backoffice_AdminCreate') ?>" method="POST">
 
+
        </div class="form-group">
             <label for="email">Email :</label>
             <input id="email" name="email" type="email" class="form-control">
@@ -13,5 +14,6 @@
     </form>
 
 <?= $message ?>
+
 
 <?php $this->stop('main_content') ?>

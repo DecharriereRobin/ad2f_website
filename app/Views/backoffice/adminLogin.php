@@ -3,6 +3,7 @@
 <?php $this->start('main_content') ?>
 
 <form action="<?php $this->url('backoffice_AdminLogin') ?>" method="POST">
+<<<<<<< HEAD
         <div class="form-group">
             <label for="email">Email :</label>
             <input  id="email" name="email" type="email" class="form-control">
@@ -14,6 +15,7 @@
         <button name="LoginAdmin" class="btn btn-default" >connexion</button>
         </br>
         <a href="adminForgot" class="btn btn-default" >mot de passe oublié ?</a>
+
 
     </form>
 

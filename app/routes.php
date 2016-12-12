@@ -21,12 +21,10 @@
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
 		//BACKOFFICE
-<<<<<<< HEAD
-      ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
-=======
+
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
->>>>>>> d2b297dfcdab3fbc47e8023da2e42657f49abd9a
+
 
 		//Admin
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],

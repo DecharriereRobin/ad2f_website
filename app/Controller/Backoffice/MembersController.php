@@ -4,7 +4,6 @@ namespace Controller\Backoffice;
 
 use Model\MembersModel as Members;
 
-
 class MembersController extends \W\Controller\Controller
 {
 
@@ -54,6 +53,8 @@ class MembersController extends \W\Controller\Controller
 
 
 	public function membersEdit($id)
+
+
 	{
 		//$this->allowTo('admin'); // Only Admin User allowed for Back Office function
 		$message = "";
@@ -105,6 +106,7 @@ class MembersController extends \W\Controller\Controller
 
 		$this->show('backoffice/membersEdit', ['member' => $member->find($id), 'message'=>$message]);
 	}
+
 
 	public function membersDelete($id)
 	{

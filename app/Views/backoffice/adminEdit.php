@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 <?php $this->layout('layoutBack', ['title' => 'Editer un administrateurs']) ?>
+=======
+<?php $this->layout('layout', ['title' => 'Admin EDIT']) ?>
+>>>>>>> 48bc55b28745d2069a27cc8b5cc60cb7d0fcc92f
 
 <?php $this->start('main_content') ?>
 
 <!-- Formulaire d'edition d'un administateur -->
 
 <form action="<?php $this->url('backoffice_AdminEdit', ['id' => $admin['id']]) ?>" method="POST">
+
         <div class="form-group">
             <label for="firstname">Nom :</label>
             <input value="<?= $admin['firstname'] ?>" id="firstname" name="firstname" type="text" class="form-control" >
@@ -28,5 +33,6 @@
         <button name="EditAdmin" class="btn btn-default" >Ajouter</button>
     </form>
     <?= $message ?>
+
 
 <?php $this->stop('main_content') ?>

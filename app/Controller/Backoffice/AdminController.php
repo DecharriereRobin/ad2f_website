@@ -21,6 +21,7 @@ class AdminController extends Controller
 	 * Enregistrement de nouveau administrateurs
 	 */
 
+<<<<<<< HEAD
 	public function create()
 	{
 		//$this->allowTo('admin');
@@ -28,10 +29,12 @@ class AdminController extends Controller
 		$admins = new Admins;
 		$auth = new Auth();
 		$string = new String();
+
         // Insertion de la table
 		if(isset($_POST['createAdmin'])){
             if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
                 // Ajout à la bdd
+
                 $admins->insert([
                     'firstname' => trim($_POST['firstname']),
                     'lastname' => trim($_POST['lastname']),
@@ -50,10 +53,6 @@ class AdminController extends Controller
         }
 		$this->show('backoffice/adminCreate', ['message'=>$message]);
 	} // fin public function create
-
-	/**
-	 * Editer un administrateurs
-	 */
 
 	public function edit($id)
 	{
@@ -83,6 +82,7 @@ class AdminController extends Controller
 
 	}
 
+
 	/**
 	 * Supprimer un administrateurs
 	 */
@@ -93,8 +93,30 @@ class AdminController extends Controller
         $admins = new Admins();
         $admins->delete($id);
 		$this->redirectToRoute('backoffice_AdminView');
+    }
 
-    }// fin function delete
+	public function edit($id)
+	{
+		$admins = new Admins();
+        //Editer la table
+		if(isset($_POST['EditAdmin'])){
+            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+                // Ajout à la bdd
+                $admins = new Admins();
+                $admins->update([
+                    'firstname' => $_POST['firstname'],
+                    'lastname' => $_POST['lastname'],
+                    'email' => $_POST['email'],
+                    'password' =>password_hash($_POST['password'], PASSWORD_DEFAULT),
+                    'token' => 0
+                ]);
+        }
+	}
+		//	afficher la vue
+		$this->show('backoffice/adminEdit', ['admin' => $admins->find($id)]);
+	}
+
+
 
 
 	//LOGIN
@@ -123,6 +145,7 @@ class AdminController extends Controller
         $auth->logUserOut();
         $this->redirectToRoute('backoffice_AdminLogin');
 	} // FIN Function logout
+
 
 	public function home()
 	{
@@ -185,5 +208,18 @@ class AdminController extends Controller
 
 	}
 
+
+	public function home()
+	{
+        $auth = new Auth();
+		$auth->getLoggedUser();
+		//print_r($_SESSION);
+		echo "bonjour ";
+		echo $_SESSION['user']['firstname'];
+		echo $_SESSION['user']['lastname'];
+
+		//affiche page
+		$this->show('backoffice/backofficeAccueil');
+	}
 
 } // fin class AdminController
