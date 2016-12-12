@@ -55,9 +55,9 @@
                 <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#members" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Adhérents <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="members">
 
-                        <li <?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Memberlist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
                         
-                        <li <?= ($w_current_route == 'backoffice_Memberscreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Membercreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
                         
                     </ul>
                 </li>
@@ -136,7 +136,7 @@
 </div>
 <!-- /Main -->
 
-<footer class="text-center"><?= date('Y-m-d') ?></footer>
+<footer class="text-center"></footer>
 
 	<!-- script references -->
 		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>

@@ -2,11 +2,14 @@
 
 <?php $this->start('main_content') ?>
 
+<?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
+<?php unset($_SESSION['message']); ?>
+
 <?php
     echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';
 
 ?>
-<a href="<?= $this->url('backoffice_MembersCreate') ?>" class="btn btn-primary">Créer un membre</a>
+<a href="<?= $this->url('backoffice_MemberCreate') ?>" class="btn btn-primary">Créer un membre</a>
 <table class="table table-hover table-striped">
 
     <caption>Informations sur les adhérents de l'association</caption>
@@ -29,17 +32,17 @@
     foreach($members as $member){
 ?>
     <tr>
-        <td><?= ucfirst($member['firstname'])               ?></td>
-        <td><?= ucfirst($member['lastname'])                ?></td>
-        <td><?= ucfirst($member['address'])                 ?></td>
-        <td><?= ucfirst($member['phone'])                   ?></td>
-        <td><?= ucfirst($member['email'])                   ?></td>
-        <td><?= ucfirst($member['creation_date'])           ?></td>
-        <td><?= ucfirst($member['subscription_date'])       ?></td>
-        <td><?= \Model\MembersModel::getPaidStatus($member) ?></td>
+        <td><?= ucfirst($member['firstname'])      ?></td>
+        <td><?= ucfirst($member['lastname'])       ?></td>
+        <td><?= ucfirst($member['address'])        ?></td>
+        <td><?= $member['phone']                   ?></td>
+        <td><?= $member['email']                   ?></td>
+        <td><?= (new \DateTime($member['creation_date']))->format('d-m-Y'); ?></td>
+        <td><?= (new \DateTime($member['subscription_date']))->format('d-m-Y');      ?></td>
+        <td><?= \Model\MemberModel::getPaidStatus($member) ?></td>
         <td>
-            <a href="<?= $this->url('backoffice_MembersEdit', ['id' => $member['id']])?>" class="btn btn-primary">Modifier</a>
-            <a href="<?= $this->url('backoffice_MembersDelete', ['id' => $member['id']]) ?>" class="btn btn-danger">Supprimer</a>
+            <a href="<?= $this->url('backoffice_MemberEdit', ['id' => $member['id']])?>" class="btn btn-primary">Modifier</a>
+            <a href="<?= $this->url('backoffice_MemberDelete', ['id' => $member['id']]) ?>" class="btn btn-danger">Supprimer</a>
             <!--<button class="btn btn-default" data-toggle="modal" data-target="#deleteModal-">Supprimer</button>-->
             <div class="modal fade" id="deleteModal-<?= $member['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel-<?= $member['id'] ?>">
                 <div class="modal-dialog" role="document">

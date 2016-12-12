@@ -3,7 +3,7 @@
 namespace Model;
 
 
-class MembersModel extends \W\Model\Model
+class MemberModel extends \W\Model\Model
 {
     // Members Count
     public function countMembers()
@@ -19,5 +19,20 @@ class MembersModel extends \W\Model\Model
     {
         return ($member['paid']) ? 'Validé' : 'En attente';
     }
+
+    // Check if email already exists for members
+    public function emailMemberExists($email)
+    {
+        $sql  = 'SELECT COUNT(*) FROM ' . $this->table . ' WHERE email = :email ';
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':email', $email);
+        $sth->execute();
+
+        return $sth->fetchColumn();
+    }
+
+
+
+
 
 }
