@@ -54,19 +54,13 @@
             <ul class="nav nav-stacked">
                 <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
                     <ul class="nav nav-stacked collapse in" id="userMenu">
-                       
-                        <li > <a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                        <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>><a href="<?php $this->url('backoffice_Memberslist')?>"><i class="glyphicon glyphicon-envelope"></i> Adhérents <span class="badge badge-info">4</span></a></li>
-                        
-                        <li <?= ($w_current_route == 'backoffice_EventList') ? 'class="active"' : ''; ?>><a href="<?php $this->url('backoffice_EventList')?>"><i class="glyphicon glyphicon-cog"></i> Événements</a></li>
-                        
-                        <li <?= ($w_current_route == 'backoffice_AdminCreate') ? 'class="active"' : ''; ?>><a href="<?php $this->url('backoffice_AdminCreate')?>"><i class="glyphicon glyphicon-user"></i> Membres CA admin</a></li>
-                        
-                        <li <?= ($w_current_route == 'backoffice_GarageList') ? 'class="active"' : ''; ?>><a href="<?php $this->url('backoffice_GarageList')?>"><i class="glyphicon glyphicon-flag"></i> Braderie</a></li>
-                        
-                        <li <?= ($w_current_route == 'backoffice_MeetingsList') ? 'class="active"' : ''; ?>><a href="<?php $this->url('backoffice_MeetingsList')?>"><i class="glyphicon glyphicon-exclamation-sign"></i> Agenda</a></li>
-                        
+                        <li><a href="<?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-envelope"></i> Adhérents <span class="badge badge-info">4</span></a></li>
+                        <li><a href="<?= ($w_current_route == 'backoffice_EventList') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-cog"></i> Événements</a></li>
+                        <li><a href="<?= ($w_current_route == 'backoffice_AdminCreate') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-user"></i> Membres CA admin</a></li>
+                        <li><a href="<?= ($w_current_route == 'backoffice_GarageList') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-flag"></i> Braderie</a></li>
+                        <li><a href="<?= ($w_current_route == 'backoffice_MeetingsList') ? 'class="active"' : ''; ?>"><i class="glyphicon glyphicon-exclamation-sign"></i> Agenda</a></li>
                         <li><a href=""><i class="glyphicon glyphicon-exclamation-sign"></i> Map Interactive (soon)</a></li>
                         <li><a href=""><i class="glyphicon glyphicon-exclamation-sign"></i> Bon Coin (soon)</a></li>
                         <li><a href=""><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>

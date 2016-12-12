@@ -12,7 +12,7 @@ class AdminController extends Controller
 	 * Affichage de la liste des administrateurs
 	 */
     public function showAdmin(){
-		$this->allowTo('admin');
+	//	$this->allowTo('admin');
 		$admins = new Admins();
 		$this->show('backoffice/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
@@ -23,7 +23,7 @@ class AdminController extends Controller
 
 	public function create()
 	{
-		$this->allowTo('admin');
+		//$this->allowTo('admin');
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
@@ -57,7 +57,7 @@ class AdminController extends Controller
 
 	public function edit($id)
 	{
-		$this->allowTo('admin');
+		//$this->allowTo('admin');
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
@@ -89,7 +89,7 @@ class AdminController extends Controller
 
 	public function delete($id)
 	{
-		$this->allowTo('admin');
+		//$this->allowTo('admin');
         $admins = new Admins();
         $admins->delete($id);
 		$this->redirectToRoute('backoffice_AdminView');
@@ -126,7 +126,7 @@ class AdminController extends Controller
 
 	public function home()
 	{
-        $auth = new Auth();
+    $auth = new Auth();
 		$auth->getLoggedUser();
 		//print_r($_SESSION);
 		echo "bonjour ";
@@ -159,5 +159,31 @@ class AdminController extends Controller
 		}
 		$this->show('backoffice/adminForgot', ['message' => $message]);
 	}
+
+	public function newpassword()
+	{
+		//$this->allowTo('admin');
+		$admins = new Admins();
+		$auth = new Auth();
+		$message="";
+        //Editer la table
+		if(isset($_POST['newpassword'])){
+            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
+                // Ajout à la bdd
+                $admins->update([
+                    'password' =>$auth->hashPassword($_POST['password'])
+                ],$token,true);
+				//redirection vers page de vue
+				//$this->redirectToRoute('backoffice_AdminView');
+				$message = "<div class='alert alert-success'>L'administrateurs a bien été modifié.</div>";
+				}else{
+					$message = "<div class='alert alert-danger'>L'administrateurs n'a pas été modifié.</div>";
+				}
+			}
+	//	afficher la vue
+	$this->show('backoffice/adminNewPassword', ['admin' => $admins->find($token), 'message'=>$message]);
+
+	}
+
 
 } // fin class AdminController
