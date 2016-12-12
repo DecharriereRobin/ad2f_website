@@ -18,14 +18,28 @@ class EventController extends \W\Controller\Controller
 
     /**
      * Get one page
+     * @Param Page
      * @return View
      */
 
-	public function eventList()
+	public function eventList($page=1)
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
-		$this->show('eventList', ['events' => $event->findAll()]);
+        
+        // Get Pagination
+        $nbOfEvent = $event->allEvent();
+        $nbOfEventByPage = 10;
+        $maxPage = ceil($nbOfEvent / $nbOfEventByPage);
+        $eventOffset = $nbOfEventByPage * ($page - 1);
+        
+        // Check if called page is out of limits
+        if($page > $maxPage || $page == 0){
+            $page = 1 ;
+        }
+        
+        // Return results to View
+		$this->show('backoffice/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
 	}
 
 	public function eventCreate()
@@ -62,6 +76,7 @@ class EventController extends \W\Controller\Controller
                 ], true);
 
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
+                
                 
             } else{
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
@@ -117,15 +132,15 @@ class EventController extends \W\Controller\Controller
     }
 
 
-	public function eventDelete($id)
+	public function eventDelete($id, $page = '')
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $event->delete($id);
 
         $_SESSION['message'] = "L'évenement a été supprimé avec succés ";
-
-		$this->redirectToRoute('backoffice_EventList');
+       
+		$this->redirectToRoute('backoffice_EventList', ['page' => $page]);
 	}
 
 

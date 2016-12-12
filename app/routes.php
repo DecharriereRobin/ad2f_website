@@ -41,10 +41,10 @@
 
 		// EVENT ROUTE
 
-		['GET|POST', '/backoffice/event/create',        'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
-		['GET',      '/backoffice/event/list',          'Backoffice\\Event#eventList',   'backoffice_EventList'],
-		['GET|POST', '/backoffice/event/edit/[i:id]',   'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
-		['GET|POST', '/backoffice/event/delete/[i:id]', 'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
+		['GET|POST', '/backoffice/event/create',         'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
+		['GET',      '/backoffice/event/list/[i:page]?', 'Backoffice\\Event#eventList',   'backoffice_EventList'],
+		['GET|POST', '/backoffice/event/edit/[i:id]',    'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
+		['GET|POST', '/backoffice/event/delete/[i:id]/[i:page]?',  'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
 
 
 

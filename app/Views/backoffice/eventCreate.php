@@ -5,6 +5,7 @@
 <?= $message ?>
 <?php if(!empty($errorMessages)){
     echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
+    echo '<a href="<?= $this->url(\'backoffice_EventDelete\') ?>" class="btn btn-danger"> Retour à la liste des évenements</a>';
 }?>
 
 <form action="<?php $this->url('backoffice_EventCreate')?>" method="POST">
@@ -29,7 +30,7 @@
     </div>
     
     <div class="form-group">
-            <?php $dateTime = (new \DateTime('now'))->format('Y-m-d')?>
+            <?php $dateTime = (new \DateTime('now'))->format('d/m/Y')?>
             <label for="date">Date de l'évenement</label>
             <input id="date" name="date" type="date" class="form-control" value="<?= $dateTime ?>" /> 
                 

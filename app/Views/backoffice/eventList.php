@@ -19,13 +19,13 @@
         <tbody>
             <?php foreach($events as $event){ ?>
                 <tr>
-                    <td><?= $event['id'] ?></td>
+                    <td><?= $event['id'] ?></td>    
                     <td><?= ucfirst($event['title']) ?></td>
-                    <td><?= $event['date'] ?></td>
+                    <td><?= (new \DateTime($event['date']))->format('d-m-Y'); ?></td>
                     <td><?= ucfirst($event['category']) ?></td>
                     <td>
                         <a href="<?= $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" class="btn btn-primary">Modifier</a>
-                        <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id']]) ?>" class="btn btn-danger">Supprimer</a>
+                        <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-danger">Supprimer</a>
                         <!--<button class="btn btn-default" data-toggle="modal" data-target="#deleteModal-">Supprimer</button>-->
                         <div class="modal fade" id="deleteModal-<?= $event['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel-<?= $event['id'] ?>">
                             <div class="modal-dialog" role="document">
@@ -49,4 +49,68 @@
             <?php } ?>
         </tbody>
     </table>
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="<?php echo ($page == 1) ? 'disabled' : '' ?>"><a href="<?php echo ($page > 1) ? $this->url('backoffice_EventList', ['page' => ($page -1)]) : '' ?>" aria-label="Précédente"><span aria-hidden="true">&laquo;</span></a></li>
+        
+        <?php 
+            for($i = $page ; $i <= $page ; $i++){
+    
+                if($i >= 1){ ?>
+                    <li class="<?= ($i == $page) ? 'active': ''?> "><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
+                <?php }
+            }
+          
+            for($i = $page + 1; $i <= $page + 2; $i++){
+    
+                if($i <= $maxPage){ ?>
+                    <li class="<?= ($i == $page) ? 'active': ''?>"><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
+                <?php }
+            }
+          
+          ?>
+        <li class="<?php echo ($page == $maxPage) ? 'disabled' : '' ?>"><a href="<?php echo ($page < $maxPage) ? $this->url('backoffice_EventList', ['page' => ($page + 1)]) : '' ?>" aria-label="Suivante"><span aria-hidden="true">&raquo;</span></a></li>
+      </ul>
+    </nav>
+    
 <?php $this->stop('main_content') ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
