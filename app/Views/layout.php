@@ -21,5 +21,13 @@
 		<footer>
 		</footer>
 	</div>
+
+	<!-- script references -->
+		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+        <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+        <script src="<?= $this->assetUrl('js/backoffice/script.js') ?>"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACtR-RW0loxCytQVt5juH0ZLI4GGJG3gw&callback=initMap">
+        <?= $this->section('js') ?>
+
 </body>
 </html>

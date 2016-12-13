@@ -18,16 +18,19 @@
 	   ['GET', '/agenda/soon', 'Front\\Agenda#showSoon', 'agenda_Soon'],
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
+	   //maps
+	   ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
+
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
-
+        
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/admin/create', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
 		['GET|POST', '/backoffice/admin/edit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
 		['GET|POST', '/backoffice/admin/delete/[i:id]', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
-		['GET|POST', '/backoffice/admin/forgot/', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
+		['GET|POST', '/backoffice/admin/forgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
 		['GET|POST', '/backoffice/admin/newPassword/[*:token]', 'Backoffice\\Admin#newpassword', 'backoffice_newpassword'],
 		['GET|POST', '/backoffice/admin/login' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/admin/logout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],

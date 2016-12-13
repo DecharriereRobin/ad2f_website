@@ -40,31 +40,28 @@ class MemberController extends \W\Controller\Controller
 					$errorClass['address'] = 'has-error';
 				}
 
-				if (empty($_POST['phone'])) {
-					$errorMessages[] = 'Le téléphone est obligatoire. Merci de l\'indiquer.';
-					$errorClass['phone'] = 'has-error';
-				}
-
 				if (empty($_POST['email'])) {
 					$errorMessages[] = 'L\' email est obligatoire. Merci de l\'indiquer.';
 					$errorClass['email'] = 'has-error';
 				}
 
-
 				if(count($errorMessages)== 0){
 					$email = $_POST['email'];
 					$existsEmail = $member->emailMemberExists($email);
-					var_dump($existsEmail);
+
+
 
 					if($existsEmail == 0){
-
+						
 						$member->insert([
 							'firstname'    => trim($_POST['firstname']),
 							'lastname'     => trim($_POST['lastname']),
 							'address'      => trim($_POST['address']),
 							'phone'        => $_POST['phone'],
 							'email'        => $_POST['email'],
-							'creation_date'=>(new \DateTime('now'))->format('Y-m-d')
+							'creation_date'=>(new \DateTime('now'))->format('Y-m-d'),
+							'paid'         =>$_POST['payment_status']
+							
 						], true);
 
 						$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
