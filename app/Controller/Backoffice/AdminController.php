@@ -2,10 +2,12 @@
 namespace Controller\Backoffice;
 use \W\Controller\Controller;
 use \W\Model\UsersModel as Users;
+use \W\Model\Model as Model;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
 use \Model\AdminModel as Admins;
 
+use Model\AdminModel as Admin;
 
 
 class AdminController extends Controller
@@ -14,8 +16,9 @@ class AdminController extends Controller
 	 * Affichage de la liste des administrateurs
 	 */
     public function showAdmin(){
-	//	$this->allowTo('admin');
+		$this->allowTo('admin');
 		$admins = new Admins();
+		
 		$this->show('backoffice/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
 
@@ -24,7 +27,7 @@ class AdminController extends Controller
 	 */
 	public function create()
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
@@ -58,7 +61,7 @@ class AdminController extends Controller
     // edit
 	public function edit($id)
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
@@ -90,10 +93,16 @@ class AdminController extends Controller
 	 */
 	public function delete($id)
 	{
-		//$this->allowTo('admin');
+		$message_error="";
+		$this->allowTo('admin');
         $admins = new Admins();
+		if($id == $_SESSION['user']['id']){
+			$message_error= "vous ne pouvez pas vous desincrire vous même";
+			$this->redirectToRoute('backoffice_AdminView');
+		}else {
         $admins->delete($id);
 		$this->redirectToRoute('backoffice_AdminView');
+	}
     }
 
 	//LOGIN
@@ -129,9 +138,7 @@ class AdminController extends Controller
     $auth = new Auth();
 		$auth->getLoggedUser();
 		//print_r($_SESSION);
-		echo "bonjour ";
-		echo $_SESSION['user']['firstname'];
-		echo $_SESSION['user']['lastname'];
+
 		//affiche page
 		$this->show('backoffice/backofficeAccueil');
 	}
@@ -140,6 +147,8 @@ class AdminController extends Controller
 		public function forgot()
 		{
 		$message = "";
+
+
 		if(isset($_POST['adminForgot'])){ // Quand le formulaire est soumis
 			// verification de l existance du mail
 			$user = new Users();
@@ -162,52 +171,49 @@ class AdminController extends Controller
 			$message = "Un email pour créer un nouveau mot de passe vous a été envoyé";
 		}
 		else {
-			echo "Ce mail n'existe pas";
+			$message = "Ce mail n'existe pas";
 		}
 		}
 		$this->show('backoffice/adminForgot', ['message' => $message]);
 	}
 
-
-
-
     // recupérer ID en fonction du token
-
-	public function findId($token)
-	{
-		$sql = 'SELECT id FROM ' . $this->table . ' WHERE ' . $this->token .'  = :token LIMIT 1';
-		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':token', $token);
-		$sth->execute();
-		return $sth->fetch();
-	}
 
 	public function newpassword($token)
 	{
-		//$this->allowTo('admin');
+
 		$admins = new Admins();
 		$auth = new Auth();
+		$admin = new Admin();
+		$string = new String();
 		$message="";
+		//
 
-		// trouver le id par rapport au token
-         $id =$this->findId($token);
-		 var_dump($id);
-        //Editer la table
-		if(isset($_POST['createNewPaswword'])){
+		$validationToken = $admin->tokenExists($token);
 
-            if(!empty($_POST['password']) && ($_POST['password']) == ($_POST['cf-password'])) {
-                // Ajout à la bdd
-                $admins->update([
-                    'password' => $_POST['password'],
-					'token' => "newToken"
-                ],$id,true);
-				//redirection vers page de vue
-				$message = "<div class='alert alert-success'>Le mot de passe a été changé.</div>";
-				}else{
-					$message = "<div class='alert alert-danger'>Le mot de passe n'a pas été changé.</div>";
+
+		if($validationToken=='false'){
+			if(isset($_POST['createNewPaswword'])){
+				if((strlen($_POST['password']) >=5 )&& (!empty($_POST['password'])) && ($_POST['password']) == ($_POST['cf-password'])){
+					// Ajout à la bdd
+					$info =$admin->findID($token);
+					$id=$info['id'];
+					$admins->update([
+						'password' =>$auth->hashPassword($_POST['password']),
+						'token' => $string->randomString($length = 80)
+					],$id,true);
+					//redirection vers page de vue
+					$message = "<div class='alert alert-success'>Le mot de passe a été changé.</div>";
+					$this->redirectToRoute('backoffice_AdminLogin');
+					}else{
+						$message = "<div class='alert alert-danger'>Le mot de passe n'a pas été changé.</div>";
+					}
 				}
-			}
-	//	afficher la vue
-	$this->show('backoffice/adminNewPassword', ['admin' => $admins->find($token), 'message'=>$message]);
+
+			$this->show('backoffice/adminNewPassword', [ 'message'=>$message]);
+		}else{
+
+			$this->showNotFound();
+		}
 	}
 } // fin class AdminController

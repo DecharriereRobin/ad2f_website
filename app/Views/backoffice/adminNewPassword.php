@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 
 <!-- Formulaire d'ajout administateur -->
-
+<p>Mot de passe: minimum 5 caractère</p>
 <form action="<?php $this->url('backoffice_newpassword') ?>" method="POST">
         <div class="form-group">
             <label for="password">Mot de passe :</label>

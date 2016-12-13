@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 <?php $this->layout('layoutBack', ['title' => 'Editer un administrateurs']) ?>
-=======
-<?php $this->layout('layout', ['title' => 'Admin EDIT']) ?>
->>>>>>> 48bc55b28745d2069a27cc8b5cc60cb7d0fcc92f
 
 <?php $this->start('main_content') ?>
+
+<p>Pour l edition, le mot de passe n'est pas obligatoire</p>
 
 <!-- Formulaire d'edition d'un administateur -->
 
@@ -28,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="cf-password">Confirmer Mot de passe :</label>
-            <input id="cf-password" name="cf-password" type="password" class="form-control" value="Confirmer Mot de passe">
+            <input id="cf-password" name="cf-password" type="password" class="form-control" >
         </div>
         <button name="EditAdmin" class="btn btn-default" >Ajouter</button>
     </form>

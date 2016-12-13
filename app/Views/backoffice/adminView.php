@@ -25,7 +25,7 @@
         <td><a href="<?= $this->url('backoffice_AdminDelete', ['id' => $admin['id']]) ?>">supprimer</a></td>
         <td><a href="<?= $this->url('backoffice_AdminEdit', ['id' => $admin['id']]) ?>">Editer</a></td>
     </tr>
-
+    
 <?php
     }
 ?>
