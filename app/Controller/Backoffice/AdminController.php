@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function showAdmin(){
 		$this->allowTo('admin');
 		$admins = new Admins();
-		
+
 		$this->show('backoffice/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
 
@@ -31,11 +31,17 @@ class AdminController extends Controller
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
+
 		$string = new String();
 
         // Insertion de la table
 		if(isset($_POST['createAdmin'])){
-            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
+			$users=new Users();
+			$emailexist = $users->emailExists($_POST['email']);
+			if($emailexist == true){
+				$message = "<div class='alert alert-danger'>L utilisateur existe déjà.</div>";
+
+            }elseif(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
                 // Ajout à la bdd
 
                 $admins->insert([
@@ -55,6 +61,7 @@ class AdminController extends Controller
 				//$this->redirectToRoute('backoffice_AdminView');
         }
 		$this->show('backoffice/adminCreate', ['message'=>$message]);
+
 	} // fin public function create
 
 
@@ -131,8 +138,6 @@ class AdminController extends Controller
         $this->redirectToRoute('backoffice_AdminLogin');
 	} // FIN Function logout
 
-
-
 	public function home()
 	{
     $auth = new Auth();
@@ -142,7 +147,6 @@ class AdminController extends Controller
 		//affiche page
 		$this->show('backoffice/backofficeAccueil');
 	}
-
 
 		public function forgot()
 		{

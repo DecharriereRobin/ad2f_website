@@ -25,7 +25,7 @@
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
-        
+
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/admin/create', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
 		['GET|POST', '/backoffice/admin/edit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
@@ -66,6 +66,12 @@
 		['GET'     , '/backoffice/associationView'  , 'Backoffice\\Association#showAssociation' , 'backoffice_AssociationProfil'],
 	    ['GET|POST', '/backoffice/associationEdit/[i:id]',   'Backoffice\\Association#edit', 'backoffice_AssociationEdit'],
 
+
+		// lieu
+		['GET|POST', '/backoffice/place/create', 'Backoffice\\Place#create', 'backoffice_placeCreate'],
+		['GET', '/backoffice/place/view', 'Backoffice\\Place#placeView', 'backoffice_placeView'],
+		['GET|POST', '/backoffice/place/edit[i:id]',    'Backoffice\\Place#placeEdit',   'backoffice_PlaceEdit'],
+		['GET|POST', '/backoffice/place/delete/[i:id]',  'Backoffice\\Place#placeDelete', 'backoffice_PlaceDelete'],
 
 
 	);

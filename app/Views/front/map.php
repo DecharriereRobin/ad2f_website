@@ -2,31 +2,28 @@
 
 <?php $this->start('main_content') ?>
 
-<?php $this->stop('main_content') ?>
 
+<p>Recherche</p>
+<div>
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input type="button" value="Voir le lieu sur la carte" onclick="codeAddress()">
+  </div>
 
-<?php $this->start('script_content') ?>
 <p>Liste des lieux</p>
-<?php foreach($places as $place){ ?>
+<?php $categorie='';
+ foreach($places as $place){
+    if ($categorie!=$place['categorie']){
+         $categorie=$place['categorie'];
+        echo '<h1>'.$place['categorie'].'</h1>';
+    }
+        echo '<hr></hr>';
+		echo $place['titre'];
+        echo "<br />";
+        echo $place['content'];
+        echo "<br />";
+        echo $place['address'];
 
-<?php } ?>
+        echo '<input type="button" value="Voir le lieu sur la carte" onclick="codeAddress()">';
+ } ?>
 
-
-
-
-
-<?php foreach($places as $place){ ?>
-    <tr>
-        <td><?php echo ucfirst($place['categorie'])                   ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ucfirst($place['titre'])               ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ucfirst($place['content'])                ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ($place['address'])                 ?></td>
-        <?php echo "<br /" ?>
-    </tr>
-    <?php
-        }
-    ?>
-<?php $this->stop('script_content') ?>
+<?php $this->stop('main_content') ?>

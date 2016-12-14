@@ -10,7 +10,7 @@
     	</style>
 
 	</head>
-	<body>
+	<body onload="initialize()">
 		<header>
 			<h1> <?= $this->e($title) ?></h1>
 		</header>
@@ -18,19 +18,13 @@
 		<section>
 				<?= $this->section('main_content') ?>
 
-				<?php
-                
-
-
-				 ?>
-
 		</section>
 
 		<script src="<?= $this->assetUrl('js/map.js') ?>"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBGsX0atT30L3fBwOnUgD-bIZQ3oAIalM"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<?= $this->section('script') ?>
 
-		    <script async defer
-		          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBGsX0atT30L3fBwOnUgD-bIZQ3oAIalM&callback=initMap">
-		        </script>
-		<?= $this->section('script_content') ?>
+	
 	</body>
 </html>

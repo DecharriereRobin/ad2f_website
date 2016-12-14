@@ -28,7 +28,9 @@
         </div>
 
         <button name="createAdmin" class="btn btn-default">Ajouter</button>
+
     </form>
+     <a href="<?= $this->url('backoffice_AdminView') ?>">liste des administrateurs</a>
 <?= $message ?>
 
 

@@ -32,6 +32,6 @@
         <button name="EditAdmin" class="btn btn-default" >Ajouter</button>
     </form>
     <?= $message ?>
-
+     <a href="<?= $this->url('backoffice_AdminView') ?>">liste des administrateurs</a>
 
 <?php $this->stop('main_content') ?>

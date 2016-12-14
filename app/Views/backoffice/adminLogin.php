@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Login admin']) ?>
+<?php $this->layout('layoutLogin', ['title' => "connexion des administateurs du site de l'association des deux faubourg"]) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -6,15 +6,15 @@
 
         <div class="form-group">
             <label for="email">Email :</label>
-            <input  id="email" name="email" type="email" class="form-control">
+            <input  id="email" name="email" type="email" class="form-control" placeholder="Votre email de connexion">
         </div>
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
                 <input id="password" name="password" type="password" class="form-control">
             </div>
-        <button name="LoginAdmin" class="btn btn-default" >connexion</button>
-        </br>
-        <a href="forgot/" class="btn btn-default" >mot de passe oublié ?</a>
+        <button name="LoginAdmin" class="btn btn-default" placeholder="Votre mot de passe de connexion">connexion</button>
+
+        <a href="forgot" class="btn btn-default" >mot de passe oublié ?</a>
 
 
     </form>

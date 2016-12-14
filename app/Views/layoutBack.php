@@ -144,7 +144,6 @@
 	<!-- script references -->
 		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
-        <script src="<?= $this->assetUrl('js/backoffice/script.js') ?>"></script>
         <?= $this->section('js') ?>
 
 	</body>
