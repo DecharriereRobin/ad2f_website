@@ -27,10 +27,18 @@
     <div class="form-group">
         <?php $dateTime = $event['date']?>
             <label for="date">Date </label>
-            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" />
+            <input id="datepicker" name="date" type="text" class="form-control calendar" value="<?= $dateTime ?>" />
     </div>
-    <button class="btn btn-primary" name="editEvent">Modifier l'évenement</button>
+    <div class="form-group">
+            <label class="btn btn-info btn-sm btn-block" for="file"><input type="file" name="file" id="file" accept="image/*"  style="display:none;" />Modifier ou ajouter une image à l'évenement</label>
+            <span class='label label-warning' id="upload-file-info"></span>
+            
+    </div>
+    <div class="center-block">
+        <img id="thumbnail" style="display:none;"/>
+    </div>  
+    <button class="btn btn-primary btn-block" name="editEvent">Mettre à jour l'évenement</button>
 </form>
-<?= $message ?>
+
 
 <?php $this->stop('main_content') ?>

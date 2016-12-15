@@ -59,9 +59,11 @@ class EventController extends \W\Controller\Controller
         $errorClass = [];
         
         
+        
         if(isset($_POST['createEvent'])){
 
             $errorMessages = [];
+            $mediaId = NULL;
             
             
             if(empty($_POST['title'])){
@@ -74,7 +76,7 @@ class EventController extends \W\Controller\Controller
                 $errorClass['content'] = 'has-error';
             } 
 
-            
+            // Upload Image
             if($_FILES && $_FILES['file']['error'] == 0 ){
                 
                 // Check if upload folder exists or has been deleted
@@ -124,10 +126,10 @@ class EventController extends \W\Controller\Controller
 
             if(count($errorMessages)== 0){
                 $event->insert([
-                    'title'   => trim($_POST['title']),
-                    'content' => trim($_POST['content']),
+                    'title'    => trim($_POST['title']),
+                    'content'  => trim($_POST['content']),
                     'media_id' => $mediaId,
-                    'date'    => trim($_POST['date']),
+                    'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
                 ], true);
 
@@ -172,17 +174,64 @@ class EventController extends \W\Controller\Controller
                 $errorMessages[] = 'La date est obligatoire. Merci de l\'indiquer.';
             }
             
+            
+            // Upload Image
+            if($_FILES && $_FILES['file']['error'] == 0 ){
+                
+                // Check if upload folder exists or has been deleted
+            
+                if(!is_dir(__DIR__."/../../../public/upload")){
+                
+                    mkdir(__DIR__."/../../../public/upload");
+                }
+                
+            
+                // Define accepted MIME type
+                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
+            
+                if(in_array($_FILES['file']['type'], $fileType)){
+
+                    $eventPicture = new Media(); 
+
+                    $file = pathinfo($_FILES['file']['name']);
+                    $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+
+                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
+                    Utils\Resize::resizeimage($sourceFile, $targetName, 800, 600);
+
+
+                    // Insert Image Metadata in DB
+                    $getId = $eventPicture->insert([
+                    'filename' => $targetName,
+                    'filesize' => $_FILES['file']['size'],
+                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                    'title'    => $file['filename'],
+                    'path'     => __UPLOAD__.$targetName
+                    ], true);
+
+                    $mediaId = $getId['id'];
+
+                } else{
+                    $errorMessages[] = "Extension de fichier invalide";
+                    $errorMessages[] = "Les types d'image acceptés sont: JPEG, JPG, GIF et PNG";
+                    $errorMessages[] = "Pour plus d'informations, rendez-vous sur le site:";
+                }
+
+            } else{
+                $mediaId = NULL;
+            }
 
             if(count($errorMessages)== 0){
 
                 $event->update([
                     'title' => trim($_POST['title']),
                     'content' => trim($_POST['content']),
+                    'media_id' => $mediaId,
                     'date' => trim($_POST['date']),
                     'category' => $_POST['category']
                 ], $id, true);
 
-                $message = "<div class='alert alert-success'>L'évenement a bien été modifié.</div>";
+                $message = "<div class='alert alert-success'>L'évenement a été modifié avec succés.</div>";
             } else {
 
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
