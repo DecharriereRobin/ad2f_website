@@ -1,6 +1,18 @@
-<?php $this->layout('layout', ['title' => 'braderie']) ?>
+<?php $this->layout('layout', ['title' => 'Informations sur les braderies des 2 faubourg']) ?>
 
 <?php $this->start('main_content') ?>
 
+
+
+<!--Liste des evenements-->
+<?php
+             foreach($events as $event){
+				 if ($event['category']== 'braderie'){
+		             echo ucfirst($event['title']);
+					 echo (new \DateTime($event['date']))->format('d-m-Y');
+					 echo ucfirst($event['content']);
+			}
+		}
+                ?>
 
 <?php $this->stop('main_content') ?>

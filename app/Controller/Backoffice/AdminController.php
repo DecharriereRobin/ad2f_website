@@ -115,19 +115,22 @@ class AdminController extends \W\Controller\Controller
 	public function login()
 	{
 		// login
+		$message="";
 		if(isset($_POST['LoginAdmin'])){
 		$auth = new Auth();
-		$message="";
+
 		$userCheck = $auth->isValidLoginInfo($_POST['email'], $_POST['password']);
 		if($userCheck){
 			$admins = new Admins();
 			$currentUser = $admins->find($userCheck);
 			$auth->logUserIn($currentUser);
 			$this->redirectToRoute('backoffice_Accueil');
-		}
-	}
+		}else {
+			# code..
 		//afficher la page
 		$message ="Votre email ou mot de passe est invalide";
+	}
+}
 		$this->show('backoffice/admin/adminLogin',['message'=>$message]);
 
 	}// FIN Function login
@@ -142,7 +145,7 @@ class AdminController extends \W\Controller\Controller
 
 	public function home()
 	{
-    $auth = new Auth();
+    	$auth = new Auth();
 		$auth->getLoggedUser();
 		//print_r($_SESSION);
 

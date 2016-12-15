@@ -3,6 +3,7 @@
 namespace Controller\Front;
 
 use \W\Controller\Controller;
+use Model\EventsModel as Event;
 
 class EventViewerController extends Controller
 {
@@ -11,8 +12,9 @@ class EventViewerController extends Controller
 	 * Page d'accueil par défaut
 	 */
 	public function showCarnaval()
-	{
-		$this->show('front/carnaval');
+	{   $event = new Event();
+
+		$this->show('front/carnaval', ['events' => $event->findAll($orderBy = 'date')]);
 	}
 
 	public function showBlockParty()
@@ -27,7 +29,9 @@ class EventViewerController extends Controller
 
 	public function showGarage()
 	{
-		$this->show('front/garage');
+		$event = new Event();
+		$this->show('front/garage', ['events' => $event->findAll($orderBy = 'date')]);
+		
 	}
 
     public function subscribeGarage()

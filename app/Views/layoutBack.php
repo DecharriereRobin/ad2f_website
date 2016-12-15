@@ -82,12 +82,12 @@
             </ul>
 
 			<ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#brocanteur" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Brocanteur <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#brocanteur" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Braderie <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="brocanteur">
 
-                        <li <?= ($w_current_route == 'backoffice_GarageList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageList')?>">Liste des brocanteur</a></li>
+                        <li <?= ($w_current_route == 'backoffice_GarageList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageList')?>">Liste des participants</a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_GarageCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageCreate')?>">Ajouter un brocanteur</a></li>
+                        <li <?= ($w_current_route == 'backoffice_GarageCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageCreate')?>">Ajouter un participant</a></li>
 
                     </ul>
                 </li>
