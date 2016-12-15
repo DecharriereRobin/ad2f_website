@@ -6,7 +6,6 @@
 
 <?php if(!empty($errorMessages)){
     echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
-    echo '<a href="<?= $this->url(\'backoffice_EventDelete\') ?>" class="btn btn-danger"> Retour à la liste des évenements</a>';
 }?>
 
 <a href="<?= $this->url('backoffice_EventList') ?>" class="btn btn-info btn-xs"> Retour à la liste des évenements</a><br />
@@ -35,15 +34,17 @@
     <div class="form-group">
             <?php $dateTime = (new \DateTime('now'))->format('d/m/Y')?>
             <label for="date">Date de l'évenement</label>
-            <input id="date" name="date" type="date" class="form-control" value="<?= $dateTime ?>" /> 
+            <input id="datepicker" name="date" type="text" class="form-control" value="<?= $dateTime ?>" /> 
                 
     </div>
     <div class="form-group">
-            <label class="control-label" for="file">Fichier (tous formats | max. 4 Mo) :</label><br />
-            <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-            <input type="file" name="file" id="input-4" /><br />
+            <label class="btn btn-info btn-sm btn-block" for="file"><input type="file" name="file" id="file" accept="image/*" style="display:none;" />Ajouter une image </label>
+            <span class='label label-warning' id="upload-file-info"></span>
     </div>
-    <button class="btn btn-primary" name="createEvent">Créer l'évenement</button>
+    <div class="center-block">
+        <img id="thumbnail" class="img-responsive" style="display:none;"/>
+    </div>   
+    <button class="btn btn-primary btn-block" name="createEvent">Créer l'évenement</button>
 </form>
 
 <?php $this->stop('main_content') ?>

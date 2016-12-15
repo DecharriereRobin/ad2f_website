@@ -4,6 +4,7 @@ namespace Controller\Front;
 
 use \W\Controller\Controller;
 use Model\EventsModel as Event;
+use Model\MediaModel  as Media
 
 class EventViewerController extends Controller
 {
@@ -31,7 +32,7 @@ class EventViewerController extends Controller
 	{
 		$event = new Event();
 		$this->show('front/garage', ['events' => $event->findAll($orderBy = 'date')]);
-		
+
 	}
 
     public function subscribeGarage()

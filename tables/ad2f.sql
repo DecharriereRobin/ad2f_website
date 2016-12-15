@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 15 Décembre 2016 à 12:37
+-- Généré le :  Jeu 15 Décembre 2016 à 17:25
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -42,11 +42,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `token`, `role`) VALUES
-(26, '', 'jennifer', 'VINCENT', 'vincentjenni@gmail.com', '$2y$10$vyV1cZBZBP9NXzDNCLNxGuWbLSvlSP7ds1EjycetvRO80061JP.c.', 'nffMKUNak5h-gZBynbT7bKO2xAMePDmzkOVYTFYk5DxeGlpGOtRUlN-RHJSdk9EgZPRAgjGzMe4bxsE3', 'admin'),
+(26, '', 'jennifer', 'VINCENT', 'vincentjenni@gmail.com', '$2y$10$asY5QoNRzOFTUUMrP5Vipulf8/E/0EUg.I0gNMborU0Ux4WtzQuu2', 'WFv7M1kl0TTbMNtsj3uTfVUlxG1J98puRgVSN1vDT4_Nnit-8_7p8WXqx3ZlgjhuP3GNlYOupnl-IRAh', 'admin'),
 (27, '', 'Admin', 'Admin', 'essai@free.fr', '$2y$10$wUTLjVXsSNdhkD.Z5ptsme3MikerFqBzAjglORNKOl0TQXHogCpEm', 'z1_kRtroffuxTfgMK0gTGVzNGKkkxVP7j3RRPpjmLvddfvwGhFRSEfxPs1ifMyQo7biFf0Dd6DZd6cM_', 'admin'),
 (28, '', 'moi', 'remoi', 'elrika83@gmail.com', '$2y$10$Hr7s6bkR0TbLikwWR8A9OuDy9oKHNu/xu/eGyZVzWuLWhx1YdBveu', 'ckIbEA1XgWUNIE1JOLchfWkolRYQ4fRw34P3FYgDhSFW8YCvAEQ3eTOiiH12dSy3F5ivrnnzEJTylBiE', 'admin'),
 (29, '', 'hello', 'world', 'helloworld@free.fr', '$2y$10$AGA6NcVfkJlCwankbERMpObwLLawnKBC.1AgnyaNLfspVmdG99wQq', 'h2DT_-AXr5IDBG2KJ-Ewq-9wYnw7tlK-iL2tnhoy6VzfI2GYAYM5_2aKkk-8CaP_6D1fgekVav7Daxsz', 'admin'),
-(33, '', 'hello', 'zero', 'rezrze@ezrezrzerrezrzr', '$2y$10$ZqPB/WgiaqV4.aq8lqNQwuwJq2c0QIQj8mmV0XZmErQzU8Bsqk2f2', 'wbEH0Qb2ZHqnlnNvxVN5vbE-UvhXGpY-5wK8sLXa5VAg29uuuLF7KHGPGWtoCqOKiG70vY4z5jDsrvvl', 'admin'),
 (39, '', 'jennifer', 'world', 'fdgdfsg@sdfgsdg', '$2y$10$wW19ArqY9szuG3vMlsV8BOr1QUjUSQe73dh2EsBXKXZ8V18.Xac5y', 'fW02XdO5JjW7RPRk7gYl28GhUX5xzn24cV4GgF3kej4p5_oFMdTA6nFS2NkvraXjIGLJ3EwiLlNEo7Vh', 'admin');
 
 -- --------------------------------------------------------
@@ -81,7 +80,7 @@ CREATE TABLE `events` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(60) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `media_id` int(11) UNSIGNED NOT NULL,
+  `media_id` int(11) UNSIGNED DEFAULT NULL,
   `date` date NOT NULL,
   `category` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL
@@ -92,7 +91,16 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `content`, `media_id`, `date`, `category`, `address`) VALUES
-(0, 'braderie de noel', 'Venez vendre où acheter en ce jour de noel.', 0, '2016-12-24', 'braderie', '');
+(6, 'test', 'cviuop erjhziuojhdkezodeze', 38, '2016-12-09', 'Braderie', ''),
+(10, 'Braderie 2016', 'frezff', 39, '2016-12-09', 'Braderie', ''),
+(19, 'Braderie des faubourgs', 'fuifjerhimgejrhnkljearnhkmjnzerkmj²', 42, '2016-12-09', 'Braderie', ''),
+(119, 'caranal d hiver', 'ytyrty', 0, '0000-00-00', 'Carnaval', ''),
+(120, 'carnaval de noel', 'yrtyytry', 0, '0000-00-00', 'carnaval', ''),
+(121, 'Fêtes des voisins', 'ezaezae', 0, '0000-00-00', 'Fete-de-quartier', ''),
+(122, 'Fêtes des voisins', 'uytutu', 0, '0000-00-00', 'Fete-de-quartier', ''),
+(123, 'Fêtes des voisins', 'tretertertert', 1, '0000-00-00', 'braderie', ''),
+(124, 'carnaval de noel', 'tretete', 2, '0000-00-00', 'carnaval', ''),
+(125, 'Fêtes des voisins', 'uytutu', 3, '0000-00-00', 'Fete-de-quartier', '');
 
 -- --------------------------------------------------------
 
@@ -114,13 +122,6 @@ CREATE TABLE `garage` (
   `total_amount_paid` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Contenu de la table `garage`
---
-
-INSERT INTO `garage` (`id`, `firstname`, `lastname`, `address`, `phone`, `email`, `reservedmeters`, `adhesion`, `period`, `amount`, `total_amount_paid`) VALUES
-(0, 'hello', 'truyt', 'etyu', 'etyu', 'tey', 0, 0, '', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -128,13 +129,22 @@ INSERT INTO `garage` (`id`, `firstname`, `lastname`, `address`, `phone`, `email`
 --
 
 CREATE TABLE `media` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `filename` varchar(50) NOT NULL,
   `filesize` int(10) NOT NULL,
   `title` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `media`
+--
+
+INSERT INTO `media` (`id`, `filename`, `filesize`, `title`, `date`, `path`) VALUES
+(1, 'plan du quartier-15-12-2016-5852be37b7732.png', 511498, 'plan du quartier', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/plan du quartier-15-12-2016-5852be37b7732.png'),
+(2, 'bourse aux jouets 2015-15-12-2016-5852be61d0afe.jp', 143462, 'bourse aux jouets 2015', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/bourse aux jouets 2015-15-12-2016-5852be61d0afe.jpg'),
+(3, 'logo association-15-12-2016-5852becd45fb8.jpg', 16225, 'logo association', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/logo association-15-12-2016-5852becd45fb8.jpg');
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,6 @@ INSERT INTO `place` (`id`, `titre`, `content`, `address`, `categorie`, `lat`, `l
 (2, 'Tennis Club Lillois Lille Métropole', 'Club de tennis à Lille, France', 'Rue du Mal Assis, 59000 Lille', 'sport', 0, 0),
 (3, 'Maison de Quartier Faubourg de Béthune', 'Maison de Quartier Faubourg de Béthune', ' 65 Rue Saint-Bernard, 59000 Lille', 'Lieu municipaux', 0, 0),
 (4, 'La Poste Esquermes', 'La poste', '34 Boulevard de Metz, 59000 Lille', 'Lieu municipaux', 0, 0),
-(18, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0),
 (19, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0),
 (20, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0),
 (22, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0);
@@ -222,6 +231,19 @@ INSERT INTO `place` (`id`, `titre`, `content`, `address`, `categorie`, `lat`, `l
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `picture_id` (`media_id`);
+
+--
+-- Index pour la table `media`
+--
+ALTER TABLE `media`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `member`
@@ -244,6 +266,16 @@ ALTER TABLE `place`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT pour la table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+--
+-- AUTO_INCREMENT pour la table `media`
+--
+ALTER TABLE `media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `member`
 --

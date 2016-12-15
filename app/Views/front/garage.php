@@ -11,6 +11,8 @@
 		             echo ucfirst($event['title']);
 					 echo (new \DateTime($event['date']))->format('d-m-Y');
 					 echo ucfirst($event['content']);
+                     echo '<img src= "../upload/plan du quartier-15-12-2016-5852be37b7732.png " alt="" >';
+                     var_dump($event[media_id]);
 			}
 		}
                 ?>
