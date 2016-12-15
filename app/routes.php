@@ -62,10 +62,10 @@
 		['GET|POST', '/backoffice/meeting/create', 'Backoffice\\Meeting#create', 'backoffice_MeetingCreate'],
 		['GET'     , '/backoffice/meeting/list' , 'Backoffice\\Meeting#read', 'backoffice_MeetingList'],
 		['GET|POST', '/backoffice/meeting/edit/[i:id]'  , 'Backoffice\\Meeting#edit', 'backoffice_MeetingEdit'],
-		['GET|POST', '/backoffice/meeting/delete/[i:id]', 'Backoffice\\Meeting#delete', 'backoffice_MeetingDelete']
+		['GET|POST', '/backoffice/meeting/delete/[i:id]', 'Backoffice\\Meeting#delete', 'backoffice_MeetingDelete'],
 
 		//Profil de l'association
-		['GET'     , '/backoffice/associationView'  , 'Backoffice\\Association#showAssociation' , 'backoffice_AssociationProfil'],
+		['GET'     , '/backoffice/association/view'  , 'Backoffice\\Association#showAssociation' , 'backoffice_AssociationProfil'],
 	    ['GET|POST', '/backoffice/associationEdit/[i:id]',   'Backoffice\\Association#edit', 'backoffice_AssociationEdit'],
 
 

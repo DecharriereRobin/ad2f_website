@@ -6,10 +6,10 @@ use \W\Controller\Controller;
 class GarageController extends \W\Controller\Controller
 {
     public function read()
-	{   
+	{
         $garages = new Garage();
         $message = "";
-		$this->show('backoffice/garageList', ['garages' => $garages->findAll()]);
+		$this->show('backoffice/garage/garageList', ['garages' => $garages->findAll()]);
 	}
 
     public function create()
@@ -30,20 +30,20 @@ class GarageController extends \W\Controller\Controller
             $message = "<div class='alert alert-danger'>Le participant n'a pas été inscrit pour la braderie.</div>";
             }
         }
-        $this->show('backoffice/garageCreate', ['message'=>$message]);
+        $this->show('backoffice/garage/garageCreate', ['message'=>$message]);
 	}
-    
+
     public function delete($id)
     {
-            //$this->allowTo('admin'); // Only Admin User allowed for Back Office function and delete from agenda 
+            //$this->allowTo('admin'); // Only Admin User allowed for Back Office function and delete from agenda
             $garages = new Garage();
             $garages->delete($id);
             $this->redirectToRoute('backoffice_GarageList');
     }
-    
+
 	 public function edit($id)
     {
-           //$this->allowTo('admin'); // Only Admin User allowed for Back Office function 
+           //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
             $garages = new Garage();
             $message = "";
             if(isset($_POST['editGarage'])){
@@ -61,25 +61,16 @@ class GarageController extends \W\Controller\Controller
                 $message = "<div class='alert alert-danger'>La fiche du participant à la braderie n'a pas été modifiée.</div>";
             }
        }
-        $this->show('backoffice/garageEdit', ['message'=>$message, 'garage' => $garages->find($id)]);
+        $this->show('backoffice/garage/garageEdit', ['message'=>$message, 'garage' => $garages->find($id)]);
 	}
     public function printgaragelist()
     {
 
         if(isset($_POST['garagePrint'])){
         var_dump('salut');
-        $this->show('backoffice/garageList', ['garages' => $garages->findAll()]);
+        $this->show('backoffice/garage/garageList', ['garages' => $garages->findAll()]);
         }
     }
 
 }
 ?>
-    
-    
-    
-    
-    
-    
-    
-    
-

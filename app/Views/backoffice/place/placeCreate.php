@@ -17,9 +17,14 @@
             <label for="address">Adresse :</label>
             <input id="address" name="address" type="text" class="form-control" placeholder="Adresse">
         </div>
+
         <div class="form-group">
-            <label for="categorie">categorie :</label>
-            <input id="categorie" name="categorie" type="text" class="form-control" placeholder="categorie">
+            <label for="categorie">Catégorie</label>
+            <select class="form-control" id="categorie" name="categorie">
+                <option value="braderie">Lieux municipaux</option>
+                <option value="carnaval">Restaurant</option>
+                <option value="Fete-de-quartier">Sport</option>
+            </select>
         </div>
 
         <button name="createPlace" class="btn btn-default">Ajouter un lieu</button>

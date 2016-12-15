@@ -19,9 +19,14 @@
             <input value="<?= $place['address'] ?>" id="address" name="address" type="text" class="form-control" >
         </div>
         <div class="form-group">
-            <label for="categorie">Categorie :</label>
-            <input value="<?= $place['categorie'] ?>" id="categorie" name="categorie" type="text" class="form-control" >
+            <label for="categorie">Catégorie</label>
+            <select class="form-control" id="categorie" name="categorie">
+                <option <?php echo $place['categorie']== 'Lieux municipaux' ?'selected="selected' : NULL ?> value="Lieux municipaux">Lieux municipaux</option>
+                <option <?php echo $place['categorie']== 'Restaurant' ?'selected="selected' : NULL ?>value="Restaurant">Restaurant</option>
+                <option <?php echo $place['categorie']== 'Sport' ?'selected="selected' : NULL ?>value="Sport">Sport</option>
+            </select>
         </div>
+
         <button name="Editplace" class="btn btn-default" >Editer</button>
     </form>
     <?= $message ?>

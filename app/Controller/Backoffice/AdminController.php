@@ -18,7 +18,7 @@ class AdminController extends \W\Controller\Controller
 		$this->allowTo('admin');
 		$admins = new Admins();
 
-		$this->show('backoffice/adminView', ['admins' => $admins->findAll()]);
+		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
 
 	/**
@@ -59,7 +59,7 @@ class AdminController extends \W\Controller\Controller
 	            }
 				//$this->redirectToRoute('backoffice_AdminView');
         }
-		$this->show('backoffice/adminCreate', ['message'=>$message]);
+		$this->show('backoffice/admin/adminCreate', ['message'=>$message]);
 
 	} // fin public function create
 
@@ -89,7 +89,7 @@ class AdminController extends \W\Controller\Controller
 				}
 			}
 	//	afficher la vue
-	$this->show('backoffice/adminEdit', ['admin' => $admins->find($id), 'message'=>$message]);
+	$this->show('backoffice/admin/adminEdit', ['admin' => $admins->find($id), 'message'=>$message]);
 
 	}
 
@@ -117,6 +117,7 @@ class AdminController extends \W\Controller\Controller
 		// login
 		if(isset($_POST['LoginAdmin'])){
 		$auth = new Auth();
+		$message="";
 		$userCheck = $auth->isValidLoginInfo($_POST['email'], $_POST['password']);
 		if($userCheck){
 			$admins = new Admins();
@@ -126,7 +127,9 @@ class AdminController extends \W\Controller\Controller
 		}
 	}
 		//afficher la page
-		$this->show('backoffice/adminLogin');
+		$message ="Votre email ou mot de passe est invalide";
+		$this->show('backoffice/admin/adminLogin',['message'=>$message]);
+
 	}// FIN Function login
 
 	// DECONNECTION
@@ -144,6 +147,7 @@ class AdminController extends \W\Controller\Controller
 		//print_r($_SESSION);
 
 		//affiche page
+		$this->allowTo('admin');
 		$this->show('backoffice/backofficeAccueil');
 	}
 
@@ -166,7 +170,7 @@ class AdminController extends \W\Controller\Controller
 
 			// Envoi du mail
 			$mail = new \PHPMailer();
-			$mail->setFrom('vincentjenni@gmail.com', 'Association AD2F');
+			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
 			$mail->addAddress($_POST['email']);
 			$mail->Subject = "Ad2F nouveaux mot de passe";
 			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/ad2f/public/backoffice/admin/newPassword/" .$information['token'] ;
@@ -177,7 +181,7 @@ class AdminController extends \W\Controller\Controller
 			$message = "Ce mail n'existe pas";
 		}
 		}
-		$this->show('backoffice/adminForgot', ['message' => $message]);
+		$this->show('backoffice/admin/adminForgot', ['message' => $message]);
 	}
 
     // recupérer ID en fonction du token
@@ -213,7 +217,7 @@ class AdminController extends \W\Controller\Controller
 					}
 				}
 
-			$this->show('backoffice/adminNewPassword', [ 'message'=>$message]);
+			$this->show('backoffice/admin/adminNewPassword', [ 'message'=>$message]);
 		}else{
 
 			$this->showNotFound();

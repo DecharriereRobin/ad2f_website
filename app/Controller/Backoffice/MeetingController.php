@@ -8,12 +8,12 @@ use \W\Controller\Controller;
 class MeetingController extends \W\Controller\Controller
 {
     public function read()
-	{   
+	{
         $meetings = new Meeting();
         $message = "";
-        $this->show('backoffice/meetingList', ['meetings' => $meetings->findAll()]);
+        $this->show('backoffice/meeting/meetingList', ['meetings' => $meetings->findAll()]);
 	}
-    
+
     public function create()
 	{
         $meetings = new Meeting();
@@ -30,19 +30,19 @@ class MeetingController extends \W\Controller\Controller
             $message = "<div class='alert alert-danger'>La réunion n'a pas été créée dans l'agenda.</div>";
             }
         }
-        $this->show('backoffice/meetingCreate', ['message'=>$message]);
+        $this->show('backoffice/meeting/meetingCreate', ['message'=>$message]);
 	}
-    
+
     public function delete($id)
     {
-            //$this->allowTo('admin'); // Only Admin User allowed for Back Office function and delete from agenda 
+            //$this->allowTo('admin'); // Only Admin User allowed for Back Office function and delete from agenda
             $meetings = new Meeting();
             $meetings->delete($id);
             $this->redirectToRoute('backoffice_MeetingList');
     }
     public function edit($id)
     {
-           //$this->allowTo('admin'); // Only Admin User allowed for Back Office function 
+           //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
             $meetings = new Meeting();
             $message = "";
             if(isset($_POST['editMeeting'])){
@@ -57,7 +57,7 @@ class MeetingController extends \W\Controller\Controller
             $message = "<div class='alert alert-danger'>La réunion n'a pas été modifiée.</div>";
             }
         }
-        $this->show('backoffice/meetingEdit', ['message'=>$message, 'meeting' => $meetings->find($id)]);
+        $this->show('backoffice/meeting/meetingEdit', ['message'=>$message, 'meeting' => $meetings->find($id)]);
 	}
-                
+
 }

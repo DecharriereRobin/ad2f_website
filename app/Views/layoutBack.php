@@ -34,7 +34,7 @@
                         <li><a href="#">My Profile</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+                <li><a href="admin/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -47,9 +47,24 @@
     <div class="row">
         <div class="col-sm-3">
             <!-- Left column -->
-            <a href=""><i class="glyphicon glyphicon-home"></i> Home</a>
+            <a href="http://localhost/wf3/ad2f/public/backoffice/accueil"><i class="glyphicon glyphicon-home"></i> Home</a>
 
             <hr>
+
+			<ul class="nav nav-stacked">
+
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#association" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Association <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                    <ul class="nav nav-stacked collapse" expanded="false" id="association">
+
+
+                        <li <?= ($w_current_route == 'backoffice_AssociationProfil') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AssociationProfil')?>">Information sur l'association <span class="badge badge-info"></span></a></li>
+
+
+
+
+                    </ul>
+                </li>
+            </ul>
 
             <ul class="nav nav-stacked">
 
@@ -57,10 +72,22 @@
                     <ul class="nav nav-stacked collapse" expanded="false" id="members">
 
 
-                        <li <?= ($w_current_route == 'backoffice_Memberlist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_MemberList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_Membercreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_MemberCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
 
+
+                    </ul>
+                </li>
+            </ul>
+
+			<ul class="nav nav-stacked">
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#brocanteur" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Brocanteur <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                    <ul class="nav nav-stacked collapse" expanded="false" id="brocanteur">
+
+                        <li <?= ($w_current_route == 'backoffice_GarageList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageList')?>">Liste des brocanteur</a></li>
+
+                        <li <?= ($w_current_route == 'backoffice_GarageCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageCreate')?>">Ajouter un brocanteur</a></li>
 
                     </ul>
                 </li>
@@ -72,7 +99,7 @@
 
                         <li <?= ($w_current_route == 'backoffice_EventList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventList')?>">Liste des événements</a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_Eventcreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventCreate')?>">Ajouter un évenement </a></li>
+                        <li <?= ($w_current_route == 'backoffice_EventCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventCreate')?>">Ajouter un évenement </a></li>
 
                     </ul>
                 </li>
@@ -82,9 +109,9 @@
                 <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#agenda" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Réunions de l'association <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="agenda">
 
-                        <li <?= ($w_current_route == 'backoffice_MeetingsList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingsList')?>">Réunion du CA</a></li>
+                        <li <?= ($w_current_route == 'backoffice_MeetingList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingList')?>">Réunion du CA</a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_MeetingsList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingsList')?>">Ajouter une réunion</a></li>
+                        <li <?= ($w_current_route == 'backoffice_MeetingCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingCreate')?>">Ajouter une réunion</a></li>
 
                     </ul>
                 </li>
@@ -93,7 +120,9 @@
             <ul class="nav nav-stacked">
                 <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#interactiveMap" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-map-marker"></i> Carte Interactive<i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="interactiveMap">
+						<li <?= ($w_current_route == 'backoffice_placeView') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_placeView')?>">Liste des lieux</a></li>
 
+						<li <?= ($w_current_route == 'backoffice_placeCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_placeCreate')?>">Ajouter un lieux</a></li>
                     </ul>
                 </li>
             </ul>
@@ -109,9 +138,11 @@
             <ul class="nav nav-stacked">
                 <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu2"><i class="glyphicon glyphicon-user"></i> Administration <i class="glyphicon glyphicon-chevron-down"></i></a>
                     <ul class="nav nav-stacked collapse in" id="userMenu2">
+						<li <?= ($w_current_route == 'backoffice_AdminView') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AdminView')?>">Liste des admin</a></li>
 
+						<li <?= ($w_current_route == 'backoffice_AdminCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AdminCreate')?>">Creer un admin</a></li>
 
-                        <li><a href=""><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
+                        <li><a href="http://localhost/wf3/ad2f/public/backoffice/admin/logout"><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
 
                     </ul>
                 </li>

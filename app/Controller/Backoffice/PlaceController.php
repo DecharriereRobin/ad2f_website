@@ -10,7 +10,7 @@ class PlaceController extends Controller
         //$this->allowTo('admin');
 		$places = new Place();
 
-		$this->show('backoffice/PlaceView', ['places' => $places->findAll()]);
+		$this->show('backoffice/place/PlaceView', ['places' => $places->findAll()]);
     }
     public function create()
     {
@@ -34,7 +34,7 @@ class PlaceController extends Controller
                 }
                 //$this->redirectToRoute('backoffice_AdminView');
         }
-        $this->show('backoffice/placeCreate', ['message'=>$message]);
+        $this->show('backoffice/place/placeCreate', ['message'=>$message]);
     } // fin public function create
 
     public function placeDelete($id)
@@ -67,7 +67,7 @@ class PlaceController extends Controller
 				}
 			}
 	//	afficher la vue
-	$this->show('backoffice/placeEdit', ['place' => $place->find($id), 'message'=>$message]);
+	$this->show('backoffice/place/placeEdit', ['place' => $place->find($id), 'message'=>$message]);
 
 	}
 

@@ -12,7 +12,7 @@ class associationController extends Controller
     public function showAssociation(){
 	//	$this->allowTo('admin');
 		$associations = new Assoc();
-		$this->show('backoffice/associationView', ['associations' => $associations->findAll()]);
+		$this->show('backoffice/association/associationView', ['associations' => $associations->findAll()]);
 	}// fin public function showAdmin
 
 
@@ -44,7 +44,7 @@ class associationController extends Controller
 				}
 			}
 	//	afficher la vue
-	$this->show('backoffice/associationEdit', ['association' => $association->find($id), 'message'=>$message]);
+	$this->show('backoffice/association/associationEdit', ['association' => $association->find($id), 'message'=>$message]);
 
 	}
 

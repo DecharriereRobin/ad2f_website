@@ -4,9 +4,7 @@
 <?php echo "bonjour ";
 echo $_SESSION['user']['firstname'];
 echo $_SESSION['user']['lastname'];
-
-echo "<br />";
-
 ?>
-<a href="admin/logout" >DECONNECTION</a>
+<p>Bienvenue sur le backoffice du site de l'association des 2 faubourg de lille</p
+
 <?php $this->stop('main_content') ?>
