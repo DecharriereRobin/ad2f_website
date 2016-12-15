@@ -2,9 +2,12 @@
 
 <?php $this->start('main_content') ?>
 
+
 <?= $message /*Return message On success Or on Error*/ ?>
 
-<form action="<?php $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" method="POST">
+<a href="<?= $this->url('backoffice_EventList') ?>" class="btn btn-info btn-xs"> Retour à la liste des évenements</a><br />
+
+<form action="<?php $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Titre de l'évenement: </label>
         <input id="title" name="title" type="text" class="form-control" value="<?= $event['title']?> " /> 
@@ -24,7 +27,7 @@
     <div class="form-group">
         <?php $dateTime = $event['date']?>
             <label for="date">Date </label>
-            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" /> 
+            <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" />
     </div>
     <button class="btn btn-primary" name="editEvent">Modifier l'évenement</button>
 </form>
