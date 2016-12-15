@@ -8,7 +8,7 @@ use W\Security\AuthorizationModel;
 /**
  * Le contrôleur de base à étendre
  */
-class Controller 
+class Controller
 {
 
 	/**
@@ -45,7 +45,7 @@ class Controller
 	public function redirect($uri)
 	{
 		header("Location: $uri");
-		die();	
+		die();
 	}
 
 	/**
@@ -123,7 +123,7 @@ class Controller
 		}
 		else {
 			die('404');
-		}	
+		}
 	}
 
 	/**
