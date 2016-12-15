@@ -13,6 +13,7 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
+        $model = new model;
 		$this->show('default/home');
 	}
 
