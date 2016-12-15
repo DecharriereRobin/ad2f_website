@@ -1,16 +1,15 @@
 <?php
 namespace Controller\Backoffice;
-use \W\Controller\Controller;
+
 use \W\Model\UsersModel as Users;
 use \W\Model\Model as Model;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
 use \Model\AdminModel as Admins;
+use  Model\AdminModel as Admin;
 
-use Model\AdminModel as Admin;
 
-
-class AdminController extends Controller
+class AdminController extends \W\Controller\Controller
 {
 	/**
 	 * Affichage de la liste des administrateurs

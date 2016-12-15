@@ -1,7 +1,7 @@
 <?php $this->layout('layoutBack', ['title' => 'Ajouter administateur']) ?>
 
 <?php $this->start('main_content') ?>
-<P>L edition du mot de passe n'est pas obligatoire</p>
+
 
 <!-- Formulaire d'ajout administateur -->
 

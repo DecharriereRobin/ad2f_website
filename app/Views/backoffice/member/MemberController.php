@@ -40,16 +40,21 @@ class MemberController extends \W\Controller\Controller
 					$errorClass['address'] = 'has-error';
 				}
 
+				if (empty($_POST['phone'])) {
+					$errorMessages[] = 'Le téléphone est obligatoire. Merci de l\'indiquer.';
+					$errorClass['phone'] = 'has-error';
+				}
+
 				if (empty($_POST['email'])) {
 					$errorMessages[] = 'L\' email est obligatoire. Merci de l\'indiquer.';
 					$errorClass['email'] = 'has-error';
 				}
 
+
 				if(count($errorMessages)== 0){
 					$email = $_POST['email'];
 					$existsEmail = $member->emailMemberExists($email);
-
-
+					var_dump($existsEmail);
 
 					if($existsEmail == 0){
 
@@ -59,9 +64,7 @@ class MemberController extends \W\Controller\Controller
 							'address'      => trim($_POST['address']),
 							'phone'        => $_POST['phone'],
 							'email'        => $_POST['email'],
-							'creation_date'=>(new \DateTime('now'))->format('Y-m-d'),
-							'paid'         =>$_POST['payment_status']
-
+							'creation_date'=>(new \DateTime('now'))->format('Y-m-d')
 						], true);
 
 						$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
@@ -77,7 +80,7 @@ class MemberController extends \W\Controller\Controller
 
 			$this->show('backoffice/MemberCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 		}
-
+	
 	public function memberList()
 	{
 		$members = new Member();

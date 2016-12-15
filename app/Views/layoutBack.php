@@ -57,9 +57,9 @@
                     <ul class="nav nav-stacked collapse" expanded="false" id="members">
 
 
-                        <li <?= ($w_current_route == 'backoffice_Memberslist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Memberlist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
 
-                        <li <?= ($w_current_route == 'backoffice_Memberscreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MembersCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Membercreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
 
 
                     </ul>
