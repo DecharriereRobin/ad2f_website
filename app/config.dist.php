@@ -22,5 +22,10 @@ $w_config = [
 	'site_name'	=> '', 								// contiendra le nom du site
 ];
 
+// Define constant path for upload
+define('__ROOT__', dirname(__DIR__));
+define('__UPLOAD__', __ROOT__."/public/upload/");
+
+
 require('routes.php');
 

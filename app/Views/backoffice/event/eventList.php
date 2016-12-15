@@ -1,26 +1,23 @@
+
 <?php $this->layout('layoutBack', ['title' => 'Liste des évenements']) ?>
 
+<?php $this->start('main_content') ?>
 
 <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
 <?php unset($_SESSION['message']); ?>
 
+
 <a href="<?= $this->url('backoffice_EventCreate') ?>" class="btn btn-primary" >Créer un nouvel évenement</a>
-
-<?php $this->start('main_content') ?>
-
 
 <table class="table table-hover table-striped">
         <thead>
             <th>#</th>
-
-            <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par titre">Title</a></th>
-
+            <th>Titre</th>
             <th>Date</th>
             <th>Categorie</th>
             <th>Actions</th>
         </thead>
         <tbody>
-
             <?php foreach($events as $event){ ?>
                 <tr>
                     <td><?= $event['id'] ?></td>    
@@ -58,14 +55,15 @@
         <li class="<?php echo ($page == 1) ? 'disabled' : '' ?>"><a href="<?php echo ($page > 1) ? $this->url('backoffice_EventList', ['page' => ($page -1)]) : '' ?>" aria-label="Précédente"><span aria-hidden="true">&laquo;</span></a></li>
         
         <?php 
-            for($i = $page ; $i <= $page ; $i++){
+
+            for($i = $page - 2; $i <= $page + 1 ; $i++){
     
                 if($i >= 1){ ?>
                     <li class="<?= ($i == $page) ? 'active': ''?> "><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
                 <?php }
             }
           
-            for($i = $page + 1; $i <= $page + 2; $i++){
+            for($i = $page + 2; $i <= $page + 3 ; $i++){
     
                 if($i <= $maxPage){ ?>
                     <li class="<?= ($i == $page) ? 'active': ''?>"><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
@@ -78,43 +76,5 @@
     </nav>
     
 <?php $this->stop('main_content') ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

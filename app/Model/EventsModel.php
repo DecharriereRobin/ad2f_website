@@ -12,4 +12,12 @@ class EventsModel extends \W\Model\Model
         return $sth;
         
     }
+    
+    
+    public function imageEvent(){
+        
+        //$sql = 'SELECT ';
+        
+    }
+
 }
