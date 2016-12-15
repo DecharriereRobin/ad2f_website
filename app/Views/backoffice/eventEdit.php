@@ -31,5 +31,6 @@
     </div>
     <button class="btn btn-primary" name="editEvent">Modifier l'évenement</button>
 </form>
+<?= $message ?>
 
 <?php $this->stop('main_content') ?>

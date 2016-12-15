@@ -6,6 +6,7 @@
 
 <?php if(!empty($errorMessages)){
     echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
+    echo '<a href="<?= $this->url(\'backoffice_EventDelete\') ?>" class="btn btn-danger"> Retour à la liste des évenements</a>';
 }?>
 
 <a href="<?= $this->url('backoffice_EventList') ?>" class="btn btn-info btn-xs"> Retour à la liste des évenements</a><br />

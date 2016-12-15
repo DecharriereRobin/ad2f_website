@@ -55,6 +55,7 @@
         <li class="<?php echo ($page == 1) ? 'disabled' : '' ?>"><a href="<?php echo ($page > 1) ? $this->url('backoffice_EventList', ['page' => ($page -1)]) : '' ?>" aria-label="Précédente"><span aria-hidden="true">&laquo;</span></a></li>
         
         <?php 
+
             for($i = $page - 2; $i <= $page + 1 ; $i++){
     
                 if($i >= 1){ ?>
@@ -75,8 +76,5 @@
     </nav>
     
 <?php $this->stop('main_content') ?>
-
-
-
 
 

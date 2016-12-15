@@ -28,19 +28,19 @@ class EventController extends \W\Controller\Controller
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         
+
         // Get all elements for Pagination
         $nbOfEvent = $event->allEvent();
         $nbOfEventByPage = 10;
         $maxPage = ceil($nbOfEvent / $nbOfEventByPage);
         $eventOffset = $nbOfEventByPage * ($page - 1);
         
-        
+
         // Check if requested page is out of limits and redirect to the first page if so.
         if($page > $maxPage || $page == 0 ){
             $this->redirectToRoute('backoffice_EventList');
         }
-        
-        
+
         // Return results to View
 		$this->show('backoffice/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
 	}
@@ -73,7 +73,7 @@ class EventController extends \W\Controller\Controller
                 $errorMessages[] = 'Au moins une description doit être renseignée';
                 $errorClass['content'] = 'has-error';
             } 
-            
+
             
             if($_FILES && $_FILES['file']['error'] == 0 ){
                 
@@ -121,6 +121,7 @@ class EventController extends \W\Controller\Controller
             }
             
             // Insert all data in DB
+
             if(count($errorMessages)== 0){
                 $event->insert([
                     'title'   => trim($_POST['title']),
@@ -139,6 +140,7 @@ class EventController extends \W\Controller\Controller
         }
         
         $this->show('backoffice/eventCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
+
 	} 
 
 
@@ -170,6 +172,7 @@ class EventController extends \W\Controller\Controller
                 $errorMessages[] = 'La date est obligatoire. Merci de l\'indiquer.';
             }
             
+
             if(count($errorMessages)== 0){
 
                 $event->update([
@@ -199,7 +202,6 @@ class EventController extends \W\Controller\Controller
         $_SESSION['message'] = "L'évenement a été supprimé avec succés ";
        
 		$this->redirectToRoute('backoffice_EventList', ['page' => $page]);
-        
 	}
 
 

@@ -19,4 +19,5 @@ class EventsModel extends \W\Model\Model
         //$sql = 'SELECT ';
         
     }
+
 }
