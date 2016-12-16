@@ -2,12 +2,12 @@
 <?php $this->layout('layoutBack', ['title' => 'Liste des lieux']) ?>
 
 <?php $this->start('main_content') ?>
+<br>
 
-<table class="table table-striped">
+<table class="table table-responsive table-striped">
     <caption>Informations sur les lieux</caption>
     <thead> <!-- En-tête du tableau -->
     <tr>
-
         <th>titre</th>
         <th>contenu</th>
         <th>adresse</th>

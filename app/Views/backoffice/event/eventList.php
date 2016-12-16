@@ -1,22 +1,22 @@
 <?php $this->layout('layoutBack', ['title' => 'Liste des évenements']) ?>
-
 <?php $this->start('main_content') ?>
-
 <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
 <?php unset($_SESSION['message']); ?>
-
-<a href="<?= $this->url('backoffice_EventCreate') ?>" class="btn btn-primary" >Créer un nouvel évenement</a>
-
-<table class="table table-hover table-striped">
-        <thead>
-            <th>#</th>
-            <th>Titre</th>
-            <th>Date</th>
-            <th>Categorie</th>
-            <th>Actions</th>
-        </thead>
-        <tbody>
-            <?php foreach($events as $event){ ?>
+<br>
+<br>
+ <div class="container-fluid">
+        <div class="row">
+            <button href="<?= $this->url('backoffice_EventCreate') ?>" class="center-block btn btn-primary" >Créer un nouvel évenement</button><br><br>
+                <table class="table table-hover table-responsive table-striped">
+                    <thead>
+                        <th>#</th>
+                        <th>Titre</th>
+                        <th>Date</th>
+                        <th>Categorie</th>
+                        <th>Actions</th>
+                    </thead>
+                <tbody>
+                    <?php foreach($events as $event){ ?>
                 <tr>
                     <td><?= $event['id'] ?></td>    
                     <td><?= ucfirst($event['title']) ?></td>

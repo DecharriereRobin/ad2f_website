@@ -6,13 +6,14 @@
 <?php if(!empty($errorMessages)){
     echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
 }?>
-
+<br>
+<br>
 <div class="container-fluid">
     <div class="row">
+       <form class="form-horizontal" action="<?php $this->url('backoffice_MemberCreate')?>" method="POST">
         <div class="col-sm-push-3 col-sm-4">
-            <form action="<?php $this->url('backoffice_MemberCreate')?>" method="POST">
                 <div class="form-group">
-                    <label for="name">Nom </label>
+                    <label for="name">Nom</label>
                     <input id="name" name="firstname" type="text" class="form-control" placeholder="Nom" />
                 </div>
                 <div class="form-group">
@@ -31,7 +32,6 @@
                     <label for="email">Email</label>
                     <input id="email" name="email" type="email" class="form-control" placeholder="Email" />
                 </div>
-
                 <fieldset class="form-group">
                     <legend>Cotisation</legend>
                     <div class="form-check">
@@ -48,7 +48,7 @@
                     </div>
                 </fieldset>
 
-                <button class="btn btn-primary col-lg-push-3 col-lg-6" name="createMember">Créer le membre</button>
+                <button type="button" placeholder="Ajouter" class="btn btn-primary" name="createMember">Créer le membre</button>
             </form>
         </div>
     </div>

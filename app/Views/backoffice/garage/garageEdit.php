@@ -54,36 +54,44 @@
                     </tr>
                 </tbody>
             </table>
-            <form action="<?php $this->url('backoffice_GarageEdit')?>" method="POST">
-                <div class="form-group">
-                    <label for="firstname">Modifier le prenom : </label>
-                    <input id="firstname" value="<?= $garage['firstname'] ?>" name="firstname" type="text" class="form-control" /> </div>
-                <div class="form-group">
-                    <label for="lastname">Modifier le nom : </label>
-                    <textarea id="content" value="<?= $garage['lastname'] ?>" type="text" name="lastname" class="form-control"><?= $garage['lastname'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="address">Modifier l'adresse : </label>
-                    <textarea id="content" value="<?= $garage['address'] ?>" type="text" name="address" class="form-control"><?= $garage['address'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="email">Modifier l'email : </label>
-                    <textarea id="content" value="<?= $garage['email'] ?>" type="text" name="email" class="form-control"><?= $garage['email'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="phone">Modifier le numéro de téléphone : </label>
-                    <textarea id="phone" name="phone" value="<?= $garage['phone'] ?>" class="form-control"><?= $garage['phone'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="reservedmeters">Modifier le nombre de mètres réservés : </label>
-                    <textarea id="reservedmeters" name="reservedmeters" value="<?= $garage['reservedmeters'] ?>" class="form-control"><?= $garage['reservedmeters'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="adhesion">Modifier l'adhesion : </label>
-                    <textarea id="adhesion" name="adhesion" value="<?= $garage['adhesion'] ?>" class="form-control"><?= $garage['adhesion'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="amount">Modifier le montant : </label>
-                    <textarea id="amount" name="amount" value="<?= $garage['amount'] ?>" class="form-control"><?= $garage['amount'] ?></textarea></div>
-                <div class="form-group">
-                    <label for="total_amount_paid">Modifier le montant déjà payé : </label>
-                    <textarea id="total_amount_paid" name="total_amount_paid" value="<?= $garage['total_amount_paid'] ?>" class="form-control"><?= $garage['total_amount_paid'] ?></textarea></div>
-                <div class="form-group">
-                    <button class="btn btn-warning" name="editGarage">Modifier la ligne</button>
-                </div>
-            </form>
-            <?php $this->stop('main_content') ?>
+            <br>
+            <br>
+        <div class="container">
+            <div class="row">
+                <form action="<?php $this->url('backoffice_GarageEdit')?>" method="POST">
+                    <div class="col-sm-push-3 col-sm-4">
+                        <div class="form-group">
+                            <label for="firstname">Modifier le prenom : </label>
+                            <input id="firstname" value="<?= $garage['firstname'] ?>" name="firstname" type="text" class="form-control" /> </div>
+                        <div class="form-group">
+                            <label for="lastname">Modifier le nom : </label>
+                            <input id="content" value="<?= $garage['lastname'] ?>" type="text" name="lastname" class="form-control"><?= $garage['lastname'] ?></div>
+                        <div class="form-group">
+                            <label for="address">Modifier l'adresse : </label>
+                            <input id="content" value="<?= $garage['address'] ?>" type="text" name="address" class="form-control"><?= $garage['address'] ?></div>
+                        <div class="form-group">
+                            <label for="email">Modifier l'email : </label>
+                            <input id="content" value="<?= $garage['email'] ?>" type="text" name="email" class="form-control"><?= $garage['email'] ?></div>
+                        <div class="form-group">
+                            <label for="phone">Modifier le numéro de téléphone : </label>
+                            <input id="phone" name="phone" value="<?= $garage['phone'] ?>" class="form-control"><?= $garage['phone'] ?></div>
+                        <div class="form-group">
+                            <label for="reservedmeters">Modifier le nombre de mètres réservés : </label>
+                            <input id="reservedmeters" name="reservedmeters" value="<?= $garage['reservedmeters'] ?>" class="form-control"><?= $garage['reservedmeters'] ?></div>
+                        <div class="form-group">
+                            <label for="adhesion">Modifier l'adhesion : </label>
+                            <input id="adhesion" name="adhesion" value="<?= $garage['adhesion'] ?>" class="form-control"><?= $garage['adhesion'] ?></div>
+                        <div class="form-group">
+                            <label for="amount">Modifier le montant : </label>
+                            <input id="amount" name="amount" value="<?= $garage['amount'] ?>" class="form-control"><?= $garage['amount'] ?></div>
+                        <div class="form-group">
+                            <label for="total_amount_paid">Modifier le montant déjà payé : </label>
+                            <input id="total_amount_paid" name="total_amount_paid" value="<?= $garage['total_amount_paid'] ?>" class="form-control"><?= $garage['total_amount_paid'] ?></div>
+                        <div class="form-group">
+                            <button class="btn btn-warning" name="editGarage">Modifier la ligne</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+<?php $this->stop('main_content') ?>

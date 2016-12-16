@@ -16,7 +16,7 @@
 
     <thead> <!-- En-tête du tableau -->
     <tr>
-        <th><a href="" data-toggle="tooltip" data-placement="top" title="Cliquez pour trier par nom">Nom</a></th>
+        <th>Nom</th>
         <th>Prénom</th>
         <th class="text-center">Adresse</th>
         <th class="text-center">Téléphone</th>
@@ -34,11 +34,11 @@
     foreach($members as $member){
 ?>
     <tr>
-        <td style="padding-top: 1.5%"><?= ucfirst($member['firstname'])      ?></td>
-        <td style="padding-top: 1.5%"><?= ucfirst($member['lastname'])       ?></td>
-        <td style="padding-top: 1.5%"><?= ucfirst($member['address'])        ?></td>
-        <td style="padding-top: 1.5%"><?= $member['phone']                   ?></td>
-        <td style="padding-top: 1.5%" class="text-center"><?= $member['email']                   ?></td>
+        <td style="padding-top: 1.5%"><?= ucfirst($member['firstname'])?></td>
+        <td style="padding-top: 1.5%"><?= ucfirst($member['lastname'])?></td>
+        <td style="padding-top: 1.5%"><?= ucfirst($member['address'])?></td>
+        <td style="padding-top: 1.5%"><?= $member['phone']?></td>
+        <td style="padding-top: 1.5%" class="text-center"><?= $member['email']?></td>
         <td style="padding-top: 1.5%"><?= (new \DateTime($member['creation_date']))->format('d-m-Y'); ?></td>
         <td><?= \Model\MemberModel::getPaidStatus($member) ?></td>
         <td style="padding-top: 1.5%"><?= (new \DateTime($member['subscription_date']))->format('d-m-Y'); ?></td>

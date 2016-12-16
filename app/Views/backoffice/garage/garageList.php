@@ -1,10 +1,13 @@
 <?= $this->layout('layoutBack', ['title' => 'Liste des riverains inscrits à la braderie']); ?>
+    <br>
     <?= $this->start('main_content'); ?>
+      
         <!-- formulaire de listing d'une réunion -->
         <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
             <?php unset($_SESSION['message']); ?>
+                  <br>
                    <div id="imprimerlaliste">
-                    <table class="table table-striped">
+                    <table class="table table-responsive table-striped">
                         <thead>
                             <!-- En-tête du tableau -->
                             <tr>
@@ -65,6 +68,7 @@
                         </tbody>
                     </table>
 </div>
-                
-                <button class="btn btn-success" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
+            <div class="form-group">    
+                <button class="btn btn-success center-block" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
+            </div>
                 <?= $this->stop('main_content') ?>

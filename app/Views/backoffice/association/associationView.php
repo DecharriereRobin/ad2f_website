@@ -1,12 +1,12 @@
 <?php $this->layout('layoutBack', ['title' => 'Profil de l association']) ?>
 
 <?php $this->start('main_content') ?>
-
-<table class="table table-striped">
+<div class="container-fluid">
+<div class="row">
+<table class="table table-responsive table-striped">
     <caption>Informations sur l'association</caption>
     <thead> <!-- En-tête du tableau -->
     <tr>
-
         <th>Nom</th>
         <th>Adresse</th>
         <th>Code postale</th>
@@ -14,6 +14,7 @@
         <th>telephone</th>
     </tr>
     </thead>
+    
     <tbody> <!-- Corps du tableau -->
 
 <?php foreach($associations as $association){ ?>
@@ -23,7 +24,7 @@
         <td><?php echo ($association['ZIP_code'])                 ?></td>
         <td><?php echo ucfirst($association['city'])                   ?></td>
         <td><?php echo ucfirst($association['phone'])                   ?></td>
-        <td><a href="<?= $this->url('backoffice_AssociationEdit', ['id' => $association['id']]) ?>">Editer</a></td>
+        <td><a href="<?= $this->url('backoffice_AssociationEdit', ['id' => $association['id']]) ?>"  class="center-block btn btn-success">Editer</a></td>
     </tr>
 
 <?php
@@ -31,5 +32,7 @@
 ?>
     </tbody>
 </table>
+    </div>
+</div>
 
 <?php $this->stop('main_content') ?>
