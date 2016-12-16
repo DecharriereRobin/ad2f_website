@@ -32,7 +32,6 @@
     </div>
     
     <div class="form-group">
-<<<<<<< HEAD:app/Views/backoffice/event/eventCreate.php
             <?php $dateTime = (new \DateTime('now'))->format('Y-m-d')?>
             <label for="date">Date de l'évenement</label>
             <input id="datepicker" name="date" type="text" class="form-control" value="<?= $dateTime ?>" /> 

@@ -15,7 +15,7 @@ class AdminController extends \W\Controller\Controller
 	 * Affichage de la liste des administrateurs
 	 */
     public function showAdmin(){
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$admins = new Admins();
 
 		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll()]);
@@ -26,13 +26,12 @@ class AdminController extends \W\Controller\Controller
 	 */
 	public function create()
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
 
 		$string = new String();
-
         // Insertion de la table
 		if(isset($_POST['createAdmin'])){
 			$users=new Users();
@@ -67,7 +66,7 @@ class AdminController extends \W\Controller\Controller
     // edit
 	public function edit($id)
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
@@ -100,7 +99,7 @@ class AdminController extends \W\Controller\Controller
 	public function delete($id)
 	{
 		$message_error="";
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
         $admins = new Admins();
 		if($id == $_SESSION['user']['id']){
 			$message_error= "vous ne pouvez pas vous desincrire vous même";

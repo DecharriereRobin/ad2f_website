@@ -131,7 +131,7 @@ class EventController extends \W\Controller\Controller
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
                 ];
-                if($mediaId){
+                if(isset($mediaId)){
                     $data['media_id'] = $mediaId;
                 }
                 $event->insert($data, true);
@@ -231,7 +231,7 @@ class EventController extends \W\Controller\Controller
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
                 ];
-                if($mediaId){
+                if(isset($mediaId)){
                     $data['media_id'] = $mediaId;
                 }
                 $event->update($data, $id, true);

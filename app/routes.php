@@ -23,6 +23,7 @@
 
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
+        //['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 
 		//Admin
 
@@ -48,7 +49,6 @@
 		['GET',      '/backoffice/event/list/[i:page]?', 'Backoffice\\Event#eventList',   'backoffice_EventList'],
 		['GET|POST', '/backoffice/event/edit/[i:id]',    'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
 		['GET|POST', '/backoffice/event/delete/[i:id]/[i:page]?',  'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
-
 
 
 		// BRADERIE

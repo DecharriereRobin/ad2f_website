@@ -37,7 +37,7 @@
                         <li><a href="#">My Profile</a></li>
                     </ul>
                 </li>
-                <li><a href="admin/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+                <li><a href="<?= $this->url('backoffice_AdminLogout')?>"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -145,7 +145,7 @@
 
 						<li <?= ($w_current_route == 'backoffice_AdminCreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AdminCreate')?>">Creer un admin</a></li>
 
-                        <li><a href="http://localhost/wf3/ad2f/public/backoffice/admin/logout"><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
+                        <li><a href="<?= $this->url('backoffice_AdminLogout')?>"><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
 
                     </ul>
                 </li>
@@ -156,7 +156,9 @@
         <!-- /col-3 -->
         <div class="col-sm-9">
 
-            <a href="#"><strong><i class="glyphicon glyphicon-edit"></i> <?= $this->e($title) ?></strong></a>
+            <strong><i class="glyphicon glyphicon-edit"></i> <?= $this->e($title) ?></strong>
+            
+            <hr>
 
             <div class="row">
                 <!-- center left-->
@@ -177,9 +179,9 @@
 
 	<!-- script references -->
 		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('js/backoffice/script.js') ?>"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <?= $this->section('js') ?>
 
 	</body>

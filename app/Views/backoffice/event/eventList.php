@@ -26,8 +26,8 @@
                     <td><?= ucfirst($event['category']) ?></td>
                     <td>
                         <a href="<?= $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" class="btn btn-primary">Modifier</a>
-                        <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-danger">Supprimer</a>
-                        <!--<button class="btn btn-default" data-toggle="modal" data-target="#deleteModal-">Supprimer</button>-->
+                       <!-- <a href="" class="btn btn-danger">Supprimer</a>-->
+                        <button class="btn btn-danger" type="button"  data-toggle="modal" data-target="#deleteModal-<?= $event['id'] ?>">Supprimer</button>
                         <div class="modal fade" id="deleteModal-<?= $event['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel-<?= $event['id'] ?>">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
-                                    <a href="" class="btn btn-primary">Oui</a>
+                                    <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-primary">Oui</a>
                                 </div>
                                 </div>
                             </div>
@@ -50,20 +50,20 @@
             <?php } ?>
         </tbody>
     </table>
-    <nav aria-label="...">
+    <nav aria-label="pagination">
       <ul class="pagination">
         <li class="<?php echo ($page == 1) ? 'disabled' : '' ?>"><a href="<?php echo ($page > 1) ? $this->url('backoffice_EventList', ['page' => ($page -1)]) : '' ?>" aria-label="Précédente"><span aria-hidden="true">&laquo;</span></a></li>
         
         <?php 
 
-            for($i = $page - 2; $i <= $page + 1 ; $i++){
+            for($i = $page - 8; $i <= $page - 1 ; $i++){
     
                 if($i >= 1){ ?>
                     <li class="<?= ($i == $page) ? 'active': ''?> "><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
                 <?php }
             }
           
-            for($i = $page + 2; $i <= $page + 3 ; $i++){
+            for($i = $page ; $i <= $page + 9 ; $i++){
     
                 if($i <= $maxPage){ ?>
                     <li class="<?= ($i == $page) ? 'active': ''?>"><a href="<?= $this->url('backoffice_EventList', ['page' => $i ]) ?>"><?= $i ?> <span class="sr-only">(current)</span></a></li>
