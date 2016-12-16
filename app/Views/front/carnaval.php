@@ -2,19 +2,23 @@
 
 <?php $this->start('main_content') ?>
 
-
-
 <!--Liste des evenements-->
 <?php
+
              foreach($events as $event){
-				 if ($event['category']== 'carnaval'){
+                 if ($event['category'] == 'Fete-de-quartier'){
+                     $id = $event['id'];
+                     //var_dump ($id);
 		             echo ucfirst($event['title']);
 					 echo (new \DateTime($event['date']))->format('d-m-Y');
 					 echo ucfirst($event['content']);
-                     echo '<img src= "../upload/plan du quartier-15-12-2016-5852be37b7732.png " alt="" >';
-			}
+                     $path = $media->imageEvent($id);
+                    // var_dump($path);
+                     //echo '<img src= "' .$path .'" alt="" >';
+                 }
 		}
-                     var_dump($event[media_id]);
+
+
                 ?>
 
 <?php $this->stop('main_content') ?>

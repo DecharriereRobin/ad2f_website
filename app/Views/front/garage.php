@@ -1,20 +1,24 @@
-<?php $this->layout('layout', ['title' => 'Informations sur les braderies des 2 faubourg']) ?>
+<?php $this->layout('layout', ['title' => 'Information sur les braderies']) ?>
 
 <?php $this->start('main_content') ?>
-
-
 
 <!--Liste des evenements-->
 <?php
              foreach($events as $event){
 				 if ($event['category']== 'braderie'){
+                     $id = $event['id'];
+                     //var_dump ($id);
 		             echo ucfirst($event['title']);
 					 echo (new \DateTime($event['date']))->format('d-m-Y');
 					 echo ucfirst($event['content']);
-                     echo '<img src= "../upload/plan du quartier-15-12-2016-5852be37b7732.png " alt="" >';
-                     var_dump($event[media_id]);
+                     $path = $media->imageEvent($id);
+                     var_dump($path);
+                     //echo '<img src= "' .$path .'" alt="" >';
 			}
+
 		}
+
+
                 ?>
 
 <?php $this->stop('main_content') ?>

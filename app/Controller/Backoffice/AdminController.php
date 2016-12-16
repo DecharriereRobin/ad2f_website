@@ -3,10 +3,11 @@ namespace Controller\Backoffice;
 
 use \W\Model\UsersModel as Users;
 use \W\Model\Model as Model;
+use \Model\AdminModel as Admins;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
-use \Model\AdminModel as Admins;
-use  Model\AdminModel as Admin;
+
+
 
 
 class AdminController extends \W\Controller\Controller
@@ -162,12 +163,17 @@ class AdminController extends \W\Controller\Controller
 		if(isset($_POST['adminForgot'])){ // Quand le formulaire est soumis
 			// verification de l existance du mail
 			$user = new Users();
-            $emailexist = $user->emailExists($_POST['email']);
+			$emailexist = $user->emailExists($_POST['email']);
 			if ($emailexist == true){
+			// recupère le token
+
+    		$information =$user->getUserByUsernameOrEmail($_POST['email']);
+			$token = $information['token'];
+			$route = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
+
 			//var_dump($user->emailExists($_POST['email']));
 
-			// recupère le token
-    		$information =$user->getUserByUsernameOrEmail($_POST['email']);
+
 
 			//var_dump($information['token']);
 
@@ -176,7 +182,8 @@ class AdminController extends \W\Controller\Controller
 			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
 			$mail->addAddress($_POST['email']);
 			$mail->Subject = "Ad2F nouveaux mot de passe";
-			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/ad2f/public/backoffice/admin/newPassword/" .$information['token'] ;
+			//$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/adf2/public/backoffice/admin/newPassword/" .$information['token'] ;
+			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - " . 'http://localhost'. $route ;
 			$mail->send();
 			$message = "Un email pour créer un nouveau mot de passe vous a été envoyé";
 		}
@@ -194,7 +201,7 @@ class AdminController extends \W\Controller\Controller
 
 		$admins = new Admins();
 		$auth = new Auth();
-		$admin = new Admin();
+		$admin = new Admins();
 		$string = new String();
 		$message="";
 		//

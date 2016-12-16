@@ -20,8 +20,6 @@ class AdminModel extends \W\Model\Model
 
      public function tokenExists($token)
  	{
-
-
  	   $sql = 'SELECT token FROM ' . $this->table .' WHERE token = :token LIMIT 1';
  	   $sth = $this->dbh->prepare($sql);
  	   $sth->bindValue(':token', $token);
