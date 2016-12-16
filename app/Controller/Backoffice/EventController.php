@@ -63,7 +63,6 @@ class EventController extends \W\Controller\Controller
         if(isset($_POST['createEvent'])){
 
             $errorMessages = [];
-            $mediaId = NULL;
             
             
             if(empty($_POST['title'])){
@@ -98,10 +97,12 @@ class EventController extends \W\Controller\Controller
 
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+                    $currentFolder = "/public/upload/";
 
                     $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeimage($sourceFile, $targetName, 800, 600);
-
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 675);
 
                     // Insert Image Metadata in DB
                     $getId = $eventPicture->insert([
@@ -109,7 +110,7 @@ class EventController extends \W\Controller\Controller
                     'filesize' => $_FILES['file']['size'],
                     'date'     => (new \DateTime('now'))->format('Y-m-d'),
                     'title'    => $file['filename'],
-                    'path'     => __UPLOAD__.$targetName
+                    'path'     => $currentFolder.$targetName
                     ], true);
 
                     $mediaId = $getId['id'];
@@ -120,20 +121,20 @@ class EventController extends \W\Controller\Controller
                     $errorMessages[] = "Pour plus d'informations, rendez-vous sur le site:";
                 }
 
-            } else{
-                $mediaId = NULL;
             }
-
             // Insert all data in DB
-
+            //var_dump($_POST); 
             if(count($errorMessages)== 0){
-                $event->insert([
+                $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
-                    'media_id' => $mediaId,
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
-                ], true);
+                ];
+                if($mediaId){
+                    $data['media_id'] = $mediaId;
+                }
+                $event->insert($data, true);
 
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
 
@@ -146,7 +147,6 @@ class EventController extends \W\Controller\Controller
         $this->show('backoffice//event/eventCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 
 	}
-
 
 
 
@@ -197,10 +197,11 @@ class EventController extends \W\Controller\Controller
 
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+                    $currentFolder = "/public/upload/";
 
                     $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeimage($sourceFile, $targetName, 800, 600);
-
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
 
                     // Insert Image Metadata in DB
                     $getId = $eventPicture->insert([
@@ -208,7 +209,7 @@ class EventController extends \W\Controller\Controller
                     'filesize' => $_FILES['file']['size'],
                     'date'     => (new \DateTime('now'))->format('Y-m-d'),
                     'title'    => $file['filename'],
-                    'path'     => __UPLOAD__.$targetName
+                    'path'     => $currentFolder.$targetName
                     ], true);
 
                     $mediaId = $getId['id'];
@@ -219,20 +220,21 @@ class EventController extends \W\Controller\Controller
                     $errorMessages[] = "Pour plus d'informations, rendez-vous sur le site:";
                 }
 
-            } else{
-                $mediaId = NULL;
             }
 
 
             if(count($errorMessages)== 0){
-
-                $event->update([
-                    'title' => trim($_POST['title']),
-                    'content' => trim($_POST['content']),
-                    'media_id' => $mediaId,
-                    'date' => trim($_POST['date']),
+                
+                $data = [
+                    'title'    => trim($_POST['title']),
+                    'content'  => trim($_POST['content']),
+                    'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
-                ], $id, true);
+                ];
+                if($mediaId){
+                    $data['media_id'] = $mediaId;
+                }
+                $event->update($data, $id, true);
 
                 $message = "<div class='alert alert-success'>L'évenement a été modifié avec succés.</div>";
             } else {
