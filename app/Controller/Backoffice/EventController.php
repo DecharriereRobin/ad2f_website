@@ -25,7 +25,7 @@ class EventController extends \W\Controller\Controller
 
 	public function eventList($page=1)
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
 
 
@@ -36,8 +36,10 @@ class EventController extends \W\Controller\Controller
         $eventOffset = $nbOfEventByPage * ($page - 1);
 
 
-        // Check if requested page is out of limits and redirect to the first page if so.
-        if($page > $maxPage || $page == 0 ){
+        // Check if requested page is out of limits and redirect to previous or to the first page.
+        if($page > $maxPage){ 
+            $this->redirectToRoute('backoffice_EventList', ['page' => $page-1]);
+        } elseif($page == 0){
             $this->redirectToRoute('backoffice_EventList');
         }
 
@@ -49,7 +51,7 @@ class EventController extends \W\Controller\Controller
 
 	public function eventCreate()
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
 
         $event = new Event();
 
@@ -153,7 +155,7 @@ class EventController extends \W\Controller\Controller
 	public function eventEdit($id)
     {
 
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $eventPicture = new Media();
 
@@ -249,7 +251,7 @@ class EventController extends \W\Controller\Controller
 
 	public function eventDelete($id, $page = '')
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $event->delete($id);
 
