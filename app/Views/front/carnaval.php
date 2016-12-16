@@ -8,13 +8,11 @@
              foreach($events as $event){
                  if ($event['category'] == 'Fete-de-quartier'){
                      $id = $event['id'];
-                     //var_dump ($id);
-		             echo ucfirst($event['title']);
-					 echo (new \DateTime($event['date']))->format('d-m-Y');
-					 echo ucfirst($event['content']);
+                     echo ucfirst($event['title']);
+                     echo (new \DateTime($event['date']))->format('d-m-Y');
+                     echo ucfirst($event['content']);
                      $path = $media->imageEvent($id);
-                    // var_dump($path);
-                     //echo '<img src= "' .$path .'" alt="" >';
+                      echo '<img src= "../..' .$path['path'] .'" alt="" >';
                  }
 		}
 

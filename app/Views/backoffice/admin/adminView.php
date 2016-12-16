@@ -3,11 +3,12 @@
 
 <?php $this->start('main_content') ?>
 
+<?= $message =""?>
 <table class="table table-striped">
     <caption>Informations sur les membres du CA de l'association</caption>
+
     <thead> <!-- En-tête du tableau -->
     <tr>
-
         <th>Nom</th>
         <th>Prenom</th>
         <th>Email</th>
@@ -25,13 +26,12 @@
         <td><a href="<?= $this->url('backoffice_AdminDelete', ['id' => $admin['id']]) ?>">supprimer</a></td>
         <td><a href="<?= $this->url('backoffice_AdminEdit', ['id' => $admin['id']]) ?>">Editer</a></td>
     </tr>
-    
+
 <?php
     }
 ?>
     </tbody>
 </table>
-
 
   <a href="<?= $this->url('backoffice_AdminCreate') ?>">Ajouter un nouveau membre du CA</a>
 

@@ -16,10 +16,10 @@ class AdminController extends \W\Controller\Controller
 	 * Affichage de la liste des administrateurs
 	 */
     public function showAdmin(){
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
+		$message="jennifer";
 		$admins = new Admins();
-
-		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll()]);
+		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll(), 'message'=> $message]);
 	}// fin public function showAdmin
 
 	/**
@@ -31,6 +31,8 @@ class AdminController extends \W\Controller\Controller
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
+		$user = new Users();
+	    $auth->getLoggedUser();
 
 		$string = new String();
 
@@ -55,11 +57,32 @@ class AdminController extends \W\Controller\Controller
                 ],true);
 
 				$message = "<div class='alert alert-success'>Le nouveau membre du CA a bien été crée.</div>";
+
+				$information =$user->getUserByUsernameOrEmail($_POST['email']);
+				$token = $information['token'];
+				$route = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
+
+				 // envoie d'un mail à la creation d'un nouveau admin
+
+				 // Envoi du mail
+	 			$mail = new \PHPMailer();
+	 			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
+	 			$mail->addAddress($_POST['email']);
+	 			$mail->Subject = "Ad2F-creation de votre compte admin";
+	 			$mail->Body = "Bonjour" . $_SESSION['user']['firstname']. " " .$_SESSION['user']['lastname'] . 'Vous a inscrit en tant qu administateur du site de l associaton des 2 faubourg. Vous pouvez Cliqué sur ce lien pour recreer un nouveau mot de passe -  . http://localhost'. $route ;
+	 			$mail->send();
+
+
+
 	            }else{
 	                $message = "<div class='alert alert-danger'>Le nouveau membre du CA n'a pas été créé.</div>";
 	            }
 				//$this->redirectToRoute('backoffice_AdminView');
         }
+
+
+
+
 		$this->show('backoffice/admin/adminCreate', ['message'=>$message]);
 
 	} // fin public function create
@@ -100,11 +123,12 @@ class AdminController extends \W\Controller\Controller
 	 */
 	public function delete($id)
 	{
-		$message_error="";
+
 		//$this->allowTo('admin');
         $admins = new Admins();
+
 		if($id == $_SESSION['user']['id']){
-			$message_error= "vous ne pouvez pas vous desincrire vous même";
+			$message_error= "vous ne pouvez pas vous desincrire votre propre compte";
 			$this->redirectToRoute('backoffice_AdminView');
 		}else {
         $admins->delete($id);

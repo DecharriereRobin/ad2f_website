@@ -7,13 +7,12 @@
              foreach($events as $event){
 				 if ($event['category']== 'braderie'){
                      $id = $event['id'];
-                     //var_dump ($id);
-		             echo ucfirst($event['title']);
-					 echo (new \DateTime($event['date']))->format('d-m-Y');
-					 echo ucfirst($event['content']);
-                     $path = $media->imageEvent($id);
-                     var_dump($path);
-                     //echo '<img src= "' .$path .'" alt="" >';
+                     echo ucfirst($event['title']);
+                     echo (new \DateTime($event['date']))->format('d-m-Y');
+                     echo ucfirst($event['content']);
+                     $img = $media->imageEvent($id);
+                     var_dump($img);
+                      echo '<img src= "../..' .$img['path'] .'" alt="" >';
 			}
 
 		}
