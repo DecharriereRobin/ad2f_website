@@ -3,6 +3,8 @@
 namespace Controller\Front;
 
 use \W\Controller\Controller;
+use Model\EventsModel as Event;
+use Model\MediaModel  as Media;
 
 class EventViewerController extends Controller
 {
@@ -12,22 +14,40 @@ class EventViewerController extends Controller
 	 */
 	public function showCarnaval()
 	{
-		$this->show('front/carnaval');
+		$event = new Event();
+		$media = new Media();
+
+
+		$this->show('front/carnaval', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 	}
 
 	public function showBlockParty()
 	{
-		$this->show('front/blockparty');
+		$event = new Event();
+		$media = new Media();
+		$category = "carnaval";
+
+		$this->show('front/blockparty', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+
 	}
 
     public function showSaturdayMorning()
 	{
-		$this->show('front/saturdayMorning');
+		$event = new Event();
+		$media = new Media();
+
+
+		$this->show('front/saturdayMorning', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 	}
 
 	public function showGarage()
 	{
-		$this->show('front/garage');
+		$event = new Event();
+		$media = new Media();
+
+
+		$this->show('front/garage', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+
 	}
 
     public function subscribeGarage()
