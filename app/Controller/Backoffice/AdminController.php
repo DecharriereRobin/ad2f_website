@@ -7,9 +7,6 @@ use \Model\AdminModel as Admins;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
 
-
-
-
 class AdminController extends \W\Controller\Controller
 {
 	/**
@@ -60,7 +57,8 @@ class AdminController extends \W\Controller\Controller
 
 				$information =$user->getUserByUsernameOrEmail($_POST['email']);
 				$token = $information['token'];
-				$route = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
+				$routepassword = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
+				$routelogin = $this->generateUrl("backoffice_AdminLogin");
 
 				 // envoie d'un mail à la creation d'un nouveau admin
 
@@ -69,7 +67,9 @@ class AdminController extends \W\Controller\Controller
 	 			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
 	 			$mail->addAddress($_POST['email']);
 	 			$mail->Subject = "Ad2F-creation de votre compte admin";
-	 			$mail->Body = "Bonjour" . $_SESSION['user']['firstname']. " " .$_SESSION['user']['lastname'] . 'Vous a inscrit en tant qu administateur du site de l associaton des 2 faubourg. Vous pouvez Cliqué sur ce lien pour recreer un nouveau mot de passe -  . http://localhost'. $route ;
+	 			$mail->Body = "Bonjour " . $_SESSION['user']['firstname']. "  " .$_SESSION['user']['lastname'] . ' vous a inscrit en tant qu administateur du site de l associaton des 2 faubourg.
+				Vous pouvez vous connectez sur cette page http://localhost'. $routelogin .
+				' ou vous pouvez Cliquer sur ce lien pour recreer un nouveau mot de passe . http://localhost'. $routepassword ;
 	 			$mail->send();
 
 

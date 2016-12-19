@@ -7,7 +7,11 @@ class MapController extends \W\Controller\Controller
 {
     public function showMap()
     {
+
         $places = new Place();
+        if(isset($_GET['essai'])){
+            var_dump("essai");
+        }
 		$this->show('front/map', ['places' => $places->findAll($orderBy = 'categorie')]);
     }
 

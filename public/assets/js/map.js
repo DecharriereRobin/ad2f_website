@@ -24,19 +24,18 @@ function initMap(){
                     map: map,
                     title: datas[key]['titre']
                 });// fin marker
-
             }// fin for
         }// fin fonction datas
 
     });// fin ajax
 } //fin fonction initmap
 
-//$(document).ready(function(){
-
-   $("#registeration_event").click(function(){
-
-   });
-//});// fin JQUERY
+$(document).ready(function(){
+   $("#essai").click(function(){
+        alert('ok');
+        // Affichage de la fenêtre au click sur le marker
+        });
+});// fin JQUERY
 
 //function viewplace(){
 //    map = new google.maps.Map(document.getElementById('map'), mapOptions );
