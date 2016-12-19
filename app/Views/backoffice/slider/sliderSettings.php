@@ -2,7 +2,8 @@
 
 <?php $this->start('main_content') ?>
 
-<?php isset($message) ? $message : "" ?>
+<?php echo isset($_SESSION['message'])? ($_SESSION['message']): NULL  ?>
+<?php unset($_SESSION['message']); ?>
 
 <form action="<?php $this->url('backoffice_Slider') ?>" method="POST" enctype="multipart/form-data">
     <div class="form-group">

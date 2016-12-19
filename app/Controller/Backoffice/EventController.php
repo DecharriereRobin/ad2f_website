@@ -101,21 +101,9 @@ class EventController extends \W\Controller\Controller
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
                     $currentFolder = "/public/upload/";
 
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    $sourceFile = $_FILES['file']['tmp_name']; // Set upload Folder
                     
                     //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
-
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => $currentFolder.$targetName
-                    ], true);
-
-                    $mediaId = $getId['id'];
 
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
@@ -127,6 +115,20 @@ class EventController extends \W\Controller\Controller
             // Insert all data in DB
             //var_dump($_POST); 
             if(count($errorMessages)== 0){
+                
+                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                // Insert Image Metadata in Media DB
+                $getId = $eventPicture->insert([
+                    'filename' => $targetName,
+                    'filesize' => $_FILES['file']['size'],
+                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                    'title'    => $file['filename'],
+                    'path'     => $currentFolder.$targetName
+                    ], true);
+
+                $mediaId = $getId['id'];
+                
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
@@ -199,22 +201,11 @@ class EventController extends \W\Controller\Controller
 
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
-                    $currentFolder = "/public/upload/";
-
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
                     
-
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => $currentFolder.$targetName
-                    ], true);
-
-                    $mediaId = $getId['id'];
+                    $currentFolder = "/public/upload/";
+                    
+                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
+                    
 
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
@@ -227,6 +218,21 @@ class EventController extends \W\Controller\Controller
 
             if(count($errorMessages)== 0){
                 
+                
+                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                 // Insert Image Metadata in DB
+                $getId = $eventPicture->insert([
+                'filename' => $targetName,
+                'filesize' => $_FILES['file']['size'],
+                'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                'title'    => $file['filename'],
+                'path'     => $currentFolder.$targetName
+                ], true);
+
+                $mediaId = $getId['id'];
+                
+                // Insert event data in DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
