@@ -18,12 +18,12 @@ class MemberModel extends \W\Model\Model
     public static function getPaidStatus($member)
     {
         return ($member['paid']) ? 
-                    '<span class="btn btn-success col-lg-11" style="margin-top: 2%;margin-left: 4%;margin-bottom: 5%">
+                    '<span class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-xs-8 col-xs-push-2 center-block text-center btn btn-success btn-sm hidden-print">
                         Paiement validé
-                    </span>' :
-                    '<span class="btn btn-warning col-lg-11" style="margin-top: 2%;margin-left: 4%;margin-bottom: 5%">
+                    </span><br>' :
+                    '<span class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-xs-8 col-xs-push-2 center-block btn btn-warning btn-sm hidden-print">
                         Paiement en attente
-                    </span>';
+                    </span><br>';
     }
 
     // Check if email already exists for members

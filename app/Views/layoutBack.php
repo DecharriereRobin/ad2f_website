@@ -7,6 +7,7 @@
     <title>Association des 2 faubourgs - Administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
     <!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -39,7 +40,7 @@
     <!-- Main -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
                 <!-- Left column --><a href="http://localhost/wf3/ad2f/public/backoffice/accueil"><i class="glyphicon glyphicon-home"></i> Home</a>
                 <hr>
                 <ul class="nav nav-stacked">
@@ -98,10 +99,13 @@
                         </ul>
                     </li>
                 </ul>
-                <hr> 
-                </div>
-
-            <div class="text-center col-sm-9"> <strong><i class="glyphicon glyphicon-edit"></i> <?= $this->e($title) ?></strong>
+                <hr> </div>
+            <div class="title"><i class="glyphicon glyphicon-edit"></i>
+                <?= $this->e($title) ?>
+            </div>
+            <br>
+            <br>
+            <div>
                 <?= $this->section('main_content'); ?>
             </div>
             <!--/col-span-9-->

@@ -25,7 +25,7 @@
 		['GET|POST', '/backoffice/admin/delete/[i:id]', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
 		['GET|POST', '/backoffice/admin/forgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
 		['GET|POST', '/backoffice/admin/newPassword/[*:token]', 'Backoffice\\Admin#newpassword', 'backoffice_newpassword'],
-		['GET|POST', '/backoffice/admin/login' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
+		['GET|POST', '/backoffice/admin/login' , 'Backoffice\\Admin#login', 'backoffice_AdminLogin'],
 		['GET|POST', '/backoffice/admin/logout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
 		//MEMBERS
 		['GET|POST', '/backoffice/member/create'        , 'Backoffice\\Member#memberCreate', 'backoffice_MemberCreate'],
