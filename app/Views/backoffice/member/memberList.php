@@ -1,18 +1,17 @@
 <?php $this->layout('layoutBack', ['title' => 'Liste des membres']) ?>
     <?php $this->start('main_content') ?>
-        <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
-            <?php unset($_SESSION['message']); ?>
-                <?php echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';?>
-                    <div id="imprimerlaliste">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-9 col-xs-9  col-lg-9">
+        <?php echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';?>
+            <div id="imprimerlaliste">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9 col-xs-9  col-lg-9">
+                            <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
+                                <?php unset($_SESSION['message']); ?>
                                     <div class="form-group">
                                         <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 col-lg-5 col-lg-offset-1 hidden-print">
                                             <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MemberCreate') ?>'" class="btn btn-success btn-sm">Ajouter un membre</button>
                                         </div>
                                         <div class="col-md-6 col-xs-6 col-lg-6 hidden-print hidden-print">
-                                            
                                             <button class="btn btn-info btn-sm hidden-print" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
                                         </div>
                                     </div>
@@ -36,7 +35,7 @@
                                                     <h4>Paiement</h4></th>
                                                 <th class="text-center">
                                                     <h4>Date de paiement</h4></th>
-                                                <th class="text-center">
+                                                <th class="text-center hidden-print">
                                                     <h4>Actions</h4></th>
                                             </tr>
                                         </thead>
@@ -68,8 +67,8 @@
 ?>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <?php $this->stop('main_content') ?>
+                </div>
+            </div>
+            <?php $this->stop('main_content') ?>

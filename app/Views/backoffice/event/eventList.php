@@ -1,33 +1,34 @@
 <?php $this->layout('layoutBack', ['title' => 'Liste des évenements']) ?>
     <?php $this->start('main_content') ?>
-        <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
-            <?php unset($_SESSION['message']); ?>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-9 col-xs-9  col-lg-9">
-                            <table class="table table-hover table-responsive table-striped">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 col-xs-9  col-lg-9">
+                    <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
+                        <?php unset($_SESSION['message']); ?>
+                            <table class="table table-responsive table-striped">
                                 <thead>
-                                    <th class="text-center"><h4>N°</h4></th>
-                                    <th class="text-center"><h4>Titre</h4></th>
-                                    <th class="text-center"><h4>Date</h4></th>
-                                    <th class="text-center"><h4>Categorie</h4></th>
-                                    <th class="text-center"><h4>Actions</h4></th>
+                                    <th class="text-center">
+                                        <h4>N°</h4></th>
+                                    <th class="text-center">
+                                        <h4>Titre</h4></th>
+                                    <th class="text-center">
+                                        <h4>Date</h4></th>
+                                    <th class="text-center">
+                                        <h4>Categorie</h4></th>
+                                    <th class="text-center">
+                                        <h4>Actions</h4></th>
                                 </thead>
                                 <tbody>
                                     <?php foreach($events as $event){ ?>
                                         <tr>
                                             <td class="text-center">
-                                                <h5><?= $event['id'] ?></h5>
-                                            </td>
+                                                <h5><?= $event['id'] ?></h5> </td>
                                             <td class="text-center">
-                                                <h5><?= ucfirst($event['title']) ?></h5>
-                                            </td>
+                                                <h5><?= ucfirst($event['title']) ?></h5> </td>
                                             <td class="text-center">
-                                                <h5><?= (new \DateTime($event['date']))->format('d-m-Y'); ?></h5>
-                                            </td>
+                                                <h5><?= (new \DateTime($event['date']))->format('d-m-Y'); ?></h5> </td>
                                             <td class="text-center">
-                                                <h5><?= ucfirst($event['category']) ?></h5>
-                                            </td>
+                                                <h5><?= ucfirst($event['category']) ?></h5> </td>
                                             <td class="text-center"> <a href="<?= $this->url('backoffice_EventEdit', ['id' => $event['id']])?>" class="btn btn-primary btn-sm">Modifier</a> <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-danger btn-sm">Supprimer</a> </td>
                                         </tr>
                                         <?php } ?>
@@ -68,12 +69,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
-                                    <button onclick="window.location.href='<?= $this->url('backoffice_EventCreate') ?>'" class="center-block btn btn-primary btn-sm">Créer un nouvel évenement</button>
+                                    <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 col-lg-3 col-lg-offset-3">
+                                        <button onclick="window.location.href='<?= $this->url('backoffice_EventCreate') ?>'" class="center-block btn btn-primary btn-sm">Créer un nouvel évenement</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
-                <?php $this->stop('main_content') ?>
+            </div>
+        </div>
+        <?php $this->stop('main_content') ?>

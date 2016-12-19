@@ -1,11 +1,12 @@
 <?php $this->layout('layoutBack', ['title' => 'Ajouter des membres à la liste des participants de la braderie']) ?>
     <?php $this->start('main_content') ?>
         <!--formulaire d'ajout d'une réunion -->
-        <?= $message ?>
+        
             <div class="container">
                 <div class="row">
                     <form action="<?php $this->url('backoffice_GarageCreate')?>" method="POST">
                         <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
+                           <?= $message ?>
                             <div class="form-group text-center">
                                 <label for="firstname">Prénom : </label>
                                 <input id="firstname" name="firstname" type="text" class="form-control" /> </div>
