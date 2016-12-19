@@ -75,8 +75,6 @@ class Resize
         
         // Crop the previous with user's define
         $resizeimg = $imagine ->thumbnail($thumbBox, $mode);
-        //$resizeimg = $imagine ->resize($thumbBox);
-        var_dump((max($targetWidth - $box->getWidth(),0))/2,0);
     
         
         $resizeimg ->crop($cropBy, $box)

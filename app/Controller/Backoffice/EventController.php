@@ -25,7 +25,7 @@ class EventController extends \W\Controller\Controller
 
 	public function eventList($page=1)
 	{
-        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
 
 
@@ -104,7 +104,7 @@ class EventController extends \W\Controller\Controller
                     $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
                     Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
                     
-                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 675);
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
 
                     // Insert Image Metadata in DB
                     $getId = $eventPicture->insert([

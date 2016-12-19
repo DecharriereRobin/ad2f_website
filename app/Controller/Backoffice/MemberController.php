@@ -88,14 +88,14 @@ class MemberController extends \W\Controller\Controller
 				}
 			}
 
-			$this->show('backoffice/member/MemberCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
+			$this->show('backoffice/MemberCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 		}
 
 		// Member's List
 		public function memberList()
 		{
 			$members = new Member();
-			$this->show('backoffice/member/memberList',
+			$this->show('backoffice/memberList',
 				[
 					// Retourne les caractérisitiques de tous les membres
 					'members'=>$members->findAll('id'),
@@ -160,7 +160,7 @@ class MemberController extends \W\Controller\Controller
 
 			}
 
-			$this->show('backoffice/member/memberEdit', ['member' => $member->find($id), 'message'=>$message]);
+			$this->show('backoffice/memberEdit', ['member' => $member->find($id), 'message'=>$message]);
 		}
 
 

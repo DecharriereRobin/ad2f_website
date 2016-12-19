@@ -22,9 +22,10 @@ $('[data-toggle=collapse]').click(function(){
     
     /* Preview Image Thumbnail */
    $("input[type=file]").on('change',function(e){
-    var output = document.getElementById('thumbnail');
-    thumbnail.src = URL.createObjectURL(event.target.files[0]);
-    thumbnail.style = "";
+    var output = $(this).parent().parent().next().find('img');
+    output.attr('src', URL.createObjectURL(event.target.files[0]));
+    output.show();
+    
     
     /* Display File Information */
     $('#upload-file-info').html($(this).val())

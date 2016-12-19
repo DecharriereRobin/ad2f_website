@@ -23,7 +23,7 @@
 
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
-        //['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
+        ['GET|POST', '/backoffice/slider', 'Backoffice\\Slider#sliderSettings', 'backoffice_Slider'],
 
 		//Admin
 
