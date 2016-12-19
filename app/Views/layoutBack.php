@@ -5,7 +5,8 @@
 		<meta charset="utf-8">
 		<title>Association des 2 faubourgs - Administration</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+        <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
+		<link rel="stylesheet" href="<?= $this->assetUrl('../../public/assets/css/backoffice/style.css') ?>">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -29,7 +30,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user pull-right"></i> Admin <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li><a href="#">My Profile</a></li>
                     </ul>
@@ -45,26 +46,26 @@
 <!-- Main -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <!-- Left column -->
             <a href=""><i class="glyphicon glyphicon-home"></i> Home</a>
 
             <hr>
 
             <ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#members" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Adhérents <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#members" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Adhérents <i class=" chevron glyphicon glyphicon-chevron-right pull-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="members">
 
-                        <li <?= ($w_current_route == 'backoffice_Memberlist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Memberlist') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents </a></li>
                         
-                        <li <?= ($w_current_route == 'backoffice_Membercreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info">4</span></a></li>
+                        <li <?= ($w_current_route == 'backoffice_Membercreate') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent </a></li>
                         
                     </ul>
                 </li>
             </ul>
             
             <ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#events" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-bullhorn"></i> Évenements <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#events" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-bullhorn"></i> Évenements <i class=" chevron glyphicon glyphicon-chevron-right pull-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="events">
 
                         <li <?= ($w_current_route == 'backoffice_EventList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventList')?>">Liste des événements</a></li>
@@ -76,7 +77,7 @@
             </ul>
             
             <ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#agenda" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Réunions de l'association <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#agenda" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Réunions de l'asso <i class=" chevron glyphicon glyphicon-chevron-right pull-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="agenda">
 
                         <li <?= ($w_current_route == 'backoffice_MeetingsList') ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingsList')?>">Réunion du CA</a></li>
@@ -88,7 +89,7 @@
             </ul>
             
             <ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#interactiveMap" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-map-marker"></i> Carte Interactive<i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#interactiveMap" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-map-marker"></i> Carte Interactive<i class=" chevron glyphicon glyphicon-chevron-right pull-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="interactiveMap">
                         
                     </ul>
@@ -96,7 +97,7 @@
             </ul>
             
             <ul class="nav nav-stacked">
-                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#bonCoin" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-gift"></i> Le Bon Coin<i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
+                <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#bonCoin" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-gift"></i> Le Bon Coin<i class=" chevron glyphicon glyphicon-chevron-right pull-right"></i></a>
                     <ul class="nav nav-stacked collapse" expanded="false" id="bonCoin">
                         
                     </ul>
@@ -104,7 +105,7 @@
             </ul>
             
             <ul class="nav nav-stacked">
-                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu2"><i class="glyphicon glyphicon-user"></i> Administration <i class="glyphicon glyphicon-chevron-down"></i></a>
+                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu2"><i class="glyphicon glyphicon-user"></i> Administration <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
                     <ul class="nav nav-stacked collapse in" id="userMenu2">
 
                         <li><a href=""><i class="glyphicon glyphicon-off"></i> Déconnecter</a></li>
@@ -115,24 +116,25 @@
 
             <hr>
         </div>
-        <!-- /col-3 -->
-        <div class="col-sm-9">
+        <!-- /col-2 -->
+        <div class="col-sm-10">
+        <div class="row">
+            <div class="col-lg-push-3 col-sm-6">
+                <a href="#">
+                    <strong>
+                        <i class="glyphicon glyphicon-edit"></i> <?= $this->e($title) ?>
+                    </strong>
+                </a>
+            </div>
 
-            <a href="#"><strong><i class="glyphicon glyphicon-edit"></i> <?= $this->e($title) ?></strong></a>
-
-            <div class="row">
                 <!-- center left-->
-                <div class="col-md-9">
+                <div class="col-sm-12">
                     <?= $this->section('main_content'); ?>
-
                 </div>
                 <!--/col-span-6-->
-            </div>
-            <!--/row-->
             <hr>
-        </div>
-        <!--/col-span-9-->
-    </div>
+        </div> <!--/row-->
+    </div> <!--/col-span-10-->
 </div>
 <!-- /Main -->
 

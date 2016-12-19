@@ -17,7 +17,13 @@ class MemberModel extends \W\Model\Model
     // Members Paid Status
     public static function getPaidStatus($member)
     {
-        return ($member['paid']) ? 'Validé' : 'En attente';
+        return ($member['paid']) ? 
+                    '<span class="btn btn-success col-lg-11" style="margin-top: 2%;margin-left: 4%;margin-bottom: 5%">
+                        Paiement validé
+                    </span>' :
+                    '<span class="btn btn-warning col-lg-11" style="margin-top: 2%;margin-left: 4%;margin-bottom: 5%">
+                        Paiement en attente
+                    </span>';
     }
 
     // Check if email already exists for members
@@ -31,7 +37,7 @@ class MemberModel extends \W\Model\Model
         return $sth->fetchColumn();
     }
 
-
+    
 
 
 

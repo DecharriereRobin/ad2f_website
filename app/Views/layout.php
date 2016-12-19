@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 		<header>
-			<h1> <?= $this->e($title) ?></h1>
+            <?= $this->layout('layoutHeader') ?>
 		</header>
 
 		<section>

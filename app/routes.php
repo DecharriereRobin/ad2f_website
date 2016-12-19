@@ -24,13 +24,15 @@
 
 
 		//Admin
-		['GET|POST', '/backoffice/adminView',          'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
-		['GET|POST', '/backoffice/adminCreate',        'Backoffice\\Admin#create', 	  'backoffice_AdminCreate'],
-		['GET|POST', '/backoffice/adminEdit/[i:id]',   'Backoffice\\Admin#edit',   	  'backoffice_AdminEdit'],
-		['GET|POST', '/backoffice/adminDelete/[i:id]', 'Backoffice\\Admin#delete', 	  'backoffice_AdminDelete'],
-		['GET|POST', '/backoffice/adminForgot',        'Backoffice\\Admin#forgot', 	  'backoffice_AdminForgot'],
-		['GET|POST', '/backoffice/adminLogin' ,        'Backoffice\\Admin#login' , 	  'backoffice_AdminLogin'],
-		['GET|POST', '/backoffice/adminLogout',        'Backoffice\\Admin#logout', 	  'backoffice_AdminLogout'],
+		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
+		['GET|POST', '/backoffice/admin/create', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],
+		['GET|POST', '/backoffice/admin/edit/[i:id]', 'Backoffice\\Admin#edit', 'backoffice_AdminEdit'],
+		['GET|POST', '/backoffice/admin/delete/[i:id]', 'Backoffice\\Admin#delete', 'backoffice_AdminDelete'],
+		['GET|POST', '/backoffice/admin/forgot', 'Backoffice\\Admin#forgot', 'backoffice_AdminForgot'],
+		['GET|POST', '/backoffice/admin/newPassword/[*:token]', 'Backoffice\\Admin#newpassword', 'backoffice_newpassword'],
+		['GET|POST', '/backoffice/admin/login' , 'Backoffice\\Admin#login' , 'backoffice_AdminLogin'],
+		['GET|POST', '/backoffice/admin/logout', 'Backoffice\\Admin#logout', 'backoffice_AdminLogout'],
+
 
 		//MEMBER
 		['GET|POST', '/backoffice/member/create'        , 'Backoffice\\Member#memberCreate', 'backoffice_MemberCreate'],
