@@ -2,7 +2,6 @@
 namespace Controller\Backoffice;
 use \W\Controller\Controller as Controller;
 use Model\PlaceModel as Place;
-
 class PlaceController extends Controller
 {
     public function placeView(){
@@ -24,8 +23,9 @@ class PlaceController extends Controller
                     'content' => $_POST['content'],
                     'address' => $_POST['address'],
                     'categorie' =>  $_POST['categorie'],
+                    'lat' =>  $_POST['lat'],
+                    'lng' =>  $_POST['lng'],
                 ],true);
-
                 $message = "<div class='alert alert-success'>Le nouveau lieu a bien été crée.</div>";
                 }else{
                     $message = "<div class='alert alert-danger'>Le nouveau lieu du CA n'a pas été créé.</div>";
@@ -34,7 +34,6 @@ class PlaceController extends Controller
         }
         $this->show('backoffice/place/placeCreate', ['message'=>$message]);
     } // fin public function create
-
     public function placeDelete($id)
 	{
         //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
@@ -55,7 +54,9 @@ class PlaceController extends Controller
                     'titre' => trim($_POST['titre']),
                     'content' => $_POST['content'],
                     'address' => $_POST['address'],
-                    'categorie' =>$_POST['categorie']
+                    'categorie' =>$_POST['categorie'],
+                    'lat' =>  $_POST['lat'],
+                    'lng' =>  $_POST['lng']
                 ],$id,true);
 				//redirection vers page de vue
 				//$this->redirectToRoute('backoffice_AdminView');
@@ -66,8 +67,5 @@ class PlaceController extends Controller
 			}
 	//	afficher la vue
 	$this->show('backoffice/place/placeEdit', ['place' => $place->find($id), 'message'=>$message]);
-
 	}
-
-
 }// fin Class

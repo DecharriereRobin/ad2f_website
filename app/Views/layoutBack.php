@@ -114,6 +114,7 @@
     <!-- /Main -->
     <footer class="text-center"></footer>
     <!-- script references -->
+
     <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/script.js') ?>"></script>

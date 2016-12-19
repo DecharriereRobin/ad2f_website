@@ -15,6 +15,13 @@
                             <div class="form-group">
                                 <label class="control-label" for="address">Adresse :</label>
                                 <input id="address" name="address" type="text" class="form-control" placeholder="Adresse"> </div>
+                            <p> Pour trouver les cordonnées d'un lieu, vous pouvez utiliser le lieu suivant <a href='http://www.coordonnees-gps.fr/'>lien</a></p>
+                            <div class="form-group">
+                                <label for="lat">lattitude :</label>
+                                <input id="lat" name="lat" type="text" class="form-control" placeholder="lattitude"> </div>
+                            <div class="form-group">
+                                <label for="lng">Longitude :</label>
+                                <input id="lng" name="lng" type="text" class="form-control" placeholder="Longitude"> </div>
                             <div class="form-group">
                                 <label class="control-label" for="categorie">Catégorie</label>
                                 <select class="form-control" id="categorie" name="categorie">
@@ -23,10 +30,12 @@
                                     <option value="Fete-de-quartier">Sport</option>
                                 </select>
                             </div>
-                            <button class="center-block btn btn-primary btn-sm" name="createPlace" class="btn btn-default">Ajouter un lieu</button><br>
+                            <button class="center-block btn btn-primary btn-sm" name="createPlace" class="btn btn-default">Ajouter un lieu</button>
+                            <br>
                             <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_placeView') ?>'" class="center-block btn btn-info btn-sm">Retour à la liste des lieux</button>
                         </form>
                 </div>
             </div>
         </div>
-        <?php $this->stop('main_content') ?>
+       
+                        <?php $this->stop('main_content') ?>

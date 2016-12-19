@@ -7,14 +7,15 @@
                         <div class="col-md-9 col-xs-9  col-lg-9">
                             <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
                                 <?php unset($_SESSION['message']); ?>
-                                    <div class="form-group">
-                                        <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 col-lg-5 col-lg-offset-1 hidden-print">
-                                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MemberCreate') ?>'" class="btn btn-success btn-sm">Ajouter un membre</button>
-                                        </div>
-                                        <div class="col-md-6 col-xs-6 col-lg-6 hidden-print hidden-print">
-                                            <button class="btn btn-info btn-sm hidden-print" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
-                                        </div>
+                                   <div class="form-group">
+                                    <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 col-lg-5 col-lg-offset-1 hidden-print">
+                                        <button class="btn btn-info btn-sm" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
                                     </div>
+                                    <div class="col-md-6 col-xs-6 col-lg-6 hidden-print">
+                                        <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_MemberCreate') ?>';" class=" btn btn-success btn-sm">Ajouter un participant </button>
+                                    </div><br>
+                                </div>
+                                    
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <!-- En-tête du tableau -->

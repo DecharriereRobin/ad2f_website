@@ -30,6 +30,7 @@
                         </table>
                 </div>
                 <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
+                   <?= $message ?>
                     <form action="<?php $this->url('backoffice_MeetingEdit')?>" method="POST">
                         <div class=" text-center form-group">
                             <label for="date">Modifier la date de la réunion : </label>

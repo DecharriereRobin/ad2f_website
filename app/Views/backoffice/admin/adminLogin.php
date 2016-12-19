@@ -11,7 +11,6 @@
                             <label class="control-label col xs-4" for="password">Mot de passe :</label>
                             <input id="password" name="password" type="password" class="form-control" placeholder="Votre password de connexion"> </div>
                         <button name="LoginAdmin" class="btn btn-info btn-sm" placeholder="Votre mot de passe de connexion">Connexion</button>
-                       
                          <a href="forgot" class="btn btn-success btn-sm" >mot de passe oublié ?</a>
                     </div>
                 </div>

@@ -2,25 +2,31 @@
 
 <?php $this->start('main_content') ?>
 
-<?php $this->stop('main_content') ?>
-
-
-<?php $this->start('script_content') ?>
+<!-- bouton categorie -->
+<?php $categorie='';
+    foreach($places as $place){
+        if ($categorie!=$place['categorie']){
+        $categorie=$place['categorie'];
+       echo '<form action="map_Show" method="get">';
+       echo '<button type="submit" name="essai">'.$place['categorie'].'</button>';
+       echo '</form>';
+                        }
+   }
+?>
 <p>Liste des lieux</p>
-<?php foreach($places as $place){ ?>
-    <tr>
-        <td><?php echo ucfirst($place['categorie'])                   ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ucfirst($place['titre'])               ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ucfirst($place['content'])                ?></td>
-        <?php echo "<br /" ?>
-        <td><?php echo ($place['address'])                 ?></td>
-        <?php echo "<br /" ?>
-        
-    </tr>
+<?php $categorie='';
+ foreach($places as $place){
+    if ($categorie!=$place['categorie']){
+         $categorie=$place['categorie'];
+        echo '<h1>'.$place['categorie'].'</h1>';
+    }
+        echo '<hr></hr>';
+		echo $place['titre'];
+        echo "<br />";
+        echo $place['content'];
+        echo "<br />";
+        echo $place['address'];
+        echo '<input type="button" id="essai" name "lieu'. $place['id'] . '" value="Voir le lieu sur la carte" onclick="viewplace()">';
+ } ?>
 
-    <?php
-        }
-    ?>
-<?php $this->stop('script_content') ?>
+<?php $this->stop('main_content') ?>

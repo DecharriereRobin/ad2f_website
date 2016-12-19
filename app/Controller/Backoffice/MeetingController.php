@@ -46,6 +46,7 @@ class MeetingController extends \W\Controller\Controller
             $meetings = new Meeting();
             $message = "";
             if(isset($_POST['editMeeting'])){
+                var_dump('salut');
             if(!empty($_POST['date']) && !empty($_POST['address']) && !empty($_POST['content'])){
                 $meetings->update([
                     'date' => trim($_POST['date']),

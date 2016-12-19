@@ -29,7 +29,8 @@
                                     <label for="date">Date </label>
                                     <input id="date" name="date" type="date" class="form-control calendar" value="<?= $dateTime ?>" /> </div>
                             <br>
-                            <button class="btn btn-primary center-block" placeholder="Modifier" name="editEvent">Modifier l'évenement</button>
+                            <button class="btn btn-primary btn-sm center-block" placeholder="Modifier" name="editEvent">Modifier l'évenement</button><br>
+                            <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_EventList') ?>';" class=" btn btn-info btn-sm center-block">Revenir à la liste </button>
                         </div>
                     </div>
                 </div>

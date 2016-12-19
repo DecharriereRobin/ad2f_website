@@ -3,9 +3,10 @@
         <form action="<?php $this->url('backoffice_AdminCreate') ?>" method="POST" class="form-horizontal">
             <div class="container-fluid">
                 <div class="row">
+                   <h4>Inscrivez votre mail puis cliquez sur valider pour recevoir votre mot de passe par mail</h4>
                     <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
                         <br>
-                        <h4>Inscrivez votre mail puis cliquez sur valider pour recevoir votre mot de passe par mail</h4>
+                        
                         <br>
                         <div class="form-group">
                             <label class="control-label" for="email"></label>

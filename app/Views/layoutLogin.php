@@ -6,7 +6,7 @@
     <title>Association des 2 faubourgs - Administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
-    <!-- <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>"> -->
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
     <!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -23,6 +23,7 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/script.js') ?>"></script>
     <?= $this->section('js') ?>
 </body>
 

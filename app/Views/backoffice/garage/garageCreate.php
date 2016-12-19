@@ -7,7 +7,7 @@
                     <form action="<?php $this->url('backoffice_GarageCreate')?>" method="POST">
                         <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
                            <?= $message ?>
-                            <a href="<?= $this->url('backoffice_EventList') ?>" class="btn btn-info center-block"> Retour à la liste des évenements</a>
+                            
                             <div class="form-group text-center">
                                 <label for="firstname">Prénom : </label>
                                 <input id="firstname" name="firstname" type="text" class="form-control" /> </div>
@@ -38,7 +38,8 @@
                             <div class="form-group text-center">
                                 <label class="control-label" for="total_amount_paid">Montant total payé : </label>
                                 <input id="total_amount_paid" name="total_amount_paid" class="form-control"> </div>
-                            <button class="btn btn-success btn-sm center-block" name="createGarage">Inserer</button>
+                            <button class="btn btn-success btn-sm center-block" name="createGarage">Inserer</button><br>
+                            <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageList') ?>';" class=" btn btn-info btn-sm center-block">Revenir à la liste </button>
                         </div>
                     </form>
                 </div>
