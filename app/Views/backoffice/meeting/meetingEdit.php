@@ -4,7 +4,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9 col-xs-9 col-lg-9">
-                    <?= $message ?>
                         <table class="table table-striped">
                             <thead>
                                 <!-- En-tête du tableau -->
@@ -48,6 +47,8 @@
                             </textarea>
                         </div>
                         <div class="form-group">
+                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MeetingList') ?>'" class="center-block btn btn-info btn-sm">Retour à la liste des réunions</button>
+                            <br>
                             <button class="center-block btn btn-warning btn-sm" name="editMeeting">Modifier la ligne</button>
                         </div>
                     </form>

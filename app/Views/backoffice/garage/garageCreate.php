@@ -7,6 +7,7 @@
                     <form action="<?php $this->url('backoffice_GarageCreate')?>" method="POST">
                         <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
                            <?= $message ?>
+                            <a href="<?= $this->url('backoffice_EventList') ?>" class="btn btn-info center-block"> Retour à la liste des évenements</a>
                             <div class="form-group text-center">
                                 <label for="firstname">Prénom : </label>
                                 <input id="firstname" name="firstname" type="text" class="form-control" /> </div>

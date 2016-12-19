@@ -9,6 +9,14 @@
                     <div class="row">
                         <div class="col-md-9 col-xs-9  col-lg-9">
                             <div id="imprimerlaliste" class="imprimerlaliste">
+                               <div class="form-group">
+                                    <div class="col-md-5 col-xs-5  col-lg-5">
+                                        <button class="btn btn-success btn-sm center-block hidden-print" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6  col-lg-6 hidden-print">
+                                        <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageCreate') ?>';" class="center-block btn btn-success btn-sm">Ajouter un participant </button>
+                                    </div><br>
+                                </div>
                                 <table class="table table-responsive table-striped center-block">
                                     <thead>
                                         <!-- En-tête du tableau -->
@@ -67,14 +75,7 @@
                                             <?php } ?>
                                     </tbody>
                                 </table>
-                                <div class="form-group">
-                                    <div class="col-md-5 col-xs-5  col-lg-5">
-                                        <button class="btn btn-success btn-sm center-block hidden-print" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6  col-lg-6 hidden-print">
-                                        <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageCreate') ?>';" class="center-block btn btn-success btn-sm">Ajouter un participant </button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -3,9 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9 col-xs-9  col-lg-9">
-                    <div class="form-group">
-                        <button class="btn btn-success btn-sm center-block" onclick="window.location.href ='<?= $this->url('backoffice_placeCreate')?>'" >Ajouter un nouveau lieu</button>
-                    </div>
+                    
+                        
+                    
                     <table class="table table-responsive table-striped">
                         <thead>
                             <!-- En-tête du tableau -->
@@ -45,6 +45,7 @@
 ?>
                         </tbody>
                     </table>
+                    <button class="btn btn-success btn-sm center-block" onclick="window.location.href ='<?= $this->url('backoffice_placeCreate')?>'" >Ajouter un nouveau lieu</button>
                 </div>
             </div>
         </div>

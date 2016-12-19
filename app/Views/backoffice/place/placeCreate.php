@@ -10,7 +10,7 @@
                                 <label class="control-label" for="titre">Titre :</label>
                                 <input id="titre" name="titre" type="text" class="form-control" placeholder="titre"> </div>
                             <div class="form-group">
-                                <label class="control-label" for="content">description :</label>
+                                <label class="control-label" for="content">Description :</label>
                                 <input id="content" name="content" type="text" class="form-control" placeholder="description"> </div>
                             <div class="form-group">
                                 <label class="control-label" for="address">Adresse :</label>
@@ -23,7 +23,8 @@
                                     <option value="Fete-de-quartier">Sport</option>
                                 </select>
                             </div>
-                            <button class="center-block btn btn-primary" name="createPlace" class="btn btn-default">Ajouter un lieu</button>
+                            <button class="center-block btn btn-primary btn-sm" name="createPlace" class="btn btn-default">Ajouter un lieu</button><br>
+                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_placeView') ?>'" class="center-block btn btn-info btn-sm">Retour à la liste des lieux</button>
                         </form>
                 </div>
             </div>
