@@ -9,7 +9,6 @@ class PlaceController extends Controller
     public function placeView(){
         //$this->allowTo('admin');
 		$places = new Place();
-
 		$this->show('backoffice/place/PlaceView', ['places' => $places->findAll()]);
     }
     public function create()
@@ -26,6 +25,8 @@ class PlaceController extends Controller
                     'content' => $_POST['content'],
                     'address' => $_POST['address'],
                     'categorie' =>  $_POST['categorie'],
+                    'lat' =>  $_POST['lat'],
+                    'lng' =>  $_POST['lng'],
                 ],true);
 
                 $message = "<div class='alert alert-success'>Le nouveau lieu a bien été crée.</div>";
@@ -57,7 +58,9 @@ class PlaceController extends Controller
                     'titre' => trim($_POST['titre']),
                     'content' => $_POST['content'],
                     'address' => $_POST['address'],
-                    'categorie' =>$_POST['categorie']
+                    'categorie' =>$_POST['categorie'],
+                    'lat' =>  $_POST['lat'],
+                    'lng' =>  $_POST['lng']
                 ],$id,true);
 				//redirection vers page de vue
 				//$this->redirectToRoute('backoffice_AdminView');

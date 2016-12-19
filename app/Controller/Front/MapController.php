@@ -11,4 +11,12 @@ class MapController extends \W\Controller\Controller
 		$this->show('front/map', ['places' => $places->findAll($orderBy = 'categorie')]);
     }
 
+    public function Json()
+    {
+        $places = new Place();
+        echo json_encode($places->findAll());
+    }
+
+
+
 }

@@ -20,6 +20,7 @@
 
 	   //maps
 	   ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
+	   ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
 
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],

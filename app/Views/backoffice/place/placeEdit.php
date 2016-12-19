@@ -19,6 +19,14 @@
             <input value="<?= $place['address'] ?>" id="address" name="address" type="text" class="form-control" >
         </div>
         <div class="form-group">
+            <label for="lat">lattitude :</label>
+            <input value="<?= $place['lat'] ?>" id="lat" name="lat" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="lng">longitude :</label>
+            <input value="<?= $place['lng'] ?>" id="lng" name="lng" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
             <label for="categorie">Catégorie</label>
             <select class="form-control" id="categorie" name="categorie">
                 <option <?php echo $place['categorie']== 'Lieux municipaux' ?'selected="selected' : NULL ?> value="Lieux municipaux">Lieux municipaux</option>
