@@ -110,9 +110,6 @@ class EventController extends \W\Controller\Controller
                     // Set unique target name
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
                     
-                    // Set destination PATH
-                    $currentFolder = "/public/upload/";
-                    
                     // Get temporary uploaded image
                     $sourceFile = $_FILES['file']['tmp_name']; // Set upload Folder
                     
@@ -126,25 +123,31 @@ class EventController extends \W\Controller\Controller
             }
             // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
-                // Process Image for compression with the same ratio to fit event specification
-                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
                 
-                // To use if you prefer resize and crop the image
-                //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
+                // If User choose to Add an image to Event. Image Metadata is inserted to DB
+                if(isset($targetName) && isset($sourceFile)){
+                    // Set destination PATH
+                    $currentFolder = "/public/upload/";
+                    // Process Image for compression with the same ratio to fit event specification
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
+                    // To use if you prefer resize and crop the image
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
+                   
+                    // Insert Image Metadata in Media DB
+                    $getId = $eventPicture->insert([
+                        'filename' => $targetName,
+                        'filesize' => $_FILES['file']['size'],
+                        'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                        'title'    => $file['filename'],
+                        'path'     => $currentFolder.$targetName
+                        ], true);
                 
-                // Insert Image Metadata in Media DB
-                $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => $currentFolder.$targetName
-                    ], true);
+                    // Get Last Insert ID
+                    $mediaId = $getId['id'];
+                }
                 
-                // Get Last Insert ID
-                $mediaId = $getId['id'];
-                
-                // Insert Image Metadata in Media DB
+                // Insert event data in event DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
@@ -227,8 +230,6 @@ class EventController extends \W\Controller\Controller
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
                     
-                    // Set destination PATH
-                    $currentFolder = "/public/upload/";
                     
                     // Get temporary uploaded image
                     $sourceFile = $_FILES['file']['tmp_name']; 
@@ -244,25 +245,29 @@ class EventController extends \W\Controller\Controller
 
             // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
-                // Process Image for compression with the same ratio to fit event specification
-                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                if(isset($targetName) && isset($sourceFile)){
+                    // Set destination PATH
+                    $currentFolder = "/public/upload/";
+                    // Process Image for compression with the same ratio to fit event specification
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
+                    // To use if you prefer resize and crop the image
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
                 
-                // To use if you prefer resize and crop the image
-                //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
+                     // Insert Image Metadata in DB
+                    $getId = $eventPicture->insert([
+                    'filename' => $targetName,
+                    'filesize' => $_FILES['file']['size'],
+                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                    'title'    => $file['filename'],
+                    'path'     => $currentFolder.$targetName
+                    ], true);
+
+                    // Get Last Insert ID
+                    $mediaId = $getId['id'];
+                }
                 
-                 // Insert Image Metadata in DB
-                $getId = $eventPicture->insert([
-                'filename' => $targetName,
-                'filesize' => $_FILES['file']['size'],
-                'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                'title'    => $file['filename'],
-                'path'     => $currentFolder.$targetName
-                ], true);
-                
-                // Get Last Insert ID
-                $mediaId = $getId['id'];
-                
-                // Insert event data in DB
+                // Update media related to event in event DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),

@@ -65,7 +65,7 @@ $('[data-toggle=collapse]').click(function(){
 	dayNamesShort: [ "dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam." ],
 	dayNamesMin: [ "D","L","M","M","J","V","S" ],
 	weekHeader: "Sem.",
-	
+	dateFormat: 'yy-mm-dd',
 	firstDay: 1,
 	isRTL: false,
 	showMonthAfterYear: false,
@@ -77,8 +77,8 @@ $('[data-toggle=collapse]').click(function(){
     } ) );
     
     $.datepicker.setDefaults($.datepicker.regional["fr"]); // Set to FR-fr
-    $( "#datepicker" ).datepicker();
-    $("#datepicker").datepicker({dateFormat: 'yyyy-mm-dd'});
+    
+    $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
  
     
 });
