@@ -4,7 +4,7 @@
         <form class="form-horizontal" action="<?php $this->url('backoffice_AdminCreate') ?>" method="POST">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
+                    <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset-2">
                          <?= $message ?>
                         <div class="form-group">
                             <label class="control-label" for="firstname">Nom :</label>
@@ -22,9 +22,9 @@
                             <label class="control-label" for="cf-password">Confirmer Mot de passe :</label>
                             <input id="cf-password" name="cf-password" type="password" class="center-block form-control" placeholder="Confirmer Mot de passe"> </div>
                         <div class="form-group">
-                            <button name="createAdmin" class="center-block btn btn-info" placeholder="Ajouter">Ajouter</button>
+                            <button name="createAdmin" class="center-block btn btn-info btn-sm" placeholder="Ajouter">Ajouter</button>
                             <br>
-                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_AdminView') ?>'" class="center-block btn btn-success">liste des administrateurs</button>
+                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_AdminView') ?>'" class="center-block btn btn-success btn-sm">liste des administrateurs</button>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <form action="<?php $this->url('backoffice_GarageCreate')?>" method="POST">
-                        <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
+                        <div class="col-md-4 col-md-offset-3 col-xs-4 col-xs-offset-3 col-lg-4 col-lg-offset 3">
                            <?= $message ?>
                             
                             <div class="form-group text-center">

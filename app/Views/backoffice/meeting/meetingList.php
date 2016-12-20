@@ -3,7 +3,7 @@
         <!-- formulaire de listing d'une réunion -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9 col-xs-9  col-lg-9">
+                <div class="col-md-10 col-xs-10  col-lg-10">
                     <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
                         <?php unset($_SESSION['message']); ?>
                             <div id="imprimerlaliste">

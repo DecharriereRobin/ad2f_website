@@ -17,8 +17,9 @@
         //maps
         ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
         ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
-		//BACKOFFICE
+			//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
+        ['GET|POST', '/backoffice/slider', 'Backoffice\\Slider#sliderSettings', 'backoffice_Slider'],
 		//Admin
 		['GET|POST', '/backoffice/admin/view', 'Backoffice\\Admin#showAdmin', 'backoffice_AdminView'],
 		['GET|POST', '/backoffice/admin/create', 'Backoffice\\Admin#create', 'backoffice_AdminCreate'],

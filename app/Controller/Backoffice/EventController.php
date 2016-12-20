@@ -26,8 +26,10 @@ class EventController extends \W\Controller\Controller
         $nbOfEventByPage = 10;
         $maxPage = ceil($nbOfEvent / $nbOfEventByPage);
         $eventOffset = $nbOfEventByPage * ($page - 1);
-        // Check if requested page is out of limits and redirect to the first page if so.
-        if($page > $maxPage || $page == 0 ){
+        // Check if requested page is out of limits and redirect to previous or to the first page.
+        if($page > $maxPage){ 
+            $this->redirectToRoute('backoffice_EventList', ['page' => $page-1]);
+        } elseif($page == 0){
             $this->redirectToRoute('backoffice_EventList');
         }
         // Return results to View
@@ -35,7 +37,7 @@ class EventController extends \W\Controller\Controller
 	}
 	public function eventCreate()
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         // Variables to diplay error
         $message = "";
@@ -46,7 +48,6 @@ class EventController extends \W\Controller\Controller
         
         if(isset($_POST['createEvent'])){
             $errorMessages = [];
-            $mediaId = NULL;
             
             
             if(empty($_POST['title'])){
@@ -69,34 +70,42 @@ class EventController extends \W\Controller\Controller
                     $eventPicture = new Media();
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeimage($sourceFile, $targetName, 800, 600);
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => __UPLOAD__.$targetName
-                    ], true);
-                    $mediaId = $getId['id'];
+                    $currentFolder = "/public/upload/";
+                    $sourceFile = $_FILES['file']['tmp_name']; // Set upload Folder
+                    
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
                     $errorMessages[] = "Les types d'image acceptés sont: JPEG, JPG, GIF et PNG";
                     $errorMessages[] = "Pour plus d'informations, rendez-vous sur le site:";
                 }
-            } else{
-                $mediaId = NULL;
             }
             // Insert all data in DB
+            //var_dump($_POST); 
             if(count($errorMessages)== 0){
-                $event->insert([
+                
+                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                // Insert Image Metadata in Media DB
+                $getId = $eventPicture->insert([
+                    'filename' => $targetName,
+                    'filesize' => $_FILES['file']['size'],
+                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                    'title'    => $file['filename'],
+                    'path'     => $currentFolder.$targetName
+                    ], true);
+                $mediaId = $getId['id'];
+                
+                $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
-                    'media_id' => $mediaId,
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
-                ], true);
+                ];
+                if(isset($mediaId)){
+                    $data['media_id'] = $mediaId;
+                }
+                $event->insert($data, true);
                 $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
             } else{
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
@@ -106,7 +115,7 @@ class EventController extends \W\Controller\Controller
 	}
 	public function eventEdit($id)
     {
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $eventPicture = new Media();
         // Variables to diplay error
@@ -143,33 +152,43 @@ class EventController extends \W\Controller\Controller
                     $eventPicture = new Media(); 
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+                    
+                    $currentFolder = "/public/upload/";
+                    
                     $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeimage($sourceFile, $targetName, 800, 600);
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => __UPLOAD__.$targetName
-                    ], true);
-                    $mediaId = $getId['id'];
+                    
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
                     $errorMessages[] = "Les types d'image acceptés sont: JPEG, JPG, GIF et PNG";
                     $errorMessages[] = "Pour plus d'informations, rendez-vous sur le site:";
                 }
-            } else{
-                $mediaId = NULL;
             }
             if(count($errorMessages)== 0){
-                $event->update([
-                    'title' => trim($_POST['title']),
-                    'content' => trim($_POST['content']),
-                    'media_id' => $mediaId,
-                    'date' => trim($_POST['date']),
+                
+                
+                Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                 // Insert Image Metadata in DB
+                $getId = $eventPicture->insert([
+                'filename' => $targetName,
+                'filesize' => $_FILES['file']['size'],
+                'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                'title'    => $file['filename'],
+                'path'     => $currentFolder.$targetName
+                ], true);
+                $mediaId = $getId['id'];
+                
+                // Insert event data in DB
+                $data = [
+                    'title'    => trim($_POST['title']),
+                    'content'  => trim($_POST['content']),
+                    'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
-                ], $id, true);
+                ];
+                if(isset($mediaId)){
+                    $data['media_id'] = $mediaId;
+                }
+                $event->update($data, $id, true);
                 $message = "<div class='alert alert-success'>L'évenement a été modifié avec succés.</div>";
             } else {
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
@@ -179,7 +198,7 @@ class EventController extends \W\Controller\Controller
     }
 	public function eventDelete($id, $page = '')
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
         $event->delete($id);
         $_SESSION['message'] = "L'évenement a été supprimé avec succés ";

@@ -1,7 +1,7 @@
-    body {
+body {
     font-family: 'EB Garamond', sans-serif;
     font-size: 1.4em;
-    background-color: rgb(200, 200, 200);
+
 }
 
 .title {
@@ -14,3 +14,4 @@
 
 tr {
     font-size: 0.8em;
+}

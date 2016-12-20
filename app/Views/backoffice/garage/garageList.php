@@ -7,7 +7,7 @@
                 <br>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-9 col-xs-9  col-lg-9">
+                        <div class="col-md-10 col-xs-10 col-lg-10">
                             <div id="imprimerlaliste" class="imprimerlaliste">
                                <div class="form-group">
                                     <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 col-lg-5 col-lg-offset-1 hidden-print">
@@ -17,7 +17,7 @@
                                         <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageCreate') ?>';" class=" btn btn-success btn-sm">Ajouter un participant </button>
                                     </div><br>
                                 </div>
-                                <table class="table table-responsive table-striped center-block">
+                                <table class="table table-responsive table-striped">
                                     <thead>
                                         <!-- En-tête du tableau -->
                                         <tr>

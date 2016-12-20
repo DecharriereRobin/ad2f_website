@@ -2,13 +2,13 @@
     <?php $this->start('main_content') ?>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
+                <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset 2">
                     <?php if(!empty($errorMessages)){
     echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
 }?>
                         <?= $message ?>
                             <form class="form-horizontal" action="<?php $this->url('backoffice_MemberCreate')?>" method="POST">
-                               <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MemberList') ?>'" class="btn btn-info btn-sm center-block">Retour à la liste des adhérents</button><br>
+                               <br>
                                 <div class="text-center form-group">
                                     <label for="name">Nom</label>
                                     <input id="name" name="firstname" type="text" class="text-center form-control" placeholder="Nom" /> </div>
@@ -35,7 +35,9 @@
                                             <input type="radio" class="form-check-input" name="payment_status" id="not_paid" value="0" checked> Cotisation en attente </label>
                                     </div>
                                 </fieldset>
-                                <button placeholder="Ajouter" class="btn btn-primary btn-sm center-block" name="createMember">Créer le membre</button>
+                               
+                                <button placeholder="Ajouter" class="btn btn-primary btn-sm center-block" name="createMember">Créer le membre</button> <br>
+                                <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MemberList') ?>'" class="btn btn-info btn-sm center-block">Retour à la liste des adhérents</button>
                             </form>
                 </div>
             </div>

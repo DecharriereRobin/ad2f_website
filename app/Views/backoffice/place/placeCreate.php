@@ -3,9 +3,9 @@
         <!-- Formulaire d'ajout de lieu-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
+                <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset-2">
                  <?= $message ?>
-                 <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_placeView') ?>'" class="btn btn-info btn-sm center-block">Retour à la liste des lieux</button><br>
+                 
         <form method="POST">
             <div class="text-center form-group">
                 <label for="titre">Titre :</label>
@@ -30,7 +30,8 @@
                     <option value="Restaurant">Restaurant</option>
                     <option value="Sport">Sport</option>
                 </select>
-            </div><button name="createPlace" class="btn btn-success btn-sm center-block">Ajouter un lieu</button>
+            </div><button name="createPlace" class="btn btn-success btn-sm center-block">Ajouter un lieu</button><br>
+                   <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_placeView') ?>'" class="btn btn-info btn-sm center-block">Retour à la liste des lieux</button><br>
                     </form></div></div></div>
        
             <?php $this->stop('main_content') ?>

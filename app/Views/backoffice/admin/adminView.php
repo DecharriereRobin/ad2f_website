@@ -2,7 +2,7 @@
     <?php $this->start('main_content') ?>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 col-xs-8 col-lg-8">
+                <div class="col-md-10 col-xs-10 col-lg-10">
                     <table class="table table-striped table-responsive">
                         <caption>Informations sur les membres du CA de l'association</caption>
                         <thead>

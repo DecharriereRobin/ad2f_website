@@ -2,9 +2,10 @@
 namespace Controller\Backoffice;
 use \W\Model\UsersModel as Users;
 use \W\Model\Model as Model;
-use \Model\AdminModel as Admins;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
+use \Model\AdminModel as Admins;
+use  Model\AdminModel as Admin;
 class AdminController extends \W\Controller\Controller
 {
 	/**
@@ -12,9 +13,8 @@ class AdminController extends \W\Controller\Controller
 	 */
     public function showAdmin(){
 		$this->allowTo('admin');
-		$message="jennifer";
 		$admins = new Admins();
-		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll(), 'message'=> $message]);
+		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
 	/**
 	 * Enregistrement de nouveau administrateurs
@@ -25,8 +25,6 @@ class AdminController extends \W\Controller\Controller
 		$message = "";
 		$admins = new Admins;
 		$auth = new Auth();
-		$user = new Users();
-	    $auth->getLoggedUser();
 		$string = new String();
         // Insertion de la table
 		if(isset($_POST['createAdmin'])){
@@ -46,17 +44,6 @@ class AdminController extends \W\Controller\Controller
 					'role' => 'admin'
                 ],true);
 				$message = "<div class='alert alert-success'>Le nouveau membre du CA a bien été crée.</div>";
-				$information =$user->getUserByUsernameOrEmail($_POST['email']);
-				$token = $information['token'];
-				$route = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
-				 // envoie d'un mail à la creation d'un nouveau admin
-				 // Envoi du mail
-	 			$mail = new \PHPMailer();
-	 			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
-	 			$mail->addAddress($_POST['email']);
-	 			$mail->Subject = "Ad2F-creation de votre compte admin";
-	 			$mail->Body = "Bonjour" . $_SESSION['user']['firstname']. " " .$_SESSION['user']['lastname'] . 'Vous a inscrit en tant qu administateur du site de l associaton des 2 faubourg. Vous pouvez Cliqué sur ce lien pour recreer un nouveau mot de passe -  . http://localhost'. $route ;
-	 			$mail->send();
 	            }else{
 	                $message = "<div class='alert alert-danger'>Le nouveau membre du CA n'a pas été créé.</div>";
 	            }
@@ -67,7 +54,7 @@ class AdminController extends \W\Controller\Controller
     // edit
 	public function edit($id)
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
@@ -96,10 +83,11 @@ class AdminController extends \W\Controller\Controller
 	 */
 	public function delete($id)
 	{
-		//$this->allowTo('admin');
+		$message_error="";
+		$this->allowTo('admin');
         $admins = new Admins();
 		if($id == $_SESSION['user']['id']){
-			$message_error= "vous ne pouvez pas vous desincrire votre propre compte";
+			$message_error= "vous ne pouvez pas vous desincrire vous même";
 			$this->redirectToRoute('backoffice_AdminView');
 		}else {
         $admins->delete($id);
@@ -110,21 +98,19 @@ class AdminController extends \W\Controller\Controller
 	public function login()
 	{
 		// login
-		$message="";
 		if(isset($_POST['LoginAdmin'])){
 		$auth = new Auth();
+		$message="";
 		$userCheck = $auth->isValidLoginInfo($_POST['email'], $_POST['password']);
 		if($userCheck){
 			$admins = new Admins();
 			$currentUser = $admins->find($userCheck);
 			$auth->logUserIn($currentUser);
 			$this->redirectToRoute('backoffice_Accueil');
-		}else {
-			# code..
+		}
+	}
 		//afficher la page
 		$message ="Votre email ou mot de passe est invalide";
-	}
-}
 		$this->show('backoffice/admin/adminLogin',['message'=>$message]);
 	}// FIN Function login
 	// DECONNECTION
@@ -136,11 +122,11 @@ class AdminController extends \W\Controller\Controller
 	} // FIN Function logout
 	public function home()
 	{
-    	$auth = new Auth();
+       
+    $auth = new Auth();
 		$auth->getLoggedUser();
-		//print_r($_SESSION);
-		//affiche page
-		//$this->allowTo('admin');
+		
+		$this->allowTo('admin');
 		$this->show('backoffice/backofficeAccueil');
 	}
 		public function forgot()
@@ -149,21 +135,18 @@ class AdminController extends \W\Controller\Controller
 		if(isset($_POST['adminForgot'])){ // Quand le formulaire est soumis
 			// verification de l existance du mail
 			$user = new Users();
-			$emailexist = $user->emailExists($_POST['email']);
+            $emailexist = $user->emailExists($_POST['email']);
 			if ($emailexist == true){
+			//var_dump($user->emailExists($_POST['email']));
 			// recupère le token
     		$information =$user->getUserByUsernameOrEmail($_POST['email']);
-			$token = $information['token'];
-			$route = $this->generateUrl("backoffice_newpassword", ['token' => $token]);
-			//var_dump($user->emailExists($_POST['email']));
 			//var_dump($information['token']);
 			// Envoi du mail
 			$mail = new \PHPMailer();
 			$mail->setFrom('associationdes2faubourg@gmail.com', 'Association AD2F');
 			$mail->addAddress($_POST['email']);
 			$mail->Subject = "Ad2F nouveaux mot de passe";
-			//$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/adf2/public/backoffice/admin/newPassword/" .$information['token'] ;
-			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - " . 'http://localhost'. $route ;
+			$mail->Body = "Vous avez perdu votre mot de passe. Cliqué sur ce lien pour recreer un nouveau mot de passe - http://localhost/wf3/ad2f/public/backoffice/admin/newPassword/" .$information['token'] ;
 			$mail->send();
 			$message = "Un email pour créer un nouveau mot de passe vous a été envoyé";
 		}
@@ -178,7 +161,7 @@ class AdminController extends \W\Controller\Controller
 	{
 		$admins = new Admins();
 		$auth = new Auth();
-		$admin = new Admins();
+		$admin = new Admin();
 		$string = new String();
 		$message="";
 		//

@@ -1,9 +1,7 @@
 <?php
-
 namespace Controller\Backoffice;
 use \W\Controller\Controller;
 use Model\AssociationModel as Assoc;
-
 class associationController extends Controller
 {
 	/**
@@ -14,12 +12,9 @@ class associationController extends Controller
 		$associations = new Assoc();
 		$this->show('backoffice/association/associationView', ['associations' => $associations->findAll()]);
 	}// fin public function showAdmin
-
-
 	/**
 	 * Editer l association
 	 */
-
 	public function edit($id)
 	{
 		//$this->allowTo('admin');
@@ -45,8 +40,5 @@ class associationController extends Controller
 			}
 	//	afficher la vue
 	$this->show('backoffice/association/associationEdit', ['association' => $association->find($id), 'message'=>$message]);
-
 	}
-
-
 } // fin class associationControler

@@ -1,18 +1,19 @@
 <?php $this->layout('layoutBack', ['title' => 'Liste des membres']) ?>
     <?php $this->start('main_content') ?>
-        <?php echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';?>
+        <?php echo '<h3>Nombre d\'adhérents à l\'association : '.  $sum .'</h3>';?><br>
             <div id="imprimerlaliste">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-9 col-xs-9  col-lg-9">
+                        <div class="col-md-10 col-xs-10  col-lg-10">
                             <?php echo isset($_SESSION['message'])? "<div class='alert alert-success'>".($_SESSION['message'])."</div>" : NULL  ?>
                                 <?php unset($_SESSION['message']); ?>
                                    <div class="form-group">
                                     <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1 col-lg-5 col-lg-offset-1 hidden-print">
-                                        <button class="btn btn-info btn-sm" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
+                                       <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_MemberCreate') ?>';" class=" btn btn-success btn-sm">Ajouter un participant </button>
+                                        
                                     </div>
                                     <div class="col-md-6 col-xs-6 col-lg-6 hidden-print">
-                                        <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_MemberCreate') ?>';" class=" btn btn-success btn-sm">Ajouter un participant </button>
+                                        <button class="btn btn-info btn-sm" type="button" id="print" onclick="printContent('imprimerlaliste');">Imprimer la liste</button>
                                     </div><br>
                                 </div>
                                     
@@ -57,7 +58,7 @@
                                                     <td class="text-center">
                                                         <h5><?= (new \DateTime($member['creation_date']))->format('d-m-Y'); ?></h5> </td>
                                                     <td class="text-center">
-                                                        <h5><?= \Model\MemberModel::getPaidStatus($member) ?></h5> </td>
+                                                        <h5  style="padding-bottom:-1.5%"><?= \Model\MemberModel::getPaidStatus($member) ?></h5> </td>
                                                     <td class="text-center">
                                                         <h5><?= (new \DateTime($member['subscription_date']))->format('d-m-Y'); ?></h5> </td>
                                                     <td> <a href="<?= $this->url('backoffice_MemberEdit', ['id' => $member['id']])?>" class="btn btn-primary btn-sm hidden-print">Modifier</a> </td>

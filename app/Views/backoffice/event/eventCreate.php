@@ -6,9 +6,9 @@
     echo '<a href="<?= $this->url(\'backoffice_EventList\') ?>" class="btn btn-danger center-block"> Retour à la liste des évenements</a>'; }?>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
+                        <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset-2">
                            <?= $message ?>
-                            <button onclick="window.location.href='<?=$this->url('backoffice_EventList');?>'" class="btn btn-info btn-sm center-block" placeholder="Retour">Retour à la liste des évenements</button>
+                            
                             <form action="<?php $this->url('backoffice_EventCreate')?>" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                 </div>
@@ -41,7 +41,8 @@
                                     <input type="file" name="file" id="input-4" class="center-block form-control">
                                     <br /> </div>
                                 <div class="form-group">
-                                    <button class="center-block btn btn-primary btn-sm" name="createEvent" placeholder="Créer">Créer l'évenement</button>
+                                    <button class="center-block btn btn-primary btn-sm" name="createEvent" placeholder="Créer">Créer l'évenement</button><br>
+                                    <button onclick="window.location.href='<?=$this->url('backoffice_EventList');?>'" class="btn btn-info btn-sm center-block" placeholder="Retour">Retour à la liste des évenements</button>
                                 </div>
                             </form>
                         </div>

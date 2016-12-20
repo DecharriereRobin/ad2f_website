@@ -2,7 +2,7 @@
     <?php $this->start('main_content') ?>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9 col-xs-9  col-lg-9">
+                <div class="col-md-10 col-xs-10   col-lg-10">
                     <table class="table table-responsive table-striped">
                         <thead>
                             <!-- En-tête du tableau -->
