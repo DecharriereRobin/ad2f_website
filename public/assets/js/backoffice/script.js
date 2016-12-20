@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $(".alert").addClass("in").fadeOut(4500);
     /* swap open/close side menu icons */

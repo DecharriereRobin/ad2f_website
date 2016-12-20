@@ -18,6 +18,7 @@
             <label for="address">adresse :</label>
             <input value="<?= $place['address'] ?>" id="address" name="address" type="text" class="form-control" >
         </div>
+        <p> Pour trouver les cordonnées d'un lieu, vous pouvez utiliser le lieu suivant <a target="_blank" href='http://www.coordonnees-gps.fr/'>lien</a></p>
         <div class="form-group">
             <label for="lat">lattitude :</label>
             <input value="<?= $place['lat'] ?>" id="lat" name="lat" type="text" class="form-control" >

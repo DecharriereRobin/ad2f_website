@@ -20,6 +20,7 @@
 
 	   //maps
 	   ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
+	   //['GET', '/front/map/[a:categorie]', 'Front\\Map#showcategorie', 'map_Showcategorie'],
 	   ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
 
 		//BACKOFFICE
@@ -41,15 +42,12 @@
 		['GET|POST', '/backoffice/member/edit/[i:id]'   , 'Backoffice\\Member#memberEdit'  , 'backoffice_MemberEdit'],
 		['GET|POST', '/backoffice/member/delete/[i:id]' , 'Backoffice\\Member#memberDelete', 'backoffice_MemberDelete'],
 
-
 		// EVENT ROUTE
 
 		['GET|POST', '/backoffice/event/create',         'Backoffice\\Event#eventCreate', 'backoffice_EventCreate'],
 		['GET',      '/backoffice/event/list/[i:page]?', 'Backoffice\\Event#eventList',   'backoffice_EventList'],
 		['GET|POST', '/backoffice/event/edit/[i:id]',    'Backoffice\\Event#eventEdit',   'backoffice_EventEdit'],
 		['GET|POST', '/backoffice/event/delete/[i:id]/[i:page]?',  'Backoffice\\Event#eventDelete', 'backoffice_EventDelete'],
-
-
 
 		// BRADERIE
 		['GET'     , '/backoffice/garage/list', 'Backoffice\\Garage#read' , 'backoffice_GarageList'],
@@ -68,12 +66,9 @@
 		['GET'     , '/backoffice/association/view'  , 'Backoffice\\Association#showAssociation' , 'backoffice_AssociationProfil'],
 	    ['GET|POST', '/backoffice/associationEdit/[i:id]',   'Backoffice\\Association#edit', 'backoffice_AssociationEdit'],
 
-
 		// lieu
 		['GET|POST', '/backoffice/place/create', 'Backoffice\\Place#create', 'backoffice_placeCreate'],
 		['GET', '/backoffice/place/view', 'Backoffice\\Place#placeView', 'backoffice_placeView'],
 		['GET|POST', '/backoffice/place/edit[i:id]',    'Backoffice\\Place#placeEdit',   'backoffice_PlaceEdit'],
 		['GET|POST', '/backoffice/place/delete/[i:id]',  'Backoffice\\Place#placeDelete', 'backoffice_PlaceDelete'],
-
-
 	);
