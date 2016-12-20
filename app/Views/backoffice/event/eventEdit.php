@@ -30,6 +30,8 @@
             <input id="datepicker" name="date" type="text" class="form-control calendar" value="<?= $dateTime ?>" />
     </div>
     <div class="form-group">
+           <h5 class="text-center"><strong>Image actuelle</strong></h5>
+            <img src ="<?= isset($eventImage) ? ' ../../../..'.$eventImage['path'] : '' ?>" alt ="..."  class="img-responsive center-block" style="width:50%;"/><br />
             <label class="btn btn-info btn-sm btn-block" for="file"><input type="file" name="file" id="file" accept="image/*"  style="display:none;" />Modifier ou ajouter une image à l'évenement</label>
             <span class='label label-warning' id="upload-file-info"></span>
             

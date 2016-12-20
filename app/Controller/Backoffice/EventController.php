@@ -159,9 +159,11 @@ class EventController extends \W\Controller\Controller
                 }
                 $event->insert($data, true);
 
-                $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
-
-
+                $message = "<div class='alert alert-success'>L'évenement a bien été créé.<br/><strong>Vous allez redirigé vers la liste des événements</strong></div>";
+                
+                $uri = $_SERVER['HTTP_ORIGIN'].dirname($_SERVER['REQUEST_URI']).'/list';
+				header("refresh:3;" . $uri);
+                
             } else{
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
             }
@@ -280,13 +282,17 @@ class EventController extends \W\Controller\Controller
                 $event->update($data, $id, true);
 
                 $message = "<div class='alert alert-success'>L'évenement a été modifié avec succés.</div>";
+                
+                $uri = $_SERVER['HTTP_ORIGIN'].dirname($_SERVER['REQUEST_URI']).'/../list';
+				header("refresh:3;" . $uri);
+                
             } else {
 
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
             }
         }
 
-        $this->show('backoffice//event/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
+        $this->show('backoffice//event/eventEdit', ['event' => $event->find($id), 'message'=>$message, 'eventImage' => $event->getEventImage($id)]);
     }
 
     /**

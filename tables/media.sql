@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 15 Décembre 2016 à 11:03
+-- Généré le :  Mar 20 Décembre 2016 à 16:49
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  5.6.24
 
@@ -40,18 +40,12 @@ CREATE TABLE `media` (
 --
 
 INSERT INTO `media` (`id`, `filename`, `filesize`, `title`, `date`, `path`) VALUES
-(23, 'Lille.png', 1155, 'Lille', '2016-12-13', '/Projet_AD2F/ad2f_website/public/Lille-13-12-2016-584ff8bd988cc.png'),
-(24, 'Lille.png', 1155, 'Lille', '2016-12-13', '/Projet_AD2F/ad2f_website/public/Lille-13-12-2016-584ff9cda5634.png'),
-(25, '500x500.png', 11129, '500x500', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\500x500-13-12-2016-5850003823c35.png'),
-(26, '500x500.png', 11129, '500x500', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\500x500-13-12-2016-5850008fbdaef.png'),
-(27, '1500x1500.png', 52217, '1500x1500', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\1500x1500-13-12-2016-58500544ec0d4.png'),
-(28, '299x499.png', 8736, '299x499', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\299x499-13-12-2016-585008201640e.png'),
-(29, '299x499.png', 8736, '299x499', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\299x499-13-12-2016-5850083f8d57d.png'),
-(30, 'IMG_3823-13-12-2016-58501a4d0493a.JPG', 1561163, 'IMG_3823', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\IMG_3823-13-12-2016-58501a4d0493a.JPG'),
-(31, 'IMG_3823-13-12-2016-58501bfa4e130.JPG', 1561163, 'IMG_3823', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\IMG_3823-13-12-2016-58501bfa4e130.JPG'),
-(32, 'IMG_3823-13-12-2016-58501fb786685.JPG', 1561163, 'IMG_3823', '2016-12-13', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website\\public\\upload\\IMG_3823-13-12-2016-58501fb786685.JPG'),
-(33, 'IMG_3823-15-12-2016-58525941ace57.JPG', 1561163, 'IMG_3823', '2016-12-15', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website/public/upload/IMG_3823-15-12-2016-58525941ace57.JPG'),
-(34, 'IMG_3823-15-12-2016-58525aac04517.JPG', 1561163, 'IMG_3823', '2016-12-15', 'C:\\xampp\\htdocs\\Projet_AD2F\\ad2f_website/public/upload/IMG_3823-15-12-2016-58525aac04517.JPG');
+(168, '_DSC2065-20-12-2016-5859461aabb9b.jpg', 11958607, '_DSC2065', '2016-12-20', '/public/upload/_DSC2065-20-12-2016-5859461aabb9b.jpg'),
+(169, 'IMG_3823-20-12-2016-58594ca47fdc0.JPG', 1561163, 'IMG_3823', '2016-12-20', '/public/upload/IMG_3823-20-12-2016-58594ca47fdc0.JPG'),
+(170, '_DSC2065-20-12-2016-58594cbd4a7d6.jpg', 11958607, '_DSC2065', '2016-12-20', '/public/upload/_DSC2065-20-12-2016-58594cbd4a7d6.jpg'),
+(171, '_DSC2065-20-12-2016-58594cc8b7183.jpg', 11958607, '_DSC2065', '2016-12-20', '/public/upload/_DSC2065-20-12-2016-58594cc8b7183.jpg'),
+(172, '_DSC2065-20-12-2016-58594cead3a62.jpg', 11958607, '_DSC2065', '2016-12-20', '/public/upload/_DSC2065-20-12-2016-58594cead3a62.jpg'),
+(173, '_DSC1677-20-12-2016-58594d580cbb7.jpg', 12085130, '_DSC1677', '2016-12-20', '/public/upload/_DSC1677-20-12-2016-58594d580cbb7.jpg');
 
 --
 -- Index pour les tables exportées
@@ -71,7 +65,7 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
