@@ -32,14 +32,14 @@ class AssociationController extends Controller
 			var_dump($mail->send());
 			$message = "Votre question à bien été envoyé";
 		}
-		$this->show('front/contact', ['associations' => $associations->findAll(), 'message' => $message]);
+		$this->show('front/association/contact', ['associations' => $associations->findAll(), 'message' => $message]);
 
 	}
 
 
 	public function adhesion()
 	{
-		$this->show('front/adhesion');
+		$this->show('front/association/adhesion');
 	}
 
 }

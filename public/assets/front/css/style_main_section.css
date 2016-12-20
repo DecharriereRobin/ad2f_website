@@ -1,0 +1,405 @@
+    body
+    {
+        background-color: #F6F6FF;
+        width: 100%;
+        margin: 0 auto;
+        color: black;
+    }
+
+
+@media (max-width: 767px)
+{
+
+/*---------------------- Page ASSOCIATION/PRESENTATION EXTRA-SMALL ------------------------------*/
+
+    /* title */
+    .page_title 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;
+    }
+    /* ligne de séparation */
+    hr
+    {
+        width: 60%;
+    }
+    /* paragraphe */
+    .paragraphe_text
+    {
+        width: 88%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-align: justify;
+    }
+    /* block newsletter et facebook */
+
+    .newsletter
+    {
+        height: auto;
+        background: url(../assets/img/formulaire.png);
+        margin-top: 7%;
+    }
+
+    .newsletter_title
+    {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: 4%;  
+        padding-top: 2%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.7em;
+        text-align: center;
+        border-radius: 5px;
+        letter-spacing: 3px;
+        padding: 0%;
+        font-weight: bold;
+    }
+
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    button.submit_newsletter
+    {
+        width: 60%;
+        margin-left: 20%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5em;
+        padding: 0%;
+        font-weight: bold;
+        border-color: lightgrey;
+    }
+
+    .btn-default {
+        color: black;
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .title_facebook
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+    }
+
+    .div_img_facebook
+    {
+        width: 96%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        text-align: center;
+    }
+
+    /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
+
+    form
+    {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .form-control
+    {
+        font-size: 1em;
+    }
+
+    .well
+    {
+        background-color: #D4E8E8;
+        border: none;
+        border-radius: 0px;
+        margin-top: 5%;
+    }
+
+    legend
+    {
+        text-align: center;
+    }
+
+    .btn-default
+    {
+        border-color: #3B8882;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 60%;
+        margin-left: 20%;
+        background-color: #3B8882;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    #success_message{ display: block;}
+
+
+    h3
+    {
+        text-align: center;
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .coordonnees
+    {
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .glyph_coordonnees
+    {
+        margin-right: 2%;
+    }
+
+    .iframe_map
+    {
+        width: 96%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 2%;
+    }
+
+    /*----------- Page EVENEMENTS/CARNAVAL EXTRA-SMALL ------------------------------*/
+
+    .entete_evenements
+    {
+        width: 90%;
+        margin-left: 5%;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding-top: 2%;
+        padding-bottom: 0%;
+        margin-bottom: 2%;
+        margin-top: 5%;
+    }
+
+    .evenements_img
+    {
+        width: 90%;
+        height: 150px;
+        margin: 0 auto;
+        overflow: hidden;
+        margin-bottom: 2%;
+    }
+
+    .glyphicon-calendar
+    {
+        margin-right: 2%;
+    }
+
+    .date
+    {
+
+    }
+
+    .categorie
+    {
+        background-color: #2A342A;
+        color: white;
+        line-height: 1.5em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .paragraphe_text
+    {
+        margin-bottom: 2%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+} /*-------------------- CLOSE MEDIA QUERIES EXTRA SMALL -------------------------*/
+
+
+/*--------------------- OPEN MEDIA QUERIES SMALL AND MEDIUM---------------*/
+
+@media (min-width: 768px) and (max-width: 1199px)
+{
+
+
+
+} /*--------------------- CLOSE MEDIA QUERIES SMALL AND MEDIUM --------------*/
+/**********************************************************************************/
+
+
+/*---------------------------- OPEN MEDIA QUERIES LARGE ---------------*/
+
+@media (min-width: 1200px)
+{
+    .navbar-default
+    {
+        background-color: rgb(172,212,115);
+        height: 83px;
+        border-color: rgb(172,212,115);
+        border-radius: 0px;
+    }
+
+    .page_title 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;
+    }
+
+    hr
+    {
+        width: 60%;
+    }
+    /* paragraphe */
+    .paragraphe_text
+    {
+        width: 88%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-align: justify;
+    }
+    /* block newsletter et facebook */
+
+    .newsletter
+    {
+        height: auto;
+        background: url(../assets/img/formulaire.png);
+        margin-top: 0%;
+    }
+
+    .newsletter_title
+    {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: 4%;  
+        padding-top: 2%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.7em;
+        text-align: center;
+        border-radius: 5px;
+        letter-spacing: 3px;
+        padding: 0%;
+        font-weight: bold;
+    }
+
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    button.submit_newsletter
+    {
+        width: 60%;
+        margin-left: 20%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5em;
+        padding: 0%;
+        font-weight: bold;
+        border-color: lightgrey;
+    }
+
+    .btn-default {
+        color: black;
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .title_facebook
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+    }
+
+    .div_img_facebook
+    {
+        width: 96%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+.border
+{
+    border-style: solid;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+
+} /*-------------------------- CLOSE MEDIA QUERIES LARGE --------------*/
+/**********************************************************************************/

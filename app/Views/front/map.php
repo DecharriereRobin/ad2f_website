@@ -7,7 +7,9 @@
     foreach($places as $place){
         if ($categorie!=$place['categorie']){
         $categorie=$place['categorie'];
-       echo '<button type="submit" name="essai">'.$place['categorie'].'</button>';
+       echo '<form action="map_Showcategorie" method="get">';
+       echo '<button type="submit" name="categorie" value="' . $place['categorie']   . '" >'.$place['categorie']. '</button>';
+       echo '</form>';
                         }
    }
 ?>
@@ -24,7 +26,8 @@
         echo $place['content'];
         echo "<br />";
         echo $place['address'];
-        echo '<input type="button" name "lieu" value="Voir le lieu sur la carte" onclick="viewplace()">';
+        echo '<input type="button" class="centerMap" value="Voir le lieu sur la carte" name="{lat:'. $place['lat'] .', lng:'. $place['lng'] .'}">';
+        echo '<br />';
  } ?>
 
 <?php $this->stop('main_content') ?>

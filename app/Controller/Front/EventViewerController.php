@@ -12,27 +12,27 @@ class EventViewerController extends Controller
 	 */
 	public function showCarnaval()
 	{
-		$this->show('front/carnaval');
+		$this->show('front/evenements/carnaval');
 	}
 
 	public function showBlockParty()
 	{
-		$this->show('front/blockparty');
+		$this->show('front/evenements/blockparty');
 	}
 
     public function showSaturdayMorning()
 	{
-		$this->show('front/saturdayMorning');
+		$this->show('front/evenements/saturdayMorning');
 	}
 
 	public function showGarage()
 	{
-		$this->show('front/garage');
+		$this->show('front/evenements/garage');
 	}
 
     public function subscribeGarage()
 	{
-		$this->show('front/garageSubcribe');
+		$this->show('front/evenements/garageSubcribe');
 	}
 
 }
