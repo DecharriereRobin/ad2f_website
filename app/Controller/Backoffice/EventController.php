@@ -6,11 +6,10 @@ use Model\EventsModel as Event;
 use Model\MediaModel as Media;
 
   /**
-   * List of event
+   * Methods to Create, Read, Update and Delete Events in the backoffice   
    *
    *
-   * @package    W
-   * @subpackage Controller
+   * @package    Controller\Backoffice
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
 class EventController extends \W\Controller\Controller
@@ -25,7 +24,7 @@ class EventController extends \W\Controller\Controller
 
 	public function eventList($page=1)
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
 
 
@@ -51,7 +50,8 @@ class EventController extends \W\Controller\Controller
 
 	public function eventCreate()
 	{
-        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
 
         $event = new Event();
 
@@ -66,7 +66,7 @@ class EventController extends \W\Controller\Controller
 
             $errorMessages = [];
             
-            
+            // Check if form is filled by user
             if(empty($_POST['title'])){
                 $errorMessages[] = 'Le titre est obligatoire. Merci de l\'indiquer.';
                 $errorClass['title'] = 'has-error';
@@ -79,7 +79,6 @@ class EventController extends \W\Controller\Controller
 
 
             // Upload Image
-
             if($_FILES && $_FILES['file']['error'] == 0 ){
 
                 // Check if upload folder exists or has been deleted
@@ -92,18 +91,23 @@ class EventController extends \W\Controller\Controller
 
                 // Define accepted MIME type
                 $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
-
+                
+                // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){
 
                     $eventPicture = new Media();
 
                     $file = pathinfo($_FILES['file']['name']);
+                    
+                    // Set unique target name
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+                    
+                    // Set destination PATH
                     $currentFolder = "/public/upload/";
-
+                    
+                    // Get temporary uploaded image
                     $sourceFile = $_FILES['file']['tmp_name']; // Set upload Folder
                     
-                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
 
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
@@ -112,11 +116,13 @@ class EventController extends \W\Controller\Controller
                 }
 
             }
-            // Insert all data in DB
-            //var_dump($_POST); 
+            // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
-                
+                // Process Image for compression with the same ratio to fit event specification
                 Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                // To use if you prefer resize and crop the image
+                //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
                 
                 // Insert Image Metadata in Media DB
                 $getId = $eventPicture->insert([
@@ -126,9 +132,11 @@ class EventController extends \W\Controller\Controller
                     'title'    => $file['filename'],
                     'path'     => $currentFolder.$targetName
                     ], true);
-
+                
+                // Get Last Insert ID
                 $mediaId = $getId['id'];
                 
+                // Insert Image Metadata in Media DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
@@ -156,8 +164,9 @@ class EventController extends \W\Controller\Controller
 
 	public function eventEdit($id)
     {
-
-        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
+        
         $event = new Event();
         $eventPicture = new Media();
 
@@ -165,7 +174,7 @@ class EventController extends \W\Controller\Controller
         $message = "";
         $errorMessages = [];
 
-        // Check if User filled form
+        // Check if form is filled by user
         if(isset($_POST['editEvent'])){
 
             if(empty($_POST['title'])){
@@ -194,17 +203,21 @@ class EventController extends \W\Controller\Controller
             
                 // Define accepted MIME type
                 $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
-            
+                
+                // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){
 
                     $eventPicture = new Media(); 
-
+                    
+                    // Set unique target name
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
                     
+                    // Set destination PATH
                     $currentFolder = "/public/upload/";
                     
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
+                    // Get temporary uploaded image
+                    $sourceFile = $_FILES['file']['tmp_name']; 
                     
 
                 } else{
@@ -215,11 +228,13 @@ class EventController extends \W\Controller\Controller
 
             }
 
-
+            // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
-                
-                
+                // Process Image for compression with the same ratio to fit event specification
                 Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                
+                // To use if you prefer resize and crop the image
+                //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
                 
                  // Insert Image Metadata in DB
                 $getId = $eventPicture->insert([
@@ -229,7 +244,8 @@ class EventController extends \W\Controller\Controller
                 'title'    => $file['filename'],
                 'path'     => $currentFolder.$targetName
                 ], true);
-
+                
+                // Get Last Insert ID
                 $mediaId = $getId['id'];
                 
                 // Insert event data in DB
@@ -256,8 +272,9 @@ class EventController extends \W\Controller\Controller
 
 
 	public function eventDelete($id, $page = '')
-	{
-        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
+	{  
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
         $event = new Event();
         $event->delete($id);
 
