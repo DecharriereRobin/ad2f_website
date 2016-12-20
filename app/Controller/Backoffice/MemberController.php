@@ -44,38 +44,44 @@ class MemberController extends \W\Controller\Controller
 					$errorMessages[] = 'L\' email est obligatoire. Merci de l\'indiquer.';
 					$errorClass['email'] = 'has-error';
 				}
+                
+                if (!empty($_POST['phone'])) {
+                    if (!is_numeric($_POST['phone'])) {
+                        $errorMessages[] = 'Le téléphone n\'est pas dans un format valide.';
+                        $errorClass['email'] = 'has-error';
+                    }
 
+                    if (is_numeric($_POST['phone']) && strlen($_POST['phone']) != 10 ) {
+                        $errorMessages[] = 'Le téléphone n\'est pas valide.';
+                        $errorClass['email'] = 'has-error';
+                    }
+                }
+                
 				if(count($errorMessages)== 0)
 				{
 					$email = $_POST['email'];
 					$existsEmail = $member->emailMemberExists($email);
-
+                    
 					if($existsEmail == 0){
-						if($_POST['payment_status'] == "1")
-						{
-							$member->insert([
-								'firstname'    => trim($_POST['firstname']),
+;
+                            $data = [
+                                'firstname'    => trim($_POST['firstname']),
 								'lastname'     => trim($_POST['lastname']),
 								'address'      => trim($_POST['address']),
 								'phone'        => $_POST['phone'],
 								'email'        => $_POST['email'],
-								'creation_date'=>(new \DateTime('now'))->format('Y-m-d'),
-								'paid'         => "1"
-							], true);
-							$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
-						}
-						else{
-							$member->insert([
-								'firstname'    => trim($_POST['firstname']),
-								'lastname'     => trim($_POST['lastname']),
-								'address'      => trim($_POST['address']),
-								'phone'        => $_POST['phone'],
-								'email'        => $_POST['email'],
-								'creation_date'=>(new \DateTime('now'))->format('Y-m-d'),
-								'paid'         => "0"
-							], true);
-							$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
-						}
+								'creation_date'=> (new \DateTime('now'))->format('Y-m-d'),   
+                            ];
+                            
+                            if($_POST['payment_status'] == "1"){
+                                $data['paid'] = 1;
+                            }else {
+                                $data['paid'] = 0;
+                            }
+
+                            $member->insert($data, true);
+                        
+                            $message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
 					}
 					else
 					{
