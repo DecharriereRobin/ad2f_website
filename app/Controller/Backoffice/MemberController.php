@@ -112,7 +112,7 @@ class MemberController extends \W\Controller\Controller
 			$member = new Member();
 
 			$message = "";
-			$errorMessages = 'TEST';
+			$errorMessages = '';
 
 			if (isset($_POST['editMember']))
 			{
@@ -130,7 +130,7 @@ class MemberController extends \W\Controller\Controller
 					$uri = '../list';
 					header("refresh:2;" . $uri);
 
-					//$this->redirectToRoute('backoffice_MemberList');
+					$this->redirectToRoute('backoffice_MemberList');
 				}
 			}
 

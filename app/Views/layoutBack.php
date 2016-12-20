@@ -46,39 +46,39 @@
                 <ul class="nav nav-stacked">
                     <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#association" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Association <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                         <ul class="nav nav-stacked collapse" expanded="false" id="association">
-                            <li <?=( $w_current_route=='backoffice_AssociationProfil' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AssociationProfil')?>">Information sur l'association <span class="badge badge-info"></span></a></li>
+                            <li <?=( $w_current_route=='backoffice_AssociationProfil' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_AssociationProfil')?>"> Information sur l'association <span class="badge badge-info"></span></a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav nav-stacked">
                     <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#members" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-credit-card"></i> Adhérents <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                         <ul class="nav nav-stacked collapse" expanded="false" id="members">
-                            <li <?=( $w_current_route=='backoffice_MemberList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>">Liste des Adhérents <span class="badge badge-info"></span></a></li>
-                            <li <?=( $w_current_route=='backoffice_MemberCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>">Ajouter Adhérent <span class="badge badge-info"></span></a></li>
+                            <li <?=( $w_current_route=='backoffice_MemberList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberList')?>"> Liste des Adhérents <span class="badge badge-info"></span></a></li>
+                            <li <?=( $w_current_route=='backoffice_MemberCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MemberCreate')?>"> Ajouter Adhérent <span class="badge badge-info"></span></a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav nav-stacked">
                     <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#brocanteur" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Braderies <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                         <ul class="nav nav-stacked collapse" expanded="false" id="brocanteur">
-                            <li <?=( $w_current_route=='backoffice_GarageList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageList')?>">Liste des participants</a></li>
-                            <li <?=( $w_current_route=='backoffice_GarageCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageCreate')?>">Ajouter un participants</a></li>
+                            <li <?=( $w_current_route=='backoffice_GarageList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageList')?>"> Liste des participants</a></li>
+                            <li <?=( $w_current_route=='backoffice_GarageCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_GarageCreate')?>"> Ajouter un participants</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav nav-stacked">
                     <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#events" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-bullhorn"></i> Évenements <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                         <ul class="nav nav-stacked collapse" expanded="false" id="events">
-                            <li <?=( $w_current_route=='backoffice_EventList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventList')?>">Liste des événements</a></li>
-                            <li <?=( $w_current_route=='backoffice_EventCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventCreate')?>">Ajouter un évenement </a></li>
+                            <li <?=( $w_current_route=='backoffice_EventList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventList')?>"> Liste des événements</a></li>
+                            <li <?=( $w_current_route=='backoffice_EventCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_EventCreate')?>"> Ajouter un évenement </a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav nav-stacked">
                     <li class="nav-header"><a href="#" data-toggle="collapse" data-target="#agenda" aria-expanded="false" class="collapsed"><i class="glyphicon glyphicon-calendar"></i> Réunions de l'association <i class=" chevron glyphicon glyphicon-chevron-right"></i></a>
                         <ul class="nav nav-stacked collapse" expanded="false" id="agenda">
-                            <li <?=( $w_current_route=='backoffice_MeetingList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingList')?>">Réunion du CA</a></li>
-                            <li <?=( $w_current_route=='backoffice_MeetingCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingCreate')?>">Ajouter une réunion</a></li>
+                            <li <?=( $w_current_route=='backoffice_MeetingList' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingList')?>"> Réunion du CA</a></li>
+                            <li <?=( $w_current_route=='backoffice_MeetingCreate' ) ? 'class="active"' : ''; ?>><a href="<?= $this->url('backoffice_MeetingCreate')?>"> Ajouter une réunion</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -114,7 +114,7 @@
     <!-- /Main -->
     <footer class="text-center"></footer>
     <!-- script references -->
-
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/script.js') ?>"></script>

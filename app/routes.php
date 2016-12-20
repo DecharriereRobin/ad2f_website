@@ -14,10 +14,9 @@
         //ASSOCIATION agenda
         ['GET', '/agenda/soon', 'Front\\Agenda#showSoon', 'agenda_Soon'],
         ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
-          //maps
-	   ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
-	   ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
-
+        //maps
+        ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
+        ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
 		//BACKOFFICE
         ['GET|POST', '/backoffice/accueil', 'Backoffice\\Admin#home', 'backoffice_Accueil'],
 		//Admin

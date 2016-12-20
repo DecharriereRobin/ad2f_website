@@ -8,21 +8,22 @@
 }?>
                         <?= $message ?>
                             <form class="form-horizontal" action="<?php $this->url('backoffice_MemberCreate')?>" method="POST">
-                                <div class="form-group">
+                               <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_MemberList') ?>'" class="btn btn-info btn-sm center-block">Retour à la liste des adhérents</button><br>
+                                <div class="text-center form-group">
                                     <label for="name">Nom</label>
-                                    <input id="name" name="firstname" type="text" class="form-control" placeholder="Nom" /> </div>
-                                <div class="form-group">
+                                    <input id="name" name="firstname" type="text" class="text-center form-control" placeholder="Nom" /> </div>
+                                <div class="text-center form-group">
                                     <label for="prenom">Prénom</label>
-                                    <input id="prenom" name="lastname" type="text" class="form-control" placeholder="Prénom" /> </div>
-                                <div class="form-group">
+                                    <input id="prenom" name="lastname" type="text" class="text-center form-control" placeholder="Prénom" /> </div>
+                                <div class="text-center form-group">
                                     <label for="address">Adresse</label>
-                                    <input id="address" name="address" class="form-control" placeholder="Adresse"> </div>
-                                <div class="form-group">
+                                    <input id="address" name="address" class="text-center form-control" placeholder="Adresse"> </div>
+                                <div class="text-center form-group">
                                     <label for="phone">Téléphone</label>
-                                    <input id="phone" name="phone" type="text" class="form-control" placeholder="Téléphone" /> </div>
-                                <div class="form-group">
+                                    <input id="phone" name="phone" type="text" class="text-center form-control" placeholder="Téléphone" /> </div>
+                                <div class="text-center form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" name="email" type="email" class="form-control" placeholder="Email" /> </div>
+                                    <input id="email" name="email" type="email" class="text-center form-control" placeholder="Email" /> </div>
                                 <fieldset class="form-group">
                                     <legend>Cotisation</legend>
                                     <div class="form-check">

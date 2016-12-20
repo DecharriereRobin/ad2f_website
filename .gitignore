@@ -1,4 +1,8 @@
 /vendor/
 app/config.php
 /phpDocumentor.phar
+<<<<<<< HEAD
 *.log
+*.DS_Store
+/public/upload/*
+
