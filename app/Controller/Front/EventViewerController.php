@@ -18,7 +18,7 @@ class EventViewerController extends Controller
 		$media = new Media();
 
 
-		$this->show('front/carnaval', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+		$this->show('front/evenements/carnaval', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 	}
 
 	public function showBlockParty()
@@ -27,7 +27,7 @@ class EventViewerController extends Controller
 		$media = new Media();
 		$category = "carnaval";
 
-		$this->show('front/blockparty', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+		$this->show('front/evenements/blockparty', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 
 	}
 
@@ -37,7 +37,7 @@ class EventViewerController extends Controller
 		$media = new Media();
 
 
-		$this->show('front/saturdayMorning', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+		$this->show('front/evenements/saturdayMorning', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 	}
 
 	public function showGarage()
@@ -46,13 +46,13 @@ class EventViewerController extends Controller
 		$media = new Media();
 
 
-		$this->show('front/garage', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
+		$this->show('front/evenements/garage', ['events' => $event->findAll($orderBy = 'date'), 'media' => $media] );
 
 	}
 
     public function subscribeGarage()
 	{
-		$this->show('front/garageSubcribe');
+		$this->show('front/evenements/garageSubcribe');
 	}
 
 }

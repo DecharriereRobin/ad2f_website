@@ -14,7 +14,7 @@ class AssociationController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('front/home');
+		$this->show('front/association/home');
 	}
 
 	public function contact()
@@ -31,9 +31,9 @@ class AssociationController extends Controller
 			$mail->Subject = $_POST['subject'];
 			$mail->Body = $_POST['message'];
 			var_dump($mail->send());
-			$message = "Votre question à bien été envoyé";
+			$message = "Merci pour votre message. Nous vous répondrons dans les plus brefs délais.";
 		}
-		$this->show('front/contact', ['associations' => $associations->findAll(), 'message' => $message]);
+		$this->show('front/association/contact', ['associations' => $associations->findAll(), 'message' => $message]);
 
 	}
 
@@ -102,7 +102,7 @@ class AssociationController extends Controller
 			}
 		}
 
-		$this->show('front/adhesion', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
+		$this->show('front/association/adhesion', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 	}
 
 

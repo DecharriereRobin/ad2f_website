@@ -21,4 +21,13 @@ class EventsModel extends \W\Model\Model
         return $sth->fetch();
     }
 
+    public function UpComingEvent(){
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE date = :date';
+        $sth = $this->dbh->prepare($sql);
+        $date =(new \DateTime('now'))->format('Y-m-d');
+        $sth->bindValue(':date', $date);
+        $sth->execute();
+        return $sth->fetch();
+    }
+
 }

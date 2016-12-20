@@ -1,0 +1,41 @@
+   footer
+    {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        background-color: rgba(172,212,115,1);
+        margin-top: 5%;
+        text-align: center;
+        border-top: 1px solid black;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: black;
+    }
+
+    footer h4.title_footer_logo
+    {
+        font-family: 'Amatic SC';
+        font-size: 2em;
+    }
+
+    .copy
+    {
+        margin-top: 5%;
+    }
+
+    a
+    {
+        color: black;
+        text-decoration: none;
+    }
+    a:hover
+    {
+        color: blue;
+        text-decoration: none;
+    }
+
+    .icone_mail
+    {
+    margin-right: 3%;
+    }

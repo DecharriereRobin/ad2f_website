@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Evenement à venir']) ?>
+<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 <?php $this->start('main_content') ?>
 
