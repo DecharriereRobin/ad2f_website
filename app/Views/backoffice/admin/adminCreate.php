@@ -22,9 +22,9 @@
                             <label class="control-label" for="cf-password">Confirmer Mot de passe :</label>
                             <input id="cf-password" name="cf-password" type="password" class="center-block form-control" placeholder="Confirmer Mot de passe"> </div>
                         <div class="form-group">
-                            <button name="createAdmin" class="center-block btn btn-info btn-sm" placeholder="Ajouter">Ajouter</button>
+                            <button name="createAdmin" class="center-block btn btn-success btn-sm" placeholder="Ajouter">Ajouter</button>
                             <br>
-                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_AdminView') ?>'" class="center-block btn btn-success btn-sm">liste des administrateurs</button>
+                            <button type="button" onclick="window.location.href =' <?= $this->url('backoffice_AdminView') ?>'" class="center-block btn btn-info btn-sm">liste des administrateurs</button>
                         </div>
                     </div>
                 </div>

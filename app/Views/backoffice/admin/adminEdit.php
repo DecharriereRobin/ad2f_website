@@ -1,11 +1,11 @@
 <?php $this->layout('layoutBack', ['title' => 'Editer un administrateurs']) ?>
     <?php $this->start('main_content') ?>
-        <p>Pour l edition, le mot de passe n'est pas obligatoire</p>
+        <p>* Pour l edition, le mot de passe n'est pas obligatoire</p>
         <!-- Formulaire d'edition d'un administateur -->
         <form action="<?php $this->url('backoffice_AdminEdit', ['id' => $admin['id']]) ?>" method="POST">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 col-lg-4 col-lg-offset 1">
+                    <div class="col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 col-lg-4 col-lg-offset-2">
                         <div class="form-group">
                             <label for="firstname" class="control-label">Nom :</label>
                             <input value="<?= $admin['firstname'] ?>" id="firstname" name="firstname" type="text" class="center-block form-control" placeholder="Nom"> </div>
@@ -22,8 +22,9 @@
                             <label for="cf-password" class="control-label">Confirmer Mot de passe :</label>
                             <input id="cf-password" name="cf-password" type="password" class="center-block form-control" Placeholder="Mot de passe"> </div>
                         <div class="form-group">
-                            <button name="EditAdmin" class="center-block btn btn-warning" type="button">Ajouter</button>
-                            <br> <a href="<?= $this->url('backoffice_AdminView') ?>" class="center-block btn btn-success">liste des administrateurs</a> </div>
+                            <button name="EditAdmin" class="center-block btn btn-warning btn-sm" >Ajouter</button>
+                            <br><button type="button" onclick="window.location.href ='<?= $this->url('backoffice_AdminView') ?>';" class=" btn btn-info btn-sm center-block">Revenir à la liste </button>
+                            </div>
                     </div>
                 </div>
             </div>

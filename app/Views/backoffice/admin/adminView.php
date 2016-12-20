@@ -30,8 +30,8 @@
                                     <td class="text-center">
                                         <h5><?php echo ucfirst($admin['role'])?></h5>
                                     </td>
-                                    <td class="text-center"><a href="<?= $this->url('backoffice_AdminDelete', ['id' => $admin['id']]); ?>" class="center-block btn btn-danger btn-sm">supprimer</a></td>
-                                    <td class="text-center"><a href="<?= $this->url('backoffice_AdminEdit', ['id' => $admin['id']]); ?>" class="center-block btn btn-warning btn-sm">Editer</a></td>
+                                    <td><a href="<?= $this->url('backoffice_AdminDelete', ['id' => $admin['id']]); ?>" class="btn btn-danger btn-sm">supprimer</a>
+                                    <a href="<?= $this->url('backoffice_AdminEdit', ['id' => $admin['id']]); ?>" class="btn btn-warning btn-sm">Editer</a></td>
                                 </tr>
                                 <?php }?>
                         </tbody>

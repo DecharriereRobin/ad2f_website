@@ -39,7 +39,7 @@
                                 <label class="control-label" for="total_amount_paid">Montant total payé : </label>
                                 <input id="total_amount_paid" name="total_amount_paid" class="form-control"> </div>
                             <button class="btn btn-success btn-sm center-block" name="createGarage">Inserer</button><br>
-                            <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageList') ?>';" class=" btn btn-info btn-sm center-block">Revenir à la liste </button>
+                            <button type="button" onclick="window.location.href ='<?= $this->url('backoffice_GarageList') ?>';" class=" btn btn-info btn-sm center-block">Revenir à la liste</button>
                         </div>
                     </form>
                 </div>
