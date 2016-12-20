@@ -3,9 +3,7 @@
 namespace Controller\Backoffice\Utils;
 
 /**
-   * List of event
-   *
-   *
+   * Resize Image
    * @package    Controller\Backoffice\Utils
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
@@ -14,7 +12,12 @@ class Resize
 {    
     
     /**
+    * Resize Image with original ratio
     * @link Use of Imagine with GD. Doc here https://imagine.readthedocs.io/en/latest/
+    * @Param mixed $sourceFile Image source to process
+    * @Param mixed $targetName result Image name
+    * @Param int   $width user define target width
+    * @Param int   $height user define target height
     */
     public static function resizeImageProportionally($sourceFile, $targetName, $width , $height)
     {   
@@ -49,6 +52,14 @@ class Resize
         
     }
     
+    /**
+    * Crop image size
+    * @link Use of Imagine with GD. Doc here https://imagine.readthedocs.io/en/latest/
+    * @Param mixed $sourceFile Image source to process
+    * @Param mixed $targetName result Image name
+    * @Param int   $width user define cropping width
+    * @Param int   $height user define cropping height
+    */    
     public static function resizeImageToFit($sourceFile, $targetName, $width , $height)
     {
         // Set PHP memory limit to higher value to avoid GD fatal error deflatting image. Check if compatible with hosting

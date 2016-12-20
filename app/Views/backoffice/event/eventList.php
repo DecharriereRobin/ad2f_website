@@ -33,14 +33,14 @@
                                 <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="deleteModalLabel-<?= $event['id'] ?>">Êtes-vous sûr de vouloir supprimer l'événement ?</h4>
+                                    <h4 class="modal-title" id="deleteModalLabel-<?= $event['id'] ?>">Supprimer l'événement: <?= ucfirst($event['title']) ?></h4>
                                 </div>
                                 <div class="modal-body">
-                                    Êtes-vous sûr de vouloir supprimer l'événement ?
+                                    Voulez-vous vraiment supprimer l'événement ?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
-                                    <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-primary">Oui</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+                                    <a href="<?= $this->url('backoffice_EventDelete', ['id' => $event['id'] , 'page' => $page ]) ?>" class="btn btn-danger">Supprimer l'événement</a>
                                 </div>
                                 </div>
                             </div>

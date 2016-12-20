@@ -7,8 +7,6 @@ use Model\MediaModel as Media;
 
   /**
    * Methods to Create, Read, Update and Delete Events in the backoffice   
-   *
-   *
    * @package    Controller\Backoffice
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
@@ -18,8 +16,11 @@ class EventController extends \W\Controller\Controller
 
     /**
      * Get one page
-     * @Param Int $page Used for pagination purpose
-     * @return View
+     * @Param int $page Used to get called page for pagination
+     * @Return int $page Used to display current page for pagination
+     * @Return int $maxPage Used to display last page for pagination
+     * @Return array $event return associative array with all events in DB
+     * @return to Views/Backoffice/eventList
      */
 
 	public function eventList($page=1)
@@ -36,7 +37,7 @@ class EventController extends \W\Controller\Controller
 
 
         // Check if requested page is out of limits and redirect to previous or to the first page.
-        if($page > $maxPage){ 
+        if($page > $maxPage){
             $this->redirectToRoute('backoffice_EventList', ['page' => $page-1]);
         } elseif($page == 0){
             $this->redirectToRoute('backoffice_EventList');
@@ -46,8 +47,15 @@ class EventController extends \W\Controller\Controller
 		$this->show('backoffice/event/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
 	}
 
-
-
+    
+    /**
+     * Get one page
+     * @Param int $page Used to get called page for pagination
+     * @Return mixed $message Display error or success message on view
+     * @Return mixed $errorMessages Display errors on view
+     * @return to Views/Backoffice/eventCreate
+     */
+    
 	public function eventCreate()
 	{
         // Only Admin User allowed for Back Office function
@@ -161,7 +169,13 @@ class EventController extends \W\Controller\Controller
 	}
 
 
-
+    /**
+    * Get one page
+    * @Param int $id Get of the ID of the event to be edited
+    * @Return mixed $message Display error or success message on view
+    * @Return int $id return associative array with all events in DB
+    * @return to Views/Backoffice/eventList
+    */
 	public function eventEdit($id)
     {
         // Only Admin User allowed for Back Office function
@@ -270,7 +284,13 @@ class EventController extends \W\Controller\Controller
         $this->show('backoffice//event/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
     }
 
-
+    /**
+    * Get one page
+    * @Param int $id Get of the ID of the event to be edited
+    * @Param int $page Used to get called page for pagination
+    * @Return int $page Used to display current page for pagination
+    * @return to Views/Backoffice/eventList
+    */
 	public function eventDelete($id, $page = '')
 	{  
         // Only Admin User allowed for Back Office function
