@@ -1,21 +1,22 @@
 <?php
 
 	$w_routes = array(
-		//FRONT
+	   //FRONT
+
 		// ASSOCIATION
-		['GET', '/association', 'Front\\Association#home', 'association_home'],
-		['GET|POST', '/association/contact', 'Front\\Association#contact', 'association_contact'],
-		['GET|POST', '/association/adhesion', 'Front\\Association#adhesion', 'association_adhesion'],
+		['GET'     , '/association/presentation', 'Front\\Association#home'    , 'association_home'],
+		['GET|POST', '/association/contact'     , 'Front\\Association#contact' , 'association_contact'],
+		['GET|POST', '/association/adhesion'    , 'Front\\Association#adhesion', 'association_adhesion'],
 
 		// EVENT VIEWER
-       ['GET', '/event/carnaval', 'Front\\EventViewer#showCarnaval', 'eventViewer_carnaval'],
-	   ['GET', '/event/feteDesVoisins', 'Front\\EventViewer#showBlockParty', 'eventViewer_fetes'],
-	   ['GET', '/event/samediMalin', 'Front\\EventViewer#showSaturdayMorning', 'eventViewer_samedi'],
-	   ['GET', '/event/braderie', 'Front\\EventViewer#showGarage', 'eventViewer_braderie'],
-	   ['GET|POST', '/event/braderie/inscription', 'Front\\EventViewer#subscribeGarage', 'eventViewer_braderieIncription'],
+       ['GET'     , '/event/carnaval'            , 'Front\\EventViewer#showCarnaval'       , 'eventViewer_carnaval'],
+	   ['GET'     , '/event/feteDesVoisins'      , 'Front\\EventViewer#showBlockParty'     , 'eventViewer_fetes'],
+	   ['GET'     , '/event/samediMalin'         , 'Front\\EventViewer#showSaturdayMorning', 'eventViewer_samedi'],
+	   ['GET'     , '/event/braderie'            , 'Front\\EventViewer#showGarage'         , 'eventViewer_braderie'],
+	   ['GET|POST', '/event/braderie/inscription', 'Front\\EventViewer#subscribeGarage'    , 'eventViewer_braderieInscription'],    
 
 	   //ASSOCIATION agenda
-	   ['GET', '/agenda/soon', 'Front\\Agenda#showSoon', 'agenda_Soon'],
+	   ['GET', '/agenda/soon'   , 'Front\\Agenda#showSoon'   , 'agenda_soon'],
 	   ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
 
 	   //maps

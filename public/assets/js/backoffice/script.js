@@ -11,9 +11,6 @@ $('[data-toggle=collapse]').click(function(){
     });
 
     
-    /* Activation of Bootstrap Tooltip for administration tool */
-    $('[data-toggle="tooltip"]').tooltip(); 
-    
     /*------------------------------------------------------------
     
                         File Upload Modification
