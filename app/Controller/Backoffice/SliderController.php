@@ -107,7 +107,7 @@ class SliderController extends \W\Controller\Controller
             $this->redirectToRoute('backoffice_Slider');
 
         }
-
+        $_SESSION['message'] = "<div class='alert alert-warning'>Aucune image n'a été ajoutée !</div>";
         $this->show('backoffice//slider/sliderSettings', ['sliderImages' => $sliderImages,]);
 
     }
