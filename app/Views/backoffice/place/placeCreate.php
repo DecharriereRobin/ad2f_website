@@ -17,13 +17,22 @@
             <label for="address">Adresse :</label>
             <input id="address" name="address" type="text" class="form-control" placeholder="Adresse">
         </div>
+    <p> Pour trouver les cordonnées d'un lieu, vous pouvez utiliser le lieu suivant  <a target="_blank" href='http://www.coordonnees-gps.fr/'>lien</a></p>
+        <div class="form-group">
+            <label for="lat">lattitude :</label>
+            <input id="lat" name="lat" type="text" class="form-control" placeholder="lattitude">
+        </div>
+        <div class="form-group">
+            <label for="lng">Longitude :</label>
+            <input id="lng" name="lng" type="text" class="form-control" placeholder="Longitude">
+        </div>
 
         <div class="form-group">
             <label for="categorie">Catégorie</label>
             <select class="form-control" id="categorie" name="categorie">
-                <option value="braderie">Lieux municipaux</option>
-                <option value="carnaval">Restaurant</option>
-                <option value="Fete-de-quartier">Sport</option>
+                <option value="Lieux municipaux">Lieux municipaux</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Sport">Sport</option>
             </select>
         </div>
 

@@ -28,7 +28,7 @@
 
         <div class="row">
             <div class="col-xs-12">
-            <a href="<?= $this->url('association_adhesion') ?> ">
+            <a href="<?= $this->url('eventViewer_braderieInscription') ?> ">
                 <h2 class="page_title">
                     INSCRIPTIONS EN LIGNE POUR LA BRADERIE
                 </h2>
@@ -37,53 +37,41 @@
         </div> <!-- Close Row -->
 
 
+        <!-- Boucle pour afficher les articles -->
+        <?php
+        foreach($events as $event){
+                                 if ($event['category'] == 'braderie'){
+                                     $id = $event['id'];
+                                     $path = $media->imageEvent($id);
+                ?>
         <div class="row">
             <div class="col-xs-12 entete_evenements">
                 <p>
                     <i class="glyphicon glyphicon-calendar"></i>
-                        <span class="date">!! date !!</span>
-                        <span class="categorie pull-right">!! categorie braderie !!</span>
-                </p>                
-            </div>
-        </div> <!-- Close Row -->
+                        <span class="date">!! <?php echo $event['date'] ?> !!</span>
 
-        <div class="row">
-            <div class="evenements_img">
-                <img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de la braderie des deux faubourgs">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
-                <p class="paragraphe_text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
+                        <span class="categorie pull-right">!! <?php echo $event['category'] ?> !!</span>
                 </p>
             </div>
         </div> <!-- Close Row -->
 
         <div class="row">
-            <div class="col-xs-12 entete_evenements">
-                <p>
-                    <i class="glyphicon glyphicon-calendar"></i>
-                        <span class="date">!! date !!</span>
-                        <span class="categorie pull-right">!! categorie braderie !!</span>
-                </p>                
-            </div>
-        </div> <!-- Close Row -->
-
-        <div class="row">
             <div class="evenements_img">
-                <img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de la braderie des deux faubourgs">
+                <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>">
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
+            <h3><?php echo $event['title'] ?>!</h3>
                 <p class="paragraphe_text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
+                    <?php echo $event['content'] ?>
                 </p>
             </div>
         </div> <!-- Close Row -->
+
+        <?php
+    }//fin if
+}//fin foreach     ?>
 
 
 

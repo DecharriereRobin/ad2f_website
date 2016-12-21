@@ -6,6 +6,114 @@
         color: black;
     }
 
+    hr
+    {
+        width: 40%;
+    }
+
+    .page_title 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .entete_evenements
+    {
+        width: 90%;
+        margin-left: 5%;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        margin-bottom: 2%;
+        margin-top: 0%;
+    }
+
+    .evenements_img
+    {
+        width: 90%;
+        height: 150px;
+        margin: 0 auto;
+        overflow: hidden;
+        margin-bottom: 2%;
+    }
+
+    .img-responsive
+    {
+        margin: 0 auto;
+    }
+
+    .glyphicon-calendar
+    {
+        margin-right: 2%;
+    }
+
+    .categorie
+    {
+        background-color: #2A342A;
+        color: white;
+        line-height: 1.5em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    /* paragraphe */
+    .paragraphe_text
+    {
+        width: 88%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        text-align: justify;
+    }
+
+    .div_coordonnees
+    {
+        margin-top: 0%;
+        margin-bottom: -5%;
+    }
+
+    .title_coordonnees
+    {
+        text-align: center;
+        margin-bottom: 2%;
+
+    }
+
+    .title_coordonnees_assoc
+    {
+        margin-bottom: 5%;       
+    }
+
+    .coordonnees
+    {
+        margin-bottom: 2%;
+    }
+
+    iframe
+    {
+        margin-top: -6%;
+    }
+
+    .div_reglement
+    {
+        border-style: solid;
+        margin-top: 2.5%;
+        border: 2px solid lightgrey;
+        border-radius: 5px;
+    }
+
+    .div_reglement h2
+    {
+        text-align: center;
+        margin-bottom: 6%;
+    }
+
+
+
 @media (max-width: 767px)
 {
 
@@ -24,16 +132,7 @@
     {
         width: 60%;
     }
-    /* paragraphe */
-    .paragraphe_text
-    {
-        width: 88%;
-        margin: 0 auto;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.4em;
-        font-weight: bold;
-        text-align: justify;
-    }
+
     /* block newsletter et facebook */
 
     .newsletter
@@ -115,18 +214,12 @@
 
     .div_img_facebook
     {
-        width: 96%;
+        width: 100%;
         margin: 0 auto;
-        margin-bottom: 20%;
+        margin-bottom: 2%;
         text-align: center;
-        margin-left: -50%;
+        margin-left: -20%;
     }
-
-    .border
-    {
-        border-style: solid;
-    }
-
 
     /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
 
@@ -215,57 +308,25 @@
 
     /*----------- Page EVENEMENTS/CARNAVAL EXTRA-SMALL ------------------------------*/
 
-    .entete_evenements
-    {
-        width: 90%;
-        margin-left: 5%;
-        border-top: 1px solid grey;
-        border-bottom: 1px solid grey;
-        padding-top: 2%;
-        padding-bottom: 0%;
-        margin-bottom: 2%;
-        margin-top: 5%;
-    }
 
-    .evenements_img
-    {
-        width: 90%;
-        height: 150px;
-        margin: 0 auto;
-        overflow: hidden;
-        margin-bottom: 2%;
-    }
 
-    .glyphicon-calendar
-    {
-        margin-right: 2%;
-    }
+/*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
 
-    .date
+    .btn_form_submit
     {
 
     }
 
-    .categorie
-    {
-        background-color: #2A342A;
-        color: white;
-        line-height: 1.5em;
-        padding-left: 1%;
-        padding-right: 1%;
-    }
 
-    .paragraphe_text
-    {
-        margin-bottom: 2%;
-    }
+
+
 
 } /*-------------------- CLOSE MEDIA QUERIES EXTRA SMALL -------------------------*/
 
 
 /*--------------------- OPEN MEDIA QUERIES SMALL AND MEDIUM---------------*/
 
-@media (min-width: 768px) and (max-width: 1199px)
+@media (min-width: 768px) 
 {
 
     .page_title_main
@@ -274,15 +335,6 @@
         font-family: 'Amatic SC', sans-serif;
         font-size: 3em;
         margin-top: -5%;
-    }
-
-    .paragraphe_text
-    {
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.4em;
-        font-weight: bold;
-        text-align: justify;
-        margin-bottom: 5%;
     }
 
     .newsletter
@@ -396,13 +448,6 @@
 
 
 
-.border{
-    border-style: solid;
-    height: 600px;
-
-}
-
-
 
 
 
@@ -414,7 +459,7 @@
 
 
 /*---------------------------- OPEN MEDIA QUERIES LARGE ---------------*/
-
+/*
 @media (min-width: 1200px)
 {
     .navbar-default
@@ -437,7 +482,7 @@
     {
         width: 60%;
     }
-    /* paragraphe */
+    /* paragraphe 
     .paragraphe_text
     {
         width: 88%;
@@ -447,7 +492,7 @@
         font-weight: bold;
         text-align: justify;
     }
-    /* block newsletter et facebook */
+    /* block newsletter et facebook 
 
     .newsletter
     {
@@ -565,6 +610,8 @@
         background-color: rgba(172,212,115,0.9);
         border-color: rgba(172,212,115,0.9);
     }
+
+
 
 
 

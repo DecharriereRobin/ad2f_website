@@ -374,7 +374,7 @@
 
     .ul_dropdown_agenda
     {
-      margin-left: -29%;
+      margin-left: -25%;
       margin-top: -5%;
     }
 
@@ -386,7 +386,7 @@
 
     .ul_dropdown_boncoin
     {
-      margin-left: -3%;
+      margin-left: 3%;
       margin-top: -1%;
     }
 
@@ -394,6 +394,19 @@
     {
       padding-top: 2%;
     }
+
+    .boncoin_soon
+    {
+        font-size: 2.3em;
+        text-align: center;
+        padding-top: 4%;
+    }
+
+        a .boncoin_soon:hover
+    {
+        color: black;
+    }
+
 
 } /*-------------------------- CLOSE MEDIA QUERIES LARGE --------------*/
 /**********************************************************************************/

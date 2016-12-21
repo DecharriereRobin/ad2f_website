@@ -2,6 +2,11 @@
 
 <?php $this->start('main_content') ?>
 
+<?= $message ?>
+<?php if(!empty($errorMessages)){
+    echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
+}?>
+
 
 <!-- Formulaire d'ajout administateur -->
 
@@ -31,7 +36,7 @@
 
     </form>
      <a href="<?= $this->url('backoffice_AdminView') ?>">liste des administrateurs</a>
-<?= $message ?>
+
 
 
 

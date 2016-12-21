@@ -1,39 +1,90 @@
-var geocoder;
-  var map;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(50.61, 3.03);
-    var mapOptions = {
-      zoom:14,
-      center: latlng
-    }
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  }
+var map;
+var mapOptions = {
+    zoom:14,
+    center: {lat: 50.6178874, lng: 3.0352417000000287},
+}// fin map option
+// Initialisation de la carte
+function initMap(){
+    // latitude, longitude du siège sociale
 
-  function codeAddress() {
-    //var address = document.getElementById("address").value;
-    //var address = "1 rue du haut bourg 86440 migné-auxances";
-    var address = $.ajax({
-          type: "Get",
-          url: 'PlaceController.php',
-          data: 'address='+address,
-          
-         });
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        // marker
-        // essai affichage marqueur via la base de donnée boucle
+    //var marker = '';
 
+    // insertion de la map dans la div map
+    map = new google.maps.Map(document.getElementById('map'), mapOptions );
 
+    var infowindow = new google.maps.InfoWindow({
 
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location, // information  à recupérer
-            title:"hello world" // information a récupérer
+  });
+
+    function setEventMarker( marker, infowindow, texte){
+            google.maps.event.addListener( marker, 'click', function() {
+                // affectation du texte
+                infowindow.setContent( texte);
+                // affichage InfoWindow
+                infowindow.open( this.getMap(), this);
+            });
+            }
+
+    $.ajax({
+        type: "GET",
+        url: 'map/json',
+        dataType: 'json',
+        success: function(datas){
+            for(key in datas){
+                //marker
+                marker = new google.maps.Marker({
+                    content: datas[key]['content'],
+                    position: {lat: parseFloat(datas[key]['lat']), lng: parseFloat(datas[key]['lng'])},
+                    map: map,
+                    title: datas[key]['titre']
+                });// fin marker
+
+                // événement clicl sur le marker via une fonction externe
+                setEventMarker( marker, infowindow, datas[key]['content']);
+
+            }// fin for
+        }// fin fonction datas
+    });// fin ajax
+
+} //fin fonction initmap
+
+$(document).ready(function(){
+   $(".centerMap").click(function(){
+        // on centre sur le lieu, il faut recupérer la latitude et la longitude
+        $('body').animate({scrollTop: $("#map").offset().top}, 'slow');
+         var latlng =$(this).attr('name');
+         console.log(latlng);
+         //console.log({lat: 50.6178874, lng: 3.0352417000000287});
+         // map.setCenter($(this).attr('name'));
+
         });
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  }
+});// fin JQUERY
+
+//function viewplace(){
+//    map = new google.maps.Map(document.getElementById('map'), mapOptions );
+
+//    $.ajax({
+//        type: "GET",
+//        url: 'map/json',
+//        dataType: 'json',
+//        success: function(datas){
+            //console.log(datas);
+            //for(key in datas){
+            //    marker = new google.maps.Marker({
+            //        content: datas[key]['content'],
+            //        position: {lat: parseFloat(datas[key]['lat']), lng: parseFloat(datas[key]['lng'])},
+            //        map: map,
+            //        title: datas[key]['titre']
+            ///    });// fin marker
+
+            //}// fin for
+        //}// fin fonction datas
+
+    //});// fin ajax
+
+
+    //var mapOptions = {
+    //    zoom:14,
+    //    center: {lat: 50.6178874, lng: 3.0352417000000287},
+    //}// fin map option
+//}

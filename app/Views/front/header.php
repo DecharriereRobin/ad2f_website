@@ -44,15 +44,14 @@
                 <p class="para_title">
                   PARTICIPER
                 </p>
-                    <p class="para_lien_dropdown"><a href="">ADHÉRER À L'ASSO</a></p>
-                    <p class="para_lien_dropdown"><a href="">S'INSCRIRE À LA BRADERIE</a></p>
+                    <p class="para_lien_dropdown"><a href="<?= $this->url('association_adhesion') ?>">ADHÉRER À L'ASSO</a></p>
+                    <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_braderieInscription') ?>">S'INSCRIRE À LA BRADERIE</a></p>
               </div>
               <div class="col-xs-6">      
                 <p class="para_title">
                   LE BON COIN
                 </p>               
-                    <p class="para_lien_dropdown"><a href="#">(COMMING SOON)</a></p>
-                    <p class="para_lien_dropdown border_bottom_dropdown"><a href="#">(COMMING SOON)</a></p>
+                    <p class="boncoin_soon"">(COMMING SOON)</p>
               </div>
             </div> <!-- Close Dropdown -->
           </nav> <!-- Close Nav -->
@@ -96,42 +95,41 @@
           <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">L'ASSOCIATION</a>
               <ul class="dropdown-menu ul_dropdown_association">
-                <li><a href="association_presentation.php">PRÉSENTATION</a></li>
-                <li><a href="association_contact.php">CONTACT</a></li>
-                <li><a href="association_adhesion.php">ADHÉSION</a></li>
+                <li><a href="<?= $this->url('association_home') ?>">PRÉSENTATION</a></li>
+                <li><a href="<?= $this->url('association_contact') ?>">CONTACT</a></li>
+                <li><a href="<?= $this->url('association_adhesion') ?>">ADHÉSION</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LES&nbsp;ÉVÉNEMENTS</a>
               <ul class="dropdown-menu ul_dropdown_evenements">
-                <li><a href="#">CARNAVAL</a></li>
-                <li><a href="#">FÊTE DU QUARTIER</a></li>
-                <li><a href="#">BRADERIE</a></li>
+                <li><a href="<?= $this->url('eventViewer_carnaval') ?>">CARNAVAL</a></li>
+                <li><a href="<?= $this->url('eventViewer_fetes') ?>">FÊTE DU QUARTIER</a></li>
+                <li><a href="<?= $this->url('eventViewer_braderie') ?>">BRADERIE</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AGENDA</a>
               <ul class="dropdown-menu  ul_dropdown_agenda">
-                <li class=ul_li_agenda><a href="#">ÉVÉNEMENTS À VENIR</a></li>
-                <li><a href="#">RÉUNIONS DE L'ASSO</a></li>
+                <li class=ul_li_agenda><a href="<?= $this->url('agenda_soon') ?>">ÉVÉNEMENTS À VENIR</a></li>
+                <li><a href="<?= $this->url('agenda_meeting') ?>">RÉUNIONS DE L'ASSO</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PARTICIPER</a>
               <ul class="dropdown-menu ul_dropdown_participer">
-                <li><a href="#">ADHÉRER À L'ASSO</a></li>
-                <li><a href="#">S'INSCRIRE À LA BRADERIE</a></li>
+                <li><a href="<?= $this->url('association_adhesion') ?>">ADHÉRER À L'ASSO</a></li>
+                <li><a href="<?= $this->url('eventViewer_braderieInscription') ?>">S'INSCRIRE À LA BRADERIE</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LE&nbsp;BON&nbsp;COIN</a>
               <ul class="dropdown-menu ul_dropdown_boncoin">
-                <li><a href="#">(COMING SOON)</a></li>
-                <li><a href="#">(COMING SOON)</a></li>
+                <li class="boncoin_soon">(COMING SOON)</li>
               </ul>
           </li>
 
@@ -165,18 +163,18 @@
           <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">L'ASSOCIATION</a>
               <ul class="dropdown-menu ul_dropdown_association">
-                <li><a href="association_presentation.php">PRÉSENTATION</a></li>
-                <li><a href="association_contact.php">CONTACT</a></li>
-                <li><a href="association_adhesion.php">ADHÉSION</a></li>
+                <li><a href="<?= $this->url('association_home') ?>">PRÉSENTATION</a></li>
+                <li><a href="<?= $this->url('association_contact') ?>">CONTACT</a></li>
+                <li><a href="<?= $this->url('association_adhesion') ?>">ADHÉSION</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LES&nbsp;ÉVÉNEMENTS</a>
               <ul class="dropdown-menu ul_dropdown_evenements">
-                <li><a href="#">CARNAVAL</a></li>
-                <li><a href="#">FÊTE DU QUARTIER</a></li>
-                <li><a href="#">BRADERIE</a></li>
+                <li><a href="<?= $this->url('eventViewer_carnaval') ?>">CARNAVAL</a></li>
+                <li><a href="<?= $this->url('eventViewer_fetes') ?>">FÊTE DU QUARTIER</a></li>
+                <li><a href="<?= $this->url('eventViewer_braderie') ?>">BRADERIE</a></li>
               </ul>
           </li>
 
@@ -187,24 +185,23 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AGENDA</a>
               <ul class="dropdown-menu  ul_dropdown_agenda">
-                <li class=ul_li_agenda><a href="#">ÉVÉNEMENTS À VENIR</a></li>
-                <li><a href="#">RÉUNIONS DE L'ASSO</a></li>
+                <li class=ul_li_agenda><a href="<?= $this->url('agenda_soon') ?>">ÉVÉNEMENTS À VENIR</a></li>
+                <li><a href="<?= $this->url('agenda_meeting') ?>">RÉUNIONS DE L'ASSO</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PARTICIPER</a>
               <ul class="dropdown-menu ul_dropdown_participer">
-                <li><a href="#">ADHÉRER À L'ASSO</a></li>
-                <li><a href="#">S'INSCRIRE À LA BRADERIE</a></li>
+                <li><a href="<?= $this->url('association_adhesion') ?>">ADHÉRER À L'ASSO</a></li>
+                <li><a href="<?= $this->url('eventViewer_braderieInscription') ?>">S'INSCRIRE À LA BRADERIE</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LE&nbsp;BON&nbsp;COIN</a>
               <ul class="dropdown-menu ul_dropdown_boncoin">
-                <li><a href="#">(COMING SOON)</a></li>
-                <li><a href="#">(COMING SOON)</a></li>
+                <a href="#"><li class="boncoin_soon">(COMING SOON)</li></a>
               </ul>
           </li>
 

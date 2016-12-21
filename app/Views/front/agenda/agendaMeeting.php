@@ -14,53 +14,34 @@
         	</div>
 		</div> <!-- Close Row -->
 
+        <?php
+foreach($meetings as $meeting){
+?>
       	<div class="row">
         	<div class="col-xs-12 entete_evenements">
           		<p>
             		<i class="glyphicon glyphicon-calendar"></i>
-            			<span class="date">!! date !!</span>
-            			<span class="categorie pull-right">!! categorie réunions !!</span>
-          		</p>        		
+            			<span class="date"><?php echo ucfirst($meeting['date']) ?></span>
+          		</p>
         	</div>
 		    </div> <!-- Close Row -->
 
       	<div class="row">
-			<div class="evenements_img">
+			<!--<div class="evenements_img">
 				<img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de réunion deux faubourgs">
-			</div>
+			</div> -->
 		</div>
       	<div class="row">
         	<div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
+            <!--<h3>!! Titre From BDD !!</h3>-->
 	     	    <p class="paragraphe_text">
-	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
+	            	<?php echo ucfirst($meeting['content'])?>
 	         	</p>
 	        </div>
       	</div> <!-- Close Row -->
+        <?php
+        }//fin foreach     ?>
 
-      	<div class="row">
-        	<div class="col-xs-12 entete_evenements">
-          		<p>
-            		<i class="glyphicon glyphicon-calendar"></i>
-            			<span class="date">!! date !!</span>
-            			<span class="categorie pull-right">!! categorie réunions !!</span>
-          		</p>        		
-        	</div>
-		</div> <!-- Close Row -->
-
-      	<div class="row">
-			<div class="evenements_img">
-				<img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de la braderie des deux faubourgs">
-			</div>
-		</div>
-      	<div class="row">
-        	<div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
-	     	    <p class="paragraphe_text">
-	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
-	         	</p>
-	        </div>
-      	</div> <!-- Close Row -->
 
     </div> <!-- Close Container -->
   </main>
