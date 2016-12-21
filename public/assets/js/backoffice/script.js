@@ -23,7 +23,6 @@ $('[data-toggle=collapse]').click(function(){
     output.attr('src', URL.createObjectURL(event.target.files[0]));
     output.show();
     
-    
     /* Display File Information */
     $('#upload-file-info').html($(this).val())
     });

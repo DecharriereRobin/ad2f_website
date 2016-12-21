@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
+
 <!-- OPEN MAIN-->
   <main>
 
@@ -11,9 +12,9 @@
   <div class="row">
       <!-- Slider -->
       <ul class="rslides" id="slider">
-        <li><img src="<?= $this->assetUrl('front/img/slider/carousel02.png') ?>"></li>
-        <li><img src="<?= $this->assetUrl('front/img/slider/carousel02.png') ?>"></li>
-        <li><img src="<?= $this->assetUrl('front/img/slider/carousel02.png') ?>"></li>
+        <li><img src="<?= '../..'.$imageSlider[0]['path'] ?>" alt="Association des 2 faubourgs slider 1"></li>
+        <li><img src="<?= '../..'.$imageSlider[1]['path'] ?>" alt="Association des 2 faubourgs slider 2"></li>
+        <li><img src="<?= '../..'.$imageSlider[2]['path'] ?>" alt="Association des 2 faubourgs slider 3"></li>
       </ul>
      <!-- Close Slider  -->
   </div>    

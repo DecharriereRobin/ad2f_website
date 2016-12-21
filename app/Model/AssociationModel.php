@@ -10,6 +10,6 @@ class AssociationModel extends \W\Model\Model
         $sql ='SELECT path FROM media INNER JOIN slider ON media.id = slider.media_id';
         $sth = $this->dbh->prepare($sql);
  		$sth->execute();
- 		return $sth->fetch();
+ 		return $sth->fetchAll();
     }
 }

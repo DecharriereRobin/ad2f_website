@@ -39,7 +39,7 @@ class SliderController extends \W\Controller\Controller
                 if($file['error'] == 0){
                     $errorMessages = [];
                     // Define accepted MIME type
-                    $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
+                    $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg"];
 
                     // Check if uploaded image match MIME type
                     if(in_array($file['type'], $fileType)){

@@ -98,7 +98,7 @@ class EventController extends \W\Controller\Controller
 
 
                 // Define accepted MIME type
-                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
+                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg"];
                 
                 // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){
@@ -221,7 +221,7 @@ class EventController extends \W\Controller\Controller
                 
             
                 // Define accepted MIME type
-                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
+                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg"];
                 
                 // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){

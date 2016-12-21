@@ -16,7 +16,10 @@ class AssociationController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('front/association/home');
+        $imageSlider = new Assoc();
+        
+        
+		$this->show('front/association/home', ['imageSlider' => $imageSlider->getSlider()]);
 	}
 
 	public function contact()
@@ -108,12 +111,6 @@ class AssociationController extends Controller
 	}
     
     
-    public function getSliderElements(){
-        
-        
-        
-    }
-
 
 
 } // fin class

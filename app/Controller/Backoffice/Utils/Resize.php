@@ -44,7 +44,7 @@ class Resize
         $targetHeight = ceil($scale*$getOrigineHeight);
         
         if($getOrigineWidth < $width && $getOrigineHeight < $height){
-            // Save Upscaled and resized picture in defined destination folder
+            // Save Upscaled and resized picture in destination folder
             $resizeimg = $imagine ->resize(new \Imagine\Image\Box($targetWidth, $targetHeight))
                               ->save($destination, $options);
             
