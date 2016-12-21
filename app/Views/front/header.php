@@ -1,5 +1,5 @@
 
-<!--**************** OPEN EXTRA SMALL HEADER **************************-->    
+<!--**************** OPEN EXTRA SMALL HEADER **************************-->
 <!-- OPEN HEADER-->
 <main>
   <div class="visible-xs-block">
@@ -7,7 +7,7 @@
       <h1 class="hidden_title_h1">association des deux faubourgs</h1>
       <!-- Top -->
         <div class="row">
-          <div class="top_logo col-xs-12"> <!-- LOGO --> </div>      	
+          <div class="top_logo col-xs-12"> <!-- LOGO --> </div>
         </div> <!-- Close Row -->
       <!-- Close Top -->
 
@@ -16,41 +16,41 @@
           <nav class="nav">
             <p class="title_nav_menu">MENU</p>
             <div class="dropdown_xs">
-              <div class="col-xs-6">      
+              <div class="col-xs-6">
                 <p class="para_title">
                   L'ASSOCIATION
                 </p>
-                 
+
                     <p class="para_lien_dropdown"><a href="<?= $this->url('association_home') ?>">PRÉSENTATION</a></p>
                     <p class="para_lien_dropdown"><a href="<?= $this->url('association_contact') ?>">CONTACT</a></p>
-                    <p class="para_lien_dropdown"><a href="<?= $this->url('association_adhesion') ?>">ADHÉSION</a></p>                
+                    <p class="para_lien_dropdown"><a href="<?= $this->url('association_adhesion') ?>">ADHÉSION</a></p>
               </div>
-              <div class="col-xs-6">      
+              <div class="col-xs-6">
                 <p class="para_title">
                   LES ÉVÉNEMENTS
                 </p>
                     <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_carnaval') ?>">CARNAVAL</a></p>
                     <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_fetes') ?>">FÊTE DU QUARTIER</a></p>
-                    <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_braderie') ?>">BRADERIE</a></p> 
+                    <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_braderie') ?>">BRADERIE</a></p>
               </div>
-              <div class="col-xs-6">      
+              <div class="col-xs-6">
                 <p class="para_title">
                   AGENDA
                 </p>
                     <p class="para_lien_dropdown"><a href="<?= $this->url('agenda_soon') ?>">ÉVÉNEMENTS À VENIR</a></p>
                     <p class="para_lien_dropdown"><a href="<?= $this->url('agenda_meeting') ?>">RÉUNIONS DE L'ASSO</a></p>
               </div>
-              <div class="col-xs-6">      
+              <div class="col-xs-6">
                 <p class="para_title">
                   PARTICIPER
                 </p>
                     <p class="para_lien_dropdown"><a href="">ADHÉRER À L'ASSO</a></p>
-                    <p class="para_lien_dropdown"><a href="">S'INSCRIRE À LA BRADERIE</a></p>
+                    <p class="para_lien_dropdown"><a href="<?= $this->url('eventViewer_braderieInscription') ?>">S'INSCRIRE À LA BRADERIE</a></p>
               </div>
-              <div class="col-xs-6">      
+              <div class="col-xs-6">
                 <p class="para_title">
                   LE BON COIN
-                </p>               
+                </p>
                     <p class="para_lien_dropdown"><a href="#">(COMMING SOON)</a></p>
                     <p class="para_lien_dropdown border_bottom_dropdown"><a href="#">(COMMING SOON)</a></p>
               </div>
@@ -68,12 +68,12 @@
 <!-- OPEN HEADER-->
   <div class="visible-sm-block visible-md-block">
     <div class="container-fluid">
-      
+
         <div class="row">
           <div class="top_logo col-sm-4">
             <img src="<?= $this->assetUrl('front/img/header/logo_sm_and_md.png') ?>" alt="logo association des deux faubourgs">
           </div>
-          <div class="col-sm-8">   
+          <div class="col-sm-8">
             <h1>association des deux faubourgs</h1>
           </div>
         </div> <!-- Close Row -->
@@ -216,4 +216,3 @@
 </div>
 </main>
 <!--************************* CLOSE LARGE HEADER *****************************-->
-

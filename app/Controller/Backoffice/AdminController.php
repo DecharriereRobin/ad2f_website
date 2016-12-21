@@ -5,6 +5,7 @@ use \W\Model\Model as Model;
 use \Model\AdminModel as Admins;
 use \W\Security\AuthentificationModel as Auth;
 use \W\Security\StringUtils as String;
+
 class AdminController extends \W\Controller\Controller
 {
 	/**
@@ -12,29 +13,68 @@ class AdminController extends \W\Controller\Controller
 	 */
     public function showAdmin(){
 		$this->allowTo('admin');
-		$message="jennifer";
 		$admins = new Admins();
-		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll(), 'message'=> $message]);
+		$this->show('backoffice/admin/adminView', ['admins' => $admins->findAll()]);
 	}// fin public function showAdmin
+
 	/**
 	 * Enregistrement de nouveau administrateurs
 	 */
 	public function create()
 	{
-		//$this->allowTo('admin');
+		$this->allowTo('admin');
+
 		$message = "";
+		$errorMessages = [];
+        $errorClass = [];
+
 		$admins = new Admins;
 		$auth = new Auth();
 		$user = new Users();
 	    $auth->getLoggedUser();
 		$string = new String();
+
+
         // Insertion de la table
 		if(isset($_POST['createAdmin'])){
 			$users=new Users();
-			$emailexist = $users->emailExists($_POST['email']);
-			if($emailexist == true){
-				$message = "<div class='alert alert-danger'>L utilisateur existe déjà.</div>";
-            }elseif(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
+			$errorMessages = [];
+
+			// on verifie un par un que les champs sont remplit
+			if (empty($_POST['firstname'])) {
+				$errorMessages[] = 'Le nom est obligatoire. Merci de l\'indiquer.';
+				$errorClass['firstname'] = 'has-error';
+			}
+
+			if (empty($_POST['lastname'])) {
+				$errorMessages[] = 'Le prénom est obligatoire. Merci de l\'indiquer.';
+				$errorClass['lastname'] = 'has-error';
+			}
+
+			if (empty($_POST['email'])) {
+				$errorMessages[] = 'L\'email est obligatoire. Merci de l\'indiquer.';
+				$errorClass['address'] = 'has-error';
+			}
+
+			if (empty($_POST['password'])) {
+				$errorMessages[] = 'L\'adresse est obligatoire. Merci de l\'indiquer.';
+				$errorClass['address'] = 'has-error';
+			}
+
+			if ($_POST['password'] !== $_POST['cf-password']) {
+				$errorMessages[] = 'Les deux mots de passe ne correspondent pas. Merci recommencer';
+				$errorClass['address'] = 'has-error';
+			}
+
+				// si le nombre message d'erreur est de Zero
+			if(count($errorMessages) == 0)
+			{
+
+				// verifier que l'email n'existe pas dans la base de donnée
+				$emailexist = $users->emailExists($_POST['email']);
+				if($emailexist == true){
+					$message = "<div class='alert alert-danger'>L utilisateur existe déjà.</div>";
+	            }
                 // Ajout à la bdd
                 $admins->insert([
                     'firstname' => trim($_POST['firstname']),
@@ -57,14 +97,21 @@ class AdminController extends \W\Controller\Controller
 	 			$mail->Subject = "Ad2F-creation de votre compte admin";
 	 			$mail->Body = "Bonjour" . $_SESSION['user']['firstname']. " " .$_SESSION['user']['lastname'] . 'Vous a inscrit en tant qu administateur du site de l associaton des 2 faubourg. Vous pouvez Cliqué sur ce lien pour recreer un nouveau mot de passe -  . http://localhost'. $route ;
 	 			$mail->send();
-	            }else{
-	                $message = "<div class='alert alert-danger'>Le nouveau membre du CA n'a pas été créé.</div>";
-	            }
+				$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
+
+			}
+		
 				//$this->redirectToRoute('backoffice_AdminView');
-        }
-		$this->show('backoffice/admin/adminCreate', ['message'=>$message]);
+        } // fin if isset
+		$this->show('backoffice/admin/adminCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 	} // fin public function create
-    // edit
+
+
+
+
+
+
+	// edit
 	public function edit($id)
 	{
 		//$this->allowTo('admin');

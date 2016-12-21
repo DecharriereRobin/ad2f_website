@@ -20,7 +20,7 @@
 
 	   //maps
 	   ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
-	   //['GET', '/front/map/[a:categorie]', 'Front\\Map#showcategorie', 'map_Showcategorie'],
+	   //['GET', '/front/map/[a:categorie]?', 'Front\\Map#showcategorie', 'map_Showcategorie'],
 	   ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
 
 		//BACKOFFICE

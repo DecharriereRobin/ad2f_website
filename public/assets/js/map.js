@@ -30,7 +30,6 @@ function initMap(){
         url: 'map/json',
         dataType: 'json',
         success: function(datas){
-            console.log(datas);
             for(key in datas){
                 //marker
                 marker = new google.maps.Marker({
@@ -55,7 +54,8 @@ $(document).ready(function(){
         $('body').animate({scrollTop: $("#map").offset().top}, 'slow');
          var latlng =$(this).attr('name');
          console.log(latlng);
-          map.setCenter($(this).attr('name'));
+         //console.log({lat: 50.6178874, lng: 3.0352417000000287});
+         // map.setCenter($(this).attr('name'));
 
         });
 });// fin JQUERY
@@ -88,24 +88,3 @@ $(document).ready(function(){
     //    center: {lat: 50.6178874, lng: 3.0352417000000287},
     //}// fin map option
 //}
-
-
-
-//function codeAddress() {
-//     var address = $.ajax({
-//        type: "Get",
-//        url: '/front/map',
-//        data: 'json',
-
-//        });
-
-        //var marker = new google.maps.Marker({
-        //    map: map,
-        //    position: results[0].geometry.location, // information  à recupérer
-        //    title:"hello world" // information a récupérer
-        //});
-      //} else {
-        //alert("Geocode was not successful for the following reason: " + status);
-      //}
-    //});
- // }

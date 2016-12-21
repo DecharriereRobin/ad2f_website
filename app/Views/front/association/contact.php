@@ -126,6 +126,6 @@
   </div>
 </main>
 
-  <?= $message ?>
+
 
 <?php $this->stop('main_content') ?>

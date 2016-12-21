@@ -22,6 +22,7 @@ class AssociationController extends Controller
 		$associations = new Assoc();
 
 		$message = "";
+
 		if(isset($_POST['SendMail'])){ // Quand le formulaire est soumis
 			//var_dump($_POST);
 			// Envoi du mail
@@ -33,6 +34,7 @@ class AssociationController extends Controller
 			var_dump($mail->send());
 			$message = "Merci pour votre message. Nous vous répondrons dans les plus brefs délais.";
 		}
+
 		$this->show('front/association/contact', ['associations' => $associations->findAll(), 'message' => $message]);
 
 	}
@@ -46,7 +48,7 @@ class AssociationController extends Controller
 		$message = "";
 		$errorMessages = [];
 		$errorClass = [];
-
+		var_dump($_POST);
 		if(isset($_POST['adhesion']))
 		{
 

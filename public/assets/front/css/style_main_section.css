@@ -159,7 +159,7 @@
         letter-spacing: 1px;
     }
 
-    #success_message{ display: block;}
+    #success_message{ display: none;}
 
 
     h3
