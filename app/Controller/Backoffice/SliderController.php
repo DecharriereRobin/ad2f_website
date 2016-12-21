@@ -102,7 +102,8 @@ class SliderController extends \W\Controller\Controller
             } //End Foreach
 
             // Return Session Error
-            isset($errorMessages)? $_SESSION['message'] = implode('<br>', $errorMessages) : $_SESSION['message'] = implode('<br>', $message);
+            isset($errorMessages)? $_SESSION['message'] = implode('<br>', $errorMessages) : "";
+            isset($message)? $_SESSION['message'] = implode('<br>', $message): "";
             $this->redirectToRoute('backoffice_Slider');
 
         }

@@ -5,6 +5,8 @@ namespace Controller\Front;
 use \W\Controller\Controller as Controller;
 use Model\MemberModel as Member;
 use Model\AssociationModel as Assoc;
+use Model\SliderModel as Slider;
+use Model\MediaModel as Media;
 
 class AssociationController extends Controller
 {
@@ -104,6 +106,13 @@ class AssociationController extends Controller
 
 		$this->show('front/association/adhesion', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 	}
+    
+    
+    public function getSliderElements(){
+        
+        
+        
+    }
 
 
 

@@ -8,7 +8,7 @@ class SliderModel extends \W\Model\Model
 {
     
     
-     public function getSliderImage($position){
+    public function getSliderImage($position){
         $sql ='SELECT path FROM media INNER JOIN slider ON media.id = slider.media_id WHERE slider.position = :position';
         $sth = $this->dbh->prepare($sql);
  		$sth->bindValue(':position', $position);

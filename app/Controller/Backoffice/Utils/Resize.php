@@ -24,6 +24,12 @@ class Resize
         // Set PHP memory limit to higher value to avoid GD fatal error deflatting image. Check if compatible with hosting
         ini_set ('memory_limit', '512M');
         $destination = __UPLOAD__.$targetName;
+        
+        // Define Compression Quality
+        $options = array(
+            'jpeg_quality' => 90,
+            'png_compression_level' => 9,
+        );
 
         $imagine   = (new \Imagine\GD\Imagine())->open($sourceFile);
         
@@ -31,25 +37,25 @@ class Resize
         $getOrigineSize     = $imagine->getSize();
         $getOrigineWidth    = $getOrigineSize->getWidth();
         $getOrigineHeight   = $getOrigineSize->getHeight();
-
+        
         // Calculate picture ratio for scaling
         $scale = min($width/$getOrigineWidth, $height/$getOrigineHeight);
         $targetWidth = ceil($scale*$getOrigineWidth);
         $targetHeight = ceil($scale*$getOrigineHeight);
-
-        $size      = new \Imagine\Image\Box($targetWidth, $targetHeight);
-        $mode      = \Imagine\Image\ImageInterface::THUMBNAIL_INSET;
-
-        $options = array(
-            'jpeg_quality' => 90,
-            'png_compression_level' => 9,
-        );
-
-        // Save resized picture in defined destination folder
-        $resizeimg = $imagine ->thumbnail($size, $mode)
-                              ->save($destination, $options);
-                    
         
+        if($getOrigineWidth < $width && $getOrigineHeight < $height){
+            // Save Upscaled and resized picture in defined destination folder
+            $resizeimg = $imagine ->resize(new \Imagine\Image\Box($targetWidth, $targetHeight))
+                              ->save($destination, $options);
+            
+        }else{
+            $size = new \Imagine\Image\Box($targetWidth, $targetHeight);
+            $mode = \Imagine\Image\ImageInterface::THUMBNAIL_INSET;
+            
+            // Save resized picture in defined destination folder
+            $resizeimg = $imagine ->thumbnail($size, $mode)
+                              ->save($destination, $options);
+        }
     }
     
     /**

@@ -1,5 +1,4 @@
 
-
 @media (max-width: 767px)
 {
 
@@ -101,6 +100,13 @@
           margin-top: 60px; 
     }
 
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
     .navbar-default {
         background-color: rgb(172,212,115);
         height: 83px;
@@ -114,6 +120,7 @@
       {
         border-color: #e7e7e7;
         height: 82px;
+        margin-bottom: 0px;
       }
 
       .navbar-default .navbar-nav > li > a
@@ -233,6 +240,7 @@
     {
       padding-top: 2%;
     }
+
 
 } /*--------------------- CLOSE MEDIA QUERIES SMALL AND MEDIUM --------------*/
 /**********************************************************************************/

@@ -1,11 +1,10 @@
     body
     {
-        background-color: #F6F6FF;
+        background-color: #F9FAF7;
         width: 100%;
         margin: 0 auto;
         color: black;
     }
-
 
 @media (max-width: 767px)
 {
@@ -13,7 +12,7 @@
 /*---------------------- Page ASSOCIATION/PRESENTATION EXTRA-SMALL ------------------------------*/
 
     /* title */
-    .page_title 
+    .page_title_main 
     {
         text-align: center;
         font-family: 'Amatic SC', cursive;
@@ -40,8 +39,11 @@
     .newsletter
     {
         height: auto;
-        background: url(../assets/img/formulaire.png);
+        background: url(../img/formulaire.png);
+        background-position: 0% 7%;
         margin-top: 7%;
+        border-radius: 5px;
+        padding-top: 2%;
     }
 
     .newsletter_title
@@ -51,9 +53,8 @@
         text-align: center;
         margin-top: 4%;
         margin-bottom: 4%;  
-        padding-top: 2%;
         font-family: 'Amatic SC', cursive;
-        font-size: 1.7em;
+        font-size: 2em;
         text-align: center;
         border-radius: 5px;
         letter-spacing: 3px;
@@ -82,6 +83,7 @@
         padding: 0%;
         font-weight: bold;
         border-color: lightgrey;
+        margin-bottom: 7%;
     }
 
     .btn-default {
@@ -96,6 +98,14 @@
         border-color: rgba(172,212,115,0.9);
     }
 
+    .title_actu
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+        margin-bottom: -5%;
+    }
+
     .title_facebook
     {
         margin-top: 8%;
@@ -107,9 +117,16 @@
     {
         width: 96%;
         margin: 0 auto;
-        margin-bottom: 2%;
+        margin-bottom: 20%;
         text-align: center;
+        margin-left: -50%;
     }
+
+    .border
+    {
+        border-style: solid;
+    }
+
 
     /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
 
@@ -127,9 +144,6 @@
 
     .well
     {
-        background-color: #D4E8E8;
-        border: none;
-        border-radius: 0px;
         margin-top: 5%;
     }
 
@@ -140,7 +154,7 @@
 
     .btn-default
     {
-        border-color: #3B8882;
+        border-color: lightgrey;
     }
 
     .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
@@ -152,15 +166,22 @@
     .btn_form_submit {
         width: 60%;
         margin-left: 20%;
-        background-color: #3B8882;
+        background-color: lightgrey;
         font-family: 'Amatic SC', sans-serif;
         font-size: 1.5em;
         font-weight: bold;
         letter-spacing: 1px;
+        color: black;
     }
 
     #success_message{ display: block;}
 
+    .page_title
+    {
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 3em;
+        text-align: center;
+    }
 
     h3
     {
@@ -239,27 +260,6 @@
         margin-bottom: 2%;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 } /*-------------------- CLOSE MEDIA QUERIES EXTRA SMALL -------------------------*/
 
 
@@ -267,6 +267,145 @@
 
 @media (min-width: 768px) and (max-width: 1199px)
 {
+
+    .page_title_main
+    {
+        text-align: center;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 3em;
+        margin-top: -5%;
+    }
+
+    .paragraphe_text
+    {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-align: justify;
+        margin-bottom: 5%;
+    }
+
+    .newsletter
+    {
+        height: auto;
+        background: url(../img/formulaire.png);
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .facebook
+    {
+        text-align: center;
+    }
+
+    .newsletter_title
+    {
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 2.5em; 
+        text-align: center;      
+    }
+
+    .title_facebook, .title_actu
+    {
+        text-align: center;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 2.5em;   
+        margin-bottom: 2%;     
+    }
+
+    .div_img_facebook
+    {
+        
+    }
+
+
+    /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION SMALL AND MEDIUM ------------------------------*/
+
+
+    .page_title
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;       
+    }
+
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 60%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }
+
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .contact_sm
+    {
+        margin-top: 2%;
+    }
+
+    h3
+    {
+        text-align: center;
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .coordonnees
+    {
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .glyph_coordonnees
+    {
+        margin-right: 2%;
+    }
+
+    .iframe_map
+    {
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 2%;
+        margin-top: 8.5%;
+    }
+
+
+
+.border{
+    border-style: solid;
+    height: 600px;
+
+}
+
+
+
+
+
 
 
 
@@ -313,7 +452,7 @@
     .newsletter
     {
         height: auto;
-        background: url(../assets/img/formulaire.png);
+        background: url(../img/formulaire.png);
         margin-top: 0%;
     }
 
@@ -391,13 +530,42 @@
 
 
 
+/*----------------- Page ASSOCIATION / ADHESION -------------------------------*/
+        
+    form
+    {
+        margin-top: 5%;
+    }
 
-.border
-{
-    border-style: solid;
-    width: 90%;
-    margin: 0 auto;
-}
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 60%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }
+
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
 
 
 
