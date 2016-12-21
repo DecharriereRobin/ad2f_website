@@ -44,7 +44,7 @@ class EventController extends \W\Controller\Controller
         }
 
         // Return results to View
-		$this->show('backoffice/event/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
+		$this->show('backoffice/event/eventList', ['events' => $event->findAll('id', 'DESC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
 	}
 
     
