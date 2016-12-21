@@ -35,6 +35,7 @@
 	</div>
 
 	<!-- script references -->
+		<script src="<?= $this->assetUrl('front/slider/js/jquery.3.0.0.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('js/backoffice/script.js') ?>"></script>
@@ -47,9 +48,9 @@
 		<script src="<?= $this->assetUrl('front/js/jquery-ui.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('front/js/main.js') ?>"></script>
 
-		<script src="<?= $this->assetUrl('front/slider/js/jquery.3.0.0.min.js') ?>"></script>
+
 		<script src="<?= $this->assetUrl('front/slider/js/responsiveslides.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('front/slider/js/slider.js') ?>"></script>
-		
+
 </body>
 </html>

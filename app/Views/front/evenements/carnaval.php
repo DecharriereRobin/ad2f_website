@@ -31,6 +31,7 @@
         foreach($events as $event){
                                  if ($event['category'] == 'carnaval'){
                                      $id = $event['id'];
+                                     $path = $media->imageEvent($id);
                 ?>
         <div class="row">
             <div class="col-xs-12 entete_evenements">
@@ -45,7 +46,7 @@
 
         <div class="row">
             <div class="evenements_img">
-                <img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo du carnaval des deux faubourgs">
+                <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>">
             </div>
         </div>
         <div class="row">

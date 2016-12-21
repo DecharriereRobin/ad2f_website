@@ -14,54 +14,45 @@
         	</div>
 		</div> <!-- Close Row -->
 
-      	<div class="row">
-        	<div class="col-xs-12 entete_evenements">
-          		<p>
-            		<i class="glyphicon glyphicon-calendar"></i>
-            			<span class="date">!! date !!</span>
-            			<span class="categorie pull-right">!! categorie events à venir !!</span>
-          		</p>        		
-        	</div>
-		</div> <!-- Close Row -->
+        <?php
+        foreach($events as $event){
+            $date =(new \DateTime('now -1 day'))->format('Y-m-d');
+                                 if ($event['date'] >= $date){
+                                     $id = $event['id'];
+                                     $path = $media->imageEvent($id);
+                ?>
+        <div class="row">
+            <div class="col-xs-12 entete_evenements">
+                <p>
+                    <i class="glyphicon glyphicon-calendar"></i>
+                        <span class="date">!! <?php echo $event['date'] ?> !!</span>
 
-      	<div class="row">
-			<div class="evenements_img">
-				<img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de l'événement à venir">
-			</div>
-		</div>
-      	<div class="row">
-        	<div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
-	     	    <p class="paragraphe_text">
-	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
-	         	</p>
-	        </div>
-      	</div> <!-- Close Row -->
+                        <span class="categorie pull-right">!! <?php echo $event['category'] ?> !!</span>
+                </p>
+            </div>
+        </div> <!-- Close Row -->
 
-      	<div class="row">
-        	<div class="col-xs-12 entete_evenements">
-          		<p>
-            		<i class="glyphicon glyphicon-calendar"></i>
-            			<span class="date">!! date !!</span>
-            			<span class="categorie pull-right">!! categorie events à venir !!</span>
-          		</p>        		
-        	</div>
-		</div> <!-- Close Row -->
+        <div class="row">
+            <div class="evenements_img">
+                <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+            <h3><?php echo $event['title'] ?>!</h3>
+                <p class="paragraphe_text">
+                    <?php echo $event['content'] ?>
+                </p>
+            </div>
+        </div> <!-- Close Row -->
 
-    <div class="row">
-			<div class="evenements_img">
-				<img src="<?= $this->assetUrl('front/img/fond_temporaire.jpg') ?>" alt="photo de l'événement à venir">
-			</div>
-		</div>
+        <?php
+    }//fin if
+}//fin foreach     ?>
 
-    <div class="row">
-        	<div class="col-xs-12">
-            <h3>!! Titre From BDD !!</h3>
-	     	    <p class="paragraphe_text">
-	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nesciunt id officiis quam aspernatur quod quos nulla cum saepe tenetur natus, corporis vel architecto deserunt temporibus perferendis facere officia modi.
-	         	</p>
-	        </div>
-      	</div> <!-- Close Row -->
+
+
+
     </div> <!-- Close Container -->
   </main>
 <!-- CLOSE MAIN-->

@@ -4,6 +4,7 @@ namespace Controller\Front;
 use \W\Controller\Controller;
 use Model\EventsModel as Event;
 use Model\MediaModel  as Media;
+use Model\MeetingModel as Meeting;
 
 class AgendaController extends Controller
 {
@@ -19,8 +20,8 @@ class AgendaController extends Controller
 
     public function showMeeting()
 {
-    $this->show('front/agenda/agendaMeeting');
+    $meetings = new Meeting();
+    $this->show('front/agenda/agendaMeeting', ['meetings' => $meetings->findAll()]);
 }
-
 
 }

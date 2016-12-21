@@ -52,7 +52,7 @@ class EventViewerController extends Controller
 
     public function subscribeGarage()
 	{
-		$this->show('front/evenements/garageSubcribe');
+		$this->show('front/participer/garageSubcribe');
 	}
 
 }
