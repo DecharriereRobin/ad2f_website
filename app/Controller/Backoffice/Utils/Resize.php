@@ -77,11 +77,11 @@ class Resize
         
         
         //Get Source file size
-        $getOrigineSize = $imagine->getSize();
-        $getOrigineWidth    = $getOrigineSize->getWidth();
-        $getOrigineHeight  = $getOrigineSize->getHeight();
+        $getOrigineSize   = $imagine->getSize();
+        $getOrigineWidth  = $getOrigineSize->getWidth();
+        $getOrigineHeight = $getOrigineSize->getHeight();
         
-        
+        // Get origine point for cropping  
         // Landscape Image. crop image horizontally
         if ($width > $height) {
             $targetWidth  = $getOrigineWidth*($box->getHeight()/$getOrigineHeight); 
@@ -101,9 +101,22 @@ class Resize
         $thumbBox = new \Imagine\Image\Box($width, $height);
         $mode     = \Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND;
         
-        
-        // Crop the previous with user's define
-        $resizeimg = $imagine ->thumbnail($thumbBox, $mode);
+        // Check if original image is larger than define size. If original image width is bigger than height the function gets the ratio by width to upscale image in user's define box. Same for height. If original image is bigger 
+        if($getOrigineWidth < $width){
+            // Calculate picture ratio for scaling
+            $scale = $width/$getOrigineWidth;
+            $targetWidth = ceil($scale*$getOrigineWidth);
+            $targetHeight = ceil($scale*$getOrigineHeight);
+            $resizeimg = $imagine ->resize( new \Imagine\Image\Box($targetWidth, $targetHeight));
+        } elseif($getOrigineHeight < $height) {
+            $scale = $width/$getOrigineHeight;
+            $targetWidth = ceil($scale*$getOrigineWidth);
+            $targetHeight = ceil($scale*$getOrigineHeight);
+            $resizeimg = $imagine ->resize( new \Imagine\Image\Box($targetWidth, $targetHeight));
+        } else {
+            // Crop the previous box with user's define box
+            $resizeimg = $imagine ->thumbnail($thumbBox, $mode);
+        }
     
         // Save resized and cropped picture in defined destination folder
         $resizeimg ->crop($cropBy, $box)
