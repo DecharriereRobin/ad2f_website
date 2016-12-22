@@ -5,6 +5,8 @@ namespace Controller\Front;
 use \W\Controller\Controller as Controller;
 use Model\MemberModel as Member;
 use Model\AssociationModel as Assoc;
+use Model\SliderModel as Slider;
+use Model\MediaModel as Media;
 
 class AssociationController extends Controller
 {
@@ -14,7 +16,10 @@ class AssociationController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('front/home');
+        $imageSlider = new Assoc();
+        
+        
+		$this->show('front/association/home', ['imageSlider' => $imageSlider->getSlider()]);
 	}
 
 	public function contact()
@@ -33,7 +38,7 @@ class AssociationController extends Controller
 			var_dump($mail->send());
 			$message = "Votre question à bien été envoyé";
 		}
-		$this->show('front/contact', ['associations' => $associations->findAll(), 'message' => $message]);
+		$this->show('front/association/contact', ['associations' => $associations->findAll(), 'message' => $message]);
 
 	}
 
@@ -102,9 +107,10 @@ class AssociationController extends Controller
 			}
 		}
 
-		$this->show('front/adhesion', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
+		$this->show('front/association/adhesion', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 	}
-
+    
+    
 
 
 } // fin class

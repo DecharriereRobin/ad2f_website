@@ -1,0 +1,690 @@
+    body
+    {
+        background-color: #F9FAF7;
+        width: 100%;
+        margin: 0 auto;
+        color: black;
+    }
+
+    hr
+    {
+        width: 40%;
+    }
+
+    .page_title 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .presentation
+    {
+        margin-top: 16%;
+    }
+
+    .entete_evenements
+    {
+        width: 96%;
+        margin-left: 2%;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        margin-bottom: 2%;
+        margin-top: 0%;
+    }
+
+    .evenements_img
+    {
+        width: 96%;
+        height: 150px;
+        margin-left: 2%;
+        overflow: hidden;
+        margin-bottom: 2%;
+    }
+
+    .img-responsive
+    {
+        margin: 0 auto;
+    }
+
+    .glyphicon-calendar
+    {
+        margin-right: 2%;
+    }
+
+    .categorie
+    {
+        background-color: #2A342A;
+        color: white;
+        line-height: 1.5em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    /* paragraphe */
+    .paragraphe_text
+    {
+        width: 90%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        text-align: justify;
+    }
+
+    .div_coordonnees
+    {
+        margin-top: 0%;
+        margin-bottom: -5%;
+    }
+
+    .title_coordonnees
+    {
+        text-align: center;
+        margin-bottom: 2%;
+
+    }
+
+    .title_coordonnees_assoc
+    {
+        margin-bottom: 5%;       
+    }
+
+    .div_coordonnees {
+        margin-top: 0%;
+        margin-bottom: -15%;
+    }
+
+    .div_reglement {
+        border-style: solid;
+        margin-top: 2.5%;
+        border: 2px solid lightgrey;
+        border-radius: 5px;
+        width: 94%;
+        margin-left: 3%;
+    }
+
+    .reglement 
+    {
+        text-align: center;
+        margin-bottom: 6%;
+    }
+
+    .inscription_braderie_form
+    {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+.fb-wrap {
+  width:50%;
+  margin: 0 auto;
+}
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+width: 100% !important;
+}
+
+
+/*----------------GOOGLE -----------------------*/
+   .google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 70% !important;
+        margin-top: 2%;
+    }
+
+.logo_facebook img
+{
+    width: 20%;
+    margin-left: 40%;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px)
+{
+
+/*---------------------- Page ASSOCIATION/PRESENTATION EXTRA-SMALL ------------------------------*/
+
+    /* title */
+    .page_title_main 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;
+    }
+
+    /* block newsletter et facebook */
+
+    .newsletter
+    {
+        height: auto;
+        background-position: 0% 7%;
+        margin-top: 7%;
+        border-radius: 5px;
+        padding-top: 2%;
+    }
+
+    .newsletter_title
+    {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: 14%;  
+        font-family: 'Amatic SC', cursive;
+        font-size: 2em;
+        text-align: center;
+        border-radius: 5px;
+        letter-spacing: 3px;
+        padding: 0%;
+        font-weight: bold;
+    }
+
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 18%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    button.submit_newsletter
+    {
+        width: 60%;
+        margin-left: 20%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5em;
+        padding: 0%;
+        font-weight: bold;
+        border-color: lightgrey;
+        margin-bottom: 12%;
+    }
+
+    .btn-default {
+        color: black;
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .title_actu
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+        margin-bottom: -5%;
+    }
+
+    .title_facebook
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+    }
+
+    .div_img_facebook
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        text-align: center;
+        margin-left: -20%;
+    }
+
+    /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
+
+    form
+    {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .form-control
+    {
+        font-size: 1em;
+    }
+
+    .well
+    {
+        margin-top: 5%;
+    }
+
+    legend
+    {
+        text-align: center;
+    }
+
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 100%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }
+
+    #success_message{ display: block;}
+
+    .page_title
+    {
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 3em;
+        text-align: center;
+    }
+
+    h3
+    {
+        text-align: center;
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .coordonnees
+    {
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .glyph_coordonnees
+    {
+        margin-right: 2%;
+    }
+
+    .iframe_map
+    {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 2%;
+
+
+    }
+
+/* FACEBOOK LIKEBOX*/
+#likebox-wrapper * {
+   width: 100% !important;
+}
+
+
+
+
+    /*----------- Page EVENEMENTS/CARNAVAL EXTRA-SMALL ------------------------------*/
+
+
+
+/*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION EXTRA-SMALL ------------------------------*/
+
+ 
+
+
+
+
+} /*-------------------- CLOSE MEDIA QUERIES EXTRA SMALL -------------------------*/
+
+
+/*--------------------- OPEN MEDIA QUERIES SMALL AND MEDIUM---------------*/
+
+@media (min-width: 768px) 
+{
+
+    .page_title_main
+    {
+        text-align: center;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 3em;
+    }
+
+    .newsletter
+    {
+        height: auto;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .facebook
+    {
+        text-align: center;
+    }
+
+
+    .newsletter_title
+    {
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 2.5em; 
+        text-align: center;      
+    }
+
+    .title_facebook, .title_actu
+    {
+        text-align: center;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 2.5em;   
+        margin-bottom: 2%;     
+    }
+
+
+
+
+    /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION SMALL AND MEDIUM ------------------------------*/
+
+
+    .page_title
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;       
+    }
+
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 60%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }
+
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .contact_sm
+    {
+        margin-top: 2%;
+    }
+
+    h3
+    {
+        text-align: center;
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .coordonnees
+    {
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .glyph_coordonnees
+    {
+        margin-right: 2%;
+    }
+
+    .iframe_map
+    {
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 2%;
+        margin-top: 8.5%;
+    }
+
+
+
+
+
+
+
+
+
+} /*--------------------- CLOSE MEDIA QUERIES SMALL AND MEDIUM --------------*/
+/**********************************************************************************/
+
+
+/*---------------------------- OPEN MEDIA QUERIES LARGE ---------------*/
+/*
+@media (min-width: 1200px)
+{
+    .navbar-default
+    {
+        background-color: rgb(172,212,115);
+        height: 83px;
+        border-color: rgb(172,212,115);
+        border-radius: 0px;
+    }
+
+    .page_title 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;
+    }
+
+    hr
+    {
+        width: 60%;
+    }
+    /* paragraphe 
+    .paragraphe_text
+    {
+        width: 88%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        text-align: justify;
+    }
+    /* block newsletter et facebook 
+
+    .newsletter
+    {
+        height: auto;
+        background: url(../img/formulaire.png);
+        margin-top: 0%;
+    }
+
+    .newsletter_title
+    {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: 4%;  
+        padding-top: 2%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.7em;
+        text-align: center;
+        border-radius: 5px;
+        letter-spacing: 3px;
+        padding: 0%;
+        font-weight: bold;
+    }
+
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    button.submit_newsletter
+    {
+        width: 60%;
+        margin-left: 20%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5em;
+        padding: 0%;
+        font-weight: bold;
+        border-color: lightgrey;
+    }
+
+    .btn-default {
+        color: black;
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .title_facebook
+    {
+        margin-top: 8%;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+    }
+
+    .div_img_facebook
+    {
+        width: 96%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+/*----------------- Page ASSOCIATION / ADHESION -------------------------------*/
+        
+    form
+    {
+        margin-top: 5%;
+    }
+
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit {
+        width: 60%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }
+
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+
+/* braderie inscription */
+    legend
+    {
+         font-family: 'Josefin Sans', sans-serif;    
+         text-align: center;   
+    }
+
+    .reglement
+    {
+        margin-top: 5%;
+    }
+        .reglement hr
+    {
+        margin-top: -2%;
+    }
+
+
+
+/* braderie inscription */
+.page_title_braderie_inscrire
+{
+            text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3em;
+        margin-top: 0%;
+        margin-bottom: 1%;
+}
+
+
+
+
+} /*-------------------------- CLOSE MEDIA QUERIES LARGE --------------*/
+/**********************************************************************************/

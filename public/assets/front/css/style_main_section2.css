@@ -1,0 +1,254 @@
+
+/*---------- For all pages ----------------*/
+
+    body
+    {
+        background-color: #F9FAF7;
+        width: 100%;
+        margin: 0 auto;
+        color: black;
+    }
+
+    /* title */
+    .page_title_main 
+    {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 3.5em;
+        margin-bottom: 5%;
+    }
+
+    hr
+    {
+        width: 40%;
+    }
+
+   	form
+    {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .form-control
+    {
+        font-size: 1em;
+    }
+
+    legend
+    {
+        text-align: center;
+    }
+
+    .well
+    {
+        margin-top: 5%;
+    }
+
+    .btn-default
+    {
+        border-color: lightgrey;
+    }
+
+    .btn-default:hover
+    {
+        color: white;
+        background-color: rgba(172,212,115,0.9);
+        border-color: rgba(172,212,115,0.9);
+    }
+
+    .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+    {
+        background-color: #D4E8E8;
+        border-color: #D4E8E8;
+    }
+
+    .btn_form_submit
+    {
+        width: 60%;
+        margin-left: 20%;
+        background-color: lightgrey;
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: black;
+    }        
+
+        /* paragraphe */
+    .paragraphe_text
+    {
+        width: 90%;
+        margin: 0 auto;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.4em;
+        text-align: justify;
+    }
+
+    .evenements_img
+    {
+        width: 96%;
+        height: 150px;
+        margin-left: 2%;
+        overflow: hidden;
+        margin-bottom: 2%;
+    }
+
+    .entete_evenements
+    {
+        width: 96%;
+        margin-left: 2%;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        margin-bottom: 2%;
+        margin-top: 0%;
+    }
+
+    .categorie
+    {
+        background-color: #2A342A;
+        color: white;
+        line-height: 1.5em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+	/* braderie inscription */
+	.page_title_braderie_inscrire
+	{
+	    text-align: center;
+	    font-family: 'Amatic SC', cursive;
+	    font-size: 3em;
+	    margin-top: 0%;
+	    margin-bottom: 1%;
+	}
+
+    .title_coordonnees
+    {
+        text-align: center;
+        margin-bottom: 2%;
+
+    }
+
+    .title_coordonnees_assoc
+    {
+        margin-bottom: 5%;       
+    }	
+
+/*---------------------- ASSOCIATION --------------------------------*/
+ /*---------------- Page HOME -----------------------*/
+
+    .newsletter
+    {
+        height: auto;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .newsletter_title
+    {
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 2.5em; 
+        text-align: center;      
+    }
+
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    button.submit_newsletter
+    {
+        width: 60%;
+        margin-left: 20%;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.5em;
+        padding: 0%;
+        font-weight: bold;
+        border-color: lightgrey;
+        margin-bottom: 7%;
+    }
+
+    .facebook
+    {
+        text-align: center;
+    }
+
+    .logo_facebook img
+	{
+    	width: 20%;
+    	margin-left: 40%;
+	}
+
+ /*---------------- PAGE CONTACT -----------------------*/
+
+    .div_coordonnees
+    {
+        margin-top: 0%;
+        margin-bottom: -5%;
+    }
+
+    .title_coordonnees_assoc
+    {
+        margin-bottom: 5%;       
+    }	
+
+    .coordonnees
+    {
+        font-family: 'Josefin Sans', cursive, sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+
+    }	
+
+     .google-maps
+     {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+
+    .google-maps iframe
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 70% !important;
+        margin-top: 2%;
+    }
+
+/*---------------- PAGE  BRADERIE-----------------------*/
+
+    .inscription_braderie_form
+    {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    .div_reglement
+    {
+        border-style: solid;
+        margin-top: 2.5%;
+        border: 2px solid lightgrey;
+        border-radius: 5px;
+        width: 94%;
+        margin-left: 3%;
+    }
+
+    .reglement 
+    {
+        text-align: center;
+        margin-bottom: 6%;
+    }

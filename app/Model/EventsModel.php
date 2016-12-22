@@ -13,12 +13,12 @@ class EventsModel extends \W\Model\Model
 
     }
 
-    public function findAllCategorie(){
-        $sql = 'SELECT * FROM ' . $this->table . ' WHERE category = "carnaval"';
+    public function getEventImage($id){
+        $sql ='SELECT path FROM media INNER JOIN events ON media.id = events.media_id WHERE events.id = :id';
         $sth = $this->dbh->prepare($sql);
-        //$sth->bindValue(':category', $category);
+        $sth->bindValue(':id', $id);
         $sth->execute();
         return $sth->fetch();
     }
-
 }
+

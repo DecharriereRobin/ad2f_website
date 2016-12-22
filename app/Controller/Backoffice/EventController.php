@@ -6,11 +6,8 @@ use Model\EventsModel as Event;
 use Model\MediaModel as Media;
 
   /**
-   * List of event
-   *
-   *
-   * @package    W
-   * @subpackage Controller
+   * Methods to Create, Read, Update and Delete Events in the backoffice   
+   * @package    Controller\Backoffice
    * @author     VINCENT GOSSEY <vincent.gossey@gmail.com>
    */
 class EventController extends \W\Controller\Controller
@@ -19,13 +16,16 @@ class EventController extends \W\Controller\Controller
 
     /**
      * Get one page
-     * @Param Int $page Used for pagination purpose
-     * @return View
+     * @Param int $page Used to get called page for pagination
+     * @Return int $page Used to display current page for pagination
+     * @Return int $maxPage Used to display last page for pagination
+     * @Return array $event return associative array with all events in DB
+     * @return to Views/Backoffice/eventList
      */
 
 	public function eventList($page=1)
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); // Only Admin User allowed for Back Office function
         $event = new Event();
 
 
@@ -36,20 +36,30 @@ class EventController extends \W\Controller\Controller
         $eventOffset = $nbOfEventByPage * ($page - 1);
 
 
-        // Check if requested page is out of limits and redirect to the first page if so.
-        if($page > $maxPage || $page == 0 ){
+        // Check if requested page is out of limits and redirect to previous or to the first page.
+        if($page > $maxPage){
+            $this->redirectToRoute('backoffice_EventList', ['page' => $page-1]);
+        } elseif($page == 0){
             $this->redirectToRoute('backoffice_EventList');
         }
 
         // Return results to View
-		$this->show('backoffice/event/eventList', ['events' => $event->findAll('id', 'ASC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
+		$this->show('backoffice/event/eventList', ['events' => $event->findAll('id', 'DESC', $nbOfEventByPage, $eventOffset), 'page' => $page, 'maxPage' => $maxPage]);
 	}
 
-
-
+    
+    /**
+     * Get one page
+     * @Param int $page Used to get called page for pagination
+     * @Return mixed $message Display error or success message on view
+     * @Return mixed $errorMessages Display errors on view
+     * @return to Views/Backoffice/eventCreate
+     */
+    
 	public function eventCreate()
 	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
 
         $event = new Event();
 
@@ -64,7 +74,7 @@ class EventController extends \W\Controller\Controller
 
             $errorMessages = [];
             
-            
+            // Check if form is filled by user
             if(empty($_POST['title'])){
                 $errorMessages[] = 'Le titre est obligatoire. Merci de l\'indiquer.';
                 $errorClass['title'] = 'has-error';
@@ -77,7 +87,6 @@ class EventController extends \W\Controller\Controller
 
 
             // Upload Image
-
             if($_FILES && $_FILES['file']['error'] == 0 ){
 
                 // Check if upload folder exists or has been deleted
@@ -89,31 +98,21 @@ class EventController extends \W\Controller\Controller
 
 
                 // Define accepted MIME type
-                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
-
+                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg"];
+                
+                // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){
 
                     $eventPicture = new Media();
 
                     $file = pathinfo($_FILES['file']['name']);
-                    $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
-                    $currentFolder = "/public/upload/";
-
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
                     
-                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 675);
-
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => $currentFolder.$targetName
-                    ], true);
-
-                    $mediaId = $getId['id'];
+                    // Set unique target name
+                    $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
+                    
+                    // Get temporary uploaded image
+                    $sourceFile = $_FILES['file']['tmp_name']; // Set upload Folder
+                    
 
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
@@ -122,23 +121,49 @@ class EventController extends \W\Controller\Controller
                 }
 
             }
-            // Insert all data in DB
-            //var_dump($_POST); 
+            // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
+                
+                // If User choose to Add an image to Event. Image Metadata is inserted to DB
+                if(isset($targetName) && isset($sourceFile)){
+                    // Set destination PATH
+                    $currentFolder = "/public/upload/";
+                    // Process Image for compression with the same ratio to fit event specification
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
+                    // To use if you prefer resize and crop the image
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
+                   
+                    // Insert Image Metadata in Media DB
+                    $getId = $eventPicture->insert([
+                        'filename' => $targetName,
+                        'filesize' => $_FILES['file']['size'],
+                        'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                        'title'    => $file['filename'],
+                        'path'     => $currentFolder.$targetName
+                        ], true);
+                
+                    // Get Last Insert ID
+                    $mediaId = $getId['id'];
+                }
+                
+                // Insert event data in event DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
                 ];
-                if($mediaId){
+                if(isset($mediaId)){
                     $data['media_id'] = $mediaId;
                 }
                 $event->insert($data, true);
 
-                $message = "<div class='alert alert-success'>L'évenement a bien été créé.</div>";
-
-
+                $message = "<div class='alert alert-success'>L'évenement a bien été créé.<br/><strong>Vous allez redirigé vers la liste des événements</strong></div>";
+                
+                $uri = $_SERVER['HTTP_ORIGIN'].dirname($_SERVER['REQUEST_URI']).'/list';
+				header("refresh:3;" . $uri);
+                
             } else{
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été créé.</div>";
             }
@@ -149,11 +174,18 @@ class EventController extends \W\Controller\Controller
 	}
 
 
-
+    /**
+    * Get one page
+    * @Param int $id Get of the ID of the event to be edited
+    * @Return mixed $message Display error or success message on view
+    * @Return int $id return associative array with all events in DB
+    * @return to Views/Backoffice/eventList
+    */
 	public function eventEdit($id)
     {
-
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
+        
         $event = new Event();
         $eventPicture = new Media();
 
@@ -161,7 +193,7 @@ class EventController extends \W\Controller\Controller
         $message = "";
         $errorMessages = [];
 
-        // Check if User filled form
+        // Check if form is filled by user
         if(isset($_POST['editEvent'])){
 
             if(empty($_POST['title'])){
@@ -189,30 +221,21 @@ class EventController extends \W\Controller\Controller
                 
             
                 // Define accepted MIME type
-                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg", "application/pdf"];
-            
+                $fileType = ["image/png", "image/gif", "image/jpg", "image/jpeg"];
+                
+                // Check if uploaded image match MIME type
                 if(in_array($_FILES['file']['type'], $fileType)){
 
                     $eventPicture = new Media(); 
-
+                    
+                    // Set unique target name
                     $file = pathinfo($_FILES['file']['name']);
                     $targetName = $file['filename']."-".date("d-m-Y")."-".uniqid().".".$file['extension'];
-                    $currentFolder = "/public/upload/";
-
-                    $sourceFile = $_FILES['file']['tmp_name']; // Get temporary uploaded image
-                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
                     
-
-                    // Insert Image Metadata in DB
-                    $getId = $eventPicture->insert([
-                    'filename' => $targetName,
-                    'filesize' => $_FILES['file']['size'],
-                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
-                    'title'    => $file['filename'],
-                    'path'     => $currentFolder.$targetName
-                    ], true);
-
-                    $mediaId = $getId['id'];
+                    
+                    // Get temporary uploaded image
+                    $sourceFile = $_FILES['file']['tmp_name']; 
+                    
 
                 } else{
                     $errorMessages[] = "Extension de fichier invalide";
@@ -222,34 +245,67 @@ class EventController extends \W\Controller\Controller
 
             }
 
-
+            // If no error in previous process, images are processed for reduction and data is inserted to DB 
             if(count($errorMessages)== 0){
+                if(isset($targetName) && isset($sourceFile)){
+                    // Set destination PATH
+                    $currentFolder = "/public/upload/";
+                    // Process Image for compression with the same ratio to fit event specification
+                    Utils\Resize::resizeImageProportionally($sourceFile, $targetName, 800, 600);
+                    
+                    // To use if you prefer resize and crop the image
+                    //Utils\Resize::resizeImageToFit($sourceFile, $targetName, 1200, 310);
                 
+                     // Insert Image Metadata in DB
+                    $getId = $eventPicture->insert([
+                    'filename' => $targetName,
+                    'filesize' => $_FILES['file']['size'],
+                    'date'     => (new \DateTime('now'))->format('Y-m-d'),
+                    'title'    => $file['filename'],
+                    'path'     => $currentFolder.$targetName
+                    ], true);
+
+                    // Get Last Insert ID
+                    $mediaId = $getId['id'];
+                }
+                
+                // Update media related to event in event DB
                 $data = [
                     'title'    => trim($_POST['title']),
                     'content'  => trim($_POST['content']),
                     'date'     => trim($_POST['date']),
                     'category' => $_POST['category']
                 ];
-                if($mediaId){
+                if(isset($mediaId)){
                     $data['media_id'] = $mediaId;
                 }
                 $event->update($data, $id, true);
 
                 $message = "<div class='alert alert-success'>L'évenement a été modifié avec succés.</div>";
+                
+                $uri = $_SERVER['HTTP_ORIGIN'].dirname($_SERVER['REQUEST_URI']).'/../list';
+				header("refresh:3;" . $uri);
+                
             } else {
 
                 $message = "<div class='alert alert-danger'>L'évenement n'a pas été modifié.</div>";
             }
         }
 
-        $this->show('backoffice//event/eventEdit', ['event' => $event->find($id), 'message'=>$message]);
+        $this->show('backoffice//event/eventEdit', ['event' => $event->find($id), 'message'=>$message, 'eventImage' => $event->getEventImage($id)]);
     }
 
-
+    /**
+    * Get one page
+    * @Param int $id Get of the ID of the event to be edited
+    * @Param int $page Used to get called page for pagination
+    * @Return int $page Used to display current page for pagination
+    * @return to Views/Backoffice/eventList
+    */
 	public function eventDelete($id, $page = '')
-	{
-        //$this->allowTo('admin'); // Only Admin User allowed for Back Office function
+	{  
+        // Only Admin User allowed for Back Office function
+        $this->allowTo('admin'); 
         $event = new Event();
         $event->delete($id);
 

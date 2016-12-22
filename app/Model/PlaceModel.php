@@ -13,13 +13,12 @@ class PlaceModel extends \W\Model\Model
  		return $sth->fetchAll();
     }
 
-    public function selectCategorie()
+    public function getPlaceByCategorie($categorie)
     {
-        $sql = 'SELECT * FROM ' . $this->table .' WHERE categorie = :categorie ';
+        $sql = 'SELECT * FROM ' . $this->table .' WHERE categorie = :categorie';
  		$sth = $this->dbh->prepare($sql);
         $sth->bindValue(':categorie', $categorie);
  		$sth->execute();
-
  		return $sth->fetchAll();
     }
 

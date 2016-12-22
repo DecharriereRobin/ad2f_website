@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 15 Décembre 2016 à 17:25
--- Version du serveur :  10.1.13-MariaDB
--- Version de PHP :  5.6.23
+-- Généré le :  Jeu 22 Décembre 2016 à 15:38
+-- Version du serveur :  10.1.16-MariaDB
+-- Version de PHP :  5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(255) NOT NULL,
   `firstname` varchar(60) NOT NULL,
   `lastname` varchar(60) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -41,12 +41,8 @@ CREATE TABLE `admin` (
 -- Contenu de la table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `token`, `role`) VALUES
-(26, '', 'jennifer', 'VINCENT', 'vincentjenni@gmail.com', '$2y$10$asY5QoNRzOFTUUMrP5Vipulf8/E/0EUg.I0gNMborU0Ux4WtzQuu2', 'WFv7M1kl0TTbMNtsj3uTfVUlxG1J98puRgVSN1vDT4_Nnit-8_7p8WXqx3ZlgjhuP3GNlYOupnl-IRAh', 'admin'),
-(27, '', 'Admin', 'Admin', 'essai@free.fr', '$2y$10$wUTLjVXsSNdhkD.Z5ptsme3MikerFqBzAjglORNKOl0TQXHogCpEm', 'z1_kRtroffuxTfgMK0gTGVzNGKkkxVP7j3RRPpjmLvddfvwGhFRSEfxPs1ifMyQo7biFf0Dd6DZd6cM_', 'admin'),
-(28, '', 'moi', 'remoi', 'elrika83@gmail.com', '$2y$10$Hr7s6bkR0TbLikwWR8A9OuDy9oKHNu/xu/eGyZVzWuLWhx1YdBveu', 'ckIbEA1XgWUNIE1JOLchfWkolRYQ4fRw34P3FYgDhSFW8YCvAEQ3eTOiiH12dSy3F5ivrnnzEJTylBiE', 'admin'),
-(29, '', 'hello', 'world', 'helloworld@free.fr', '$2y$10$AGA6NcVfkJlCwankbERMpObwLLawnKBC.1AgnyaNLfspVmdG99wQq', 'h2DT_-AXr5IDBG2KJ-Ewq-9wYnw7tlK-iL2tnhoy6VzfI2GYAYM5_2aKkk-8CaP_6D1fgekVav7Daxsz', 'admin'),
-(39, '', 'jennifer', 'world', 'fdgdfsg@sdfgsdg', '$2y$10$wW19ArqY9szuG3vMlsV8BOr1QUjUSQe73dh2EsBXKXZ8V18.Xac5y', 'fW02XdO5JjW7RPRk7gYl28GhUX5xzn24cV4GgF3kej4p5_oFMdTA6nFS2NkvraXjIGLJ3EwiLlNEo7Vh', 'admin');
+INSERT INTO `admin` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `token`, `role`) VALUES
+(3, 'Vincent', 'Gossey', '', 'vincent.gossey@gmail.com', '$2y$10$ymCm.Wn1riqQiCa6NUe.iOhFYUaCE.UEiJLDIAbzoElkGlnXpCkQa', '6pOzLPgQZmEiVmI6SP3M0KlFJIMTDl6B59toDOd1-QfNo7bOYC9zxuzZ4YEAgQCfM3jBwTtLmYZR7EBQ', 'admin');
 
 -- --------------------------------------------------------
 
@@ -68,7 +64,7 @@ CREATE TABLE `association` (
 --
 
 INSERT INTO `association` (`id`, `name`, `address`, `ZIP_code`, `city`, `phone`) VALUES
-(1, 'Association des 2 faubourg', '1 bis rue bertholot', 59800, 'Lille', '01-23-45-67-89');
+(1, 'Association des 2 faubourgs', '1 bis rue bertholot', 59800, 'Lille', '01-23-45-67-89');
 
 -- --------------------------------------------------------
 
@@ -86,22 +82,6 @@ CREATE TABLE `events` (
   `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `events`
---
-
-INSERT INTO `events` (`id`, `title`, `content`, `media_id`, `date`, `category`, `address`) VALUES
-(6, 'test', 'cviuop erjhziuojhdkezodeze', 38, '2016-12-09', 'Braderie', ''),
-(10, 'Braderie 2016', 'frezff', 39, '2016-12-09', 'Braderie', ''),
-(19, 'Braderie des faubourgs', 'fuifjerhimgejrhnkljearnhkmjnzerkmj²', 42, '2016-12-09', 'Braderie', ''),
-(119, 'caranal d hiver', 'ytyrty', 0, '0000-00-00', 'Carnaval', ''),
-(120, 'carnaval de noel', 'yrtyytry', 0, '0000-00-00', 'carnaval', ''),
-(121, 'Fêtes des voisins', 'ezaezae', 0, '0000-00-00', 'Fete-de-quartier', ''),
-(122, 'Fêtes des voisins', 'uytutu', 0, '0000-00-00', 'Fete-de-quartier', ''),
-(123, 'Fêtes des voisins', 'tretertertert', 1, '0000-00-00', 'braderie', ''),
-(124, 'carnaval de noel', 'tretete', 2, '0000-00-00', 'carnaval', ''),
-(125, 'Fêtes des voisins', 'uytutu', 3, '0000-00-00', 'Fete-de-quartier', '');
-
 -- --------------------------------------------------------
 
 --
@@ -109,18 +89,18 @@ INSERT INTO `events` (`id`, `title`, `content`, `media_id`, `date`, `category`, 
 --
 
 CREATE TABLE `garage` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(60) NOT NULL,
+  `id` int(11) NOT NULL,
+  `firstname` varchar(11) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `phone` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `reservedmeters` int(11) NOT NULL,
-  `adhesion` tinyint(1) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `reservedmeters` varchar(255) NOT NULL,
+  `adhesion` varchar(255) NOT NULL,
   `period` varchar(255) NOT NULL,
-  `amount` int(255) NOT NULL,
-  `total_amount_paid` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `amount` varchar(255) NOT NULL,
+  `total_amount_paid` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -129,7 +109,7 @@ CREATE TABLE `garage` (
 --
 
 CREATE TABLE `media` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `filename` varchar(50) NOT NULL,
   `filesize` int(10) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -142,9 +122,9 @@ CREATE TABLE `media` (
 --
 
 INSERT INTO `media` (`id`, `filename`, `filesize`, `title`, `date`, `path`) VALUES
-(1, 'plan du quartier-15-12-2016-5852be37b7732.png', 511498, 'plan du quartier', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/plan du quartier-15-12-2016-5852be37b7732.png'),
-(2, 'bourse aux jouets 2015-15-12-2016-5852be61d0afe.jp', 143462, 'bourse aux jouets 2015', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/bourse aux jouets 2015-15-12-2016-5852be61d0afe.jpg'),
-(3, 'logo association-15-12-2016-5852becd45fb8.jpg', 16225, 'logo association', '2016-12-15', 'C:\\xampp\\htdocs\\WF3\\ad2f/public/upload/logo association-15-12-2016-5852becd45fb8.jpg');
+(1, '_DSC2065-22-12-2016-585be41aaf751.jpg', 11958607, '_DSC2065', '2016-12-22', '/public/upload/_DSC2065-22-12-2016-585be41aaf751.jpg'),
+(2, '_DSC1691-22-12-2016-585be41dd4cff.jpg', 12276850, '_DSC1691', '2016-12-22', '/public/upload/_DSC1691-22-12-2016-585be41dd4cff.jpg'),
+(3, '_DSC1677-22-12-2016-585be421095a7.jpg', 12085130, '_DSC1677', '2016-12-22', '/public/upload/_DSC1677-22-12-2016-585be421095a7.jpg');
 
 -- --------------------------------------------------------
 
@@ -158,13 +138,6 @@ CREATE TABLE `meeting` (
   `address` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Contenu de la table `meeting`
---
-
-INSERT INTO `meeting` (`id`, `date`, `address`, `content`) VALUES
-(0, '2016-12-24', 'rue du père noel', 'Reunion pour le passage du père noel');
 
 -- --------------------------------------------------------
 
@@ -181,7 +154,7 @@ CREATE TABLE `member` (
   `email` varchar(255) NOT NULL,
   `paid` tinyint(1) NOT NULL DEFAULT '0',
   `creation_date` date NOT NULL,
-  `subscription_date` date NOT NULL
+  `subscription_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -189,8 +162,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `firstname`, `lastname`, `address`, `phone`, `email`, `paid`, `creation_date`, `subscription_date`) VALUES
-(2, 'jennifer', '', '2 place de Béthune 59000 Lille', '25698755', 'vincentjenni@gmail.com', 1, '2016-12-15', '0000-00-00'),
-(3, 'jennifer', 'world', 'sdfsf', '546982578', 'Adminsuper@free.fr', 0, '2016-12-15', '0000-00-00');
+(1, 'John', 'Doe', '12 boulevard Gambetta', '0607080909', 'john.doe@hotmail.fr', 0, '2016-12-13', NULL),
+(2, 'Dupont', 'Dupond', '5625 rue de jean avec peur', '0320353232', 'don.codie@hotmail.hgt', 1, '2016-12-13', NULL),
+(3, 'Mich', 'Mich', '46 rue des miches de michelle', '0669696969', 'mich@yahoo.fr', 1, '2016-12-21', '2016-12-22');
 
 -- --------------------------------------------------------
 
@@ -213,13 +187,30 @@ CREATE TABLE `place` (
 --
 
 INSERT INTO `place` (`id`, `titre`, `content`, `address`, `categorie`, `lat`, `lng`) VALUES
-(1, 'Lille Football Faubourg de Bethune', 'Association et club de loisir ', '97 Rue d''Esquermes, 59000 Lille', 'sport', 0, 0),
-(2, 'Tennis Club Lillois Lille Métropole', 'Club de tennis à Lille, France', 'Rue du Mal Assis, 59000 Lille', 'sport', 0, 0),
-(3, 'Maison de Quartier Faubourg de Béthune', 'Maison de Quartier Faubourg de Béthune', ' 65 Rue Saint-Bernard, 59000 Lille', 'Lieu municipaux', 0, 0),
-(4, 'La Poste Esquermes', 'La poste', '34 Boulevard de Metz, 59000 Lille', 'Lieu municipaux', 0, 0),
-(19, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0),
-(20, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0),
-(22, 'Le Paon d’Or', 'Brasserie traditionnelle. Spécialités flamande et Welsh . Viande et poisson de qualité provenant de fournisseurs locaux.', '2 place de Béthune 59000 Lille', 'Restaurant', 0, 0);
+(24, 'Tel pizza', 'Commande : pizza.fr', '33 Rue du Faubourg de Béthune, 59000 Lille', 'Restaurant', 50.6177, 3.02806),
+(25, 'Tennis Club Lillois Lille Métropole', 'club de tennis', 'Rue du Mal Assis, 59000 Lille', 'Sport', 50.6185, 3.02565),
+(26, 'La poste', 'Envoie de lettre et colis', '37 Rue du Faubourg des Postes lille', 'Lieux municipaux', 50.6142, 3.04782);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int(10) NOT NULL,
+  `position` int(10) NOT NULL,
+  `media_id` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `slider`
+--
+
+INSERT INTO `slider` (`id`, `position`, `media_id`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3);
 
 --
 -- Index pour les tables exportées
@@ -240,10 +231,22 @@ ALTER TABLE `events`
   ADD KEY `picture_id` (`media_id`);
 
 --
+-- Index pour la table `garage`
+--
+ALTER TABLE `garage`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `meeting`
+--
+ALTER TABLE `meeting`
+  ADD KEY `id` (`id`);
 
 --
 -- Index pour la table `member`
@@ -258,6 +261,13 @@ ALTER TABLE `place`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `media_id` (`media_id`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -265,17 +275,27 @@ ALTER TABLE `place`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `garage`
+--
+ALTER TABLE `garage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `meeting`
+--
+ALTER TABLE `meeting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `member`
 --
@@ -286,6 +306,21 @@ ALTER TABLE `member`
 --
 ALTER TABLE `place`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT pour la table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `events`
+--
+ALTER TABLE `events`
+  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

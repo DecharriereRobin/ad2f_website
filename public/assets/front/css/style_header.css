@@ -1,0 +1,413 @@
+
+@media (max-width: 767px)
+{
+
+
+/*---------------------- HEADER EXTRA-SMALL ------------------------------*/
+
+    /*--------------- Hidden H1 for SEO -------------*/
+
+    .hidden_title_h1
+    {
+        display: none;
+    }
+
+    /*--------------- TOP : Logo + Title -------------*/
+    .top_logo
+    {
+        height: 200px;
+        background: url(../img/header/logo_xs.png) no-repeat;
+        background-position: 50%;
+    }
+   
+    /*--------------- NAV : button Menu  -------------*/
+    .nav
+    {
+        width: 90%;
+        height: 55px;
+        margin: 0 auto;
+        background-color: rgba(172,212,115,1);
+        font-family: 'Amatic SC', cursive;
+    }
+
+    .nav:hover
+    {
+        background-color: rgba(152,212,115,1);
+    }
+
+    .title_nav_menu
+    {
+        text-align: center;
+        font-size: 2.8em;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    /*--------------- NAV : dropdown  -------------*/
+
+    .dropdown_xs
+    {
+        display: none;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        background-color: white;
+        font-family: 'Amatic SC', cursive;
+        font-size: 2.5em
+    }
+    .para_title
+    {
+        font-size: 0.8em;
+        color: black;
+    }
+
+    .para_lien_dropdown
+    {
+        font-size: 0.6em;        
+    }
+
+    .para_lien_dropdown a
+    {
+        color: #333333;      
+    }
+
+    .para_lien_dropdown a:hover
+    {
+        color: rgba(172,212,115,1);
+        text-decoration: none;      
+    }
+
+} /*-------------------- CLOSE MEDIA QUERIES EXTRA SMALL -------------------------*/
+
+
+/*--------------------- OPEN MEDIA QUERIES SMALL AND MEDIUM---------------*/
+
+@media (min-width: 768px) and (max-width: 1199px)
+{
+
+/*------------------------- HEADER ------------------------------*/
+
+    header 
+    {
+        font-family: 'Amatic SC', cursive, arial, sans-serif; 
+        font-size: 3em;  
+        color: black;
+    }
+
+    h1
+    {
+          font-size: 1.2em;  
+          margin-top: 60px; 
+    }
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+    .navbar-default {
+        background-color: rgb(172,212,115);
+        height: 83px;
+        border-color: rgb(172,212,115);
+        width: 100%;
+        border-radius: 0px;
+        font-size: 0.8em;
+    }
+
+      .navbar-default .navbar-collapse, .navbar-default .navbar-form
+      {
+        border-color: #e7e7e7;
+        height: 82px;
+        margin-bottom: 0px;
+      }
+
+      .navbar-default .navbar-nav > li > a
+      {
+        color: black;
+      }
+
+      .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+      {
+        color: white;
+        background-color: transparent;
+      }
+
+    .navbar-nav > li {
+        float: none;
+        color: black;
+        position: relative;
+        bottom: -15px;
+      }
+
+      /* class active */
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+    {
+        color: white;
+        background-color: transparent;
+    }
+    /*------------------------- CLOSE HEADER ------------------------------*/
+
+    /*------------ Dropdown Menu ----------------------------*/
+
+    .navbar-nav > li > .dropdown-menu
+    {
+        margin-top: -3.5%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .dropdown-menu 
+    {
+        background-color: rgb(172,212,115);
+        border: none; 
+        border-radius: 0px; 
+        -webkit-box-shadow: 0 0px 0px transparent; 
+        box-shadow: 0 0px 0px transparent;   
+    }
+
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus
+    {
+        color: white;
+        text-decoration: none;
+        background-color: #f5f5f5;
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus
+    {
+        color: black;
+        background-color: transparent;
+    }
+
+    /*------------------ Margin UL DropDown -----------------------*/
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a
+    {
+        color: black;
+        background-color: transparent;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 0%;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover
+    {
+        color: white;
+        background-color: transparent;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 0%;
+    }
+
+    .navbar-nav > li > .dropdown-menu {
+        margin-top: -3.5%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .ul_dropdown_association
+    {
+        margin-left: 2%;
+        padding-right: 6%;
+        padding-left: 6%;
+    }
+
+    .ul_dropdown_evenements
+    {
+      margin-left: 4%;
+    }
+
+    .ul_dropdown_agenda
+    {
+      margin-left: -26%;
+      margin-top: -5%;
+    }
+
+    .ul_dropdown_participer
+    {
+      margin-left: -28%;
+      margin-top: -1%;
+    }
+
+    .ul_dropdown_boncoin
+    {
+      margin-left: 1%;
+      margin-top: -1%;
+    }
+
+    .ul_li_agenda
+    {
+      padding-top: 2%;
+    }
+
+
+} /*--------------------- CLOSE MEDIA QUERIES SMALL AND MEDIUM --------------*/
+/**********************************************************************************/
+
+
+/*---------------------------- OPEN MEDIA QUERIES LARGE ---------------*/
+
+@media (min-width: 1200px)
+{
+
+    /*------------------------- HEADER ------------------------------*/
+    header 
+    {
+        font-family: 'Amatic SC', cursive, arial, sans-serif; 
+        font-size: 3.2em;  
+        color: black;
+    }
+
+      .navbar-default
+      {
+        background-color: rgb(172,212,115);
+        height: 83px;
+        border-radius: 0px;
+      }
+
+      .navbar-default .navbar-collapse, .navbar-default .navbar-form
+      {
+        border-color: #e7e7e7;
+        height: 82px;
+      }
+
+      .navbar-default .navbar-nav > li > a
+      {
+        color: black;
+      }
+
+      .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+      {
+        color: white;
+        background-color: transparent;
+      }
+
+    .navbar-nav > li {
+        float: none;
+        color: black;
+        position: relative;
+        bottom: 50px;
+      }
+
+    #site-logo {
+        position: relative;
+        bottom: -4px;
+    }
+
+      /* class active */
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+    {
+        color: white;
+        background-color: transparent;
+    }
+    /*------------------------- CLOSE HEADER ------------------------------*/
+
+    /*------------ Dropdown Menu ----------------------------*/
+
+    .navbar-nav > li > .dropdown-menu
+    {
+        margin-top: -3.5%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .dropdown-menu 
+    {
+        background-color: rgb(172,212,115);
+        border: none; 
+        border-radius: 0px; 
+        -webkit-box-shadow: 0 0px 0px transparent; 
+        box-shadow: 0 0px 0px transparent;   
+    }
+
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus
+    {
+        color: white;
+        text-decoration: none;
+        background-color: #f5f5f5;
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus
+    {
+        color: black;
+        background-color: transparent;
+    }
+
+    /*------------------ Margin UL DropDown -----------------------*/
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a
+    {
+        color: black;
+        background-color: transparent;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 0%;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover
+    {
+        color: white;
+        background-color: transparent;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 0%;
+    }
+
+    .navbar-nav > li > .dropdown-menu {
+        margin-top: -3.5%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .ul_dropdown_association
+    {
+        margin-left: 6%;
+        /* width: 99px; */
+        padding-right: 6%;
+        padding-left: 6%;
+    }
+
+    .ul_dropdown_evenements
+    {
+      margin-left: 4%;
+    }
+
+    .ul_dropdown_agenda
+    {
+      margin-left: -25%;
+      margin-top: -5%;
+    }
+
+    .ul_dropdown_participer
+    {
+      margin-left: -38%;
+      margin-top: -1%;
+    }
+
+    .ul_dropdown_boncoin
+    {
+      margin-left: 3%;
+      margin-top: -1%;
+    }
+
+    .ul_li_agenda
+    {
+      padding-top: 2%;
+    }
+
+    .boncoin_soon
+    {
+        font-size: 2.3em;
+        text-align: center;
+        padding-top: 4%;
+    }
+
+        a .boncoin_soon:hover
+    {
+        color: black;
+    }
+
+
+} /*-------------------------- CLOSE MEDIA QUERIES LARGE --------------*/
+/**********************************************************************************/
