@@ -263,6 +263,7 @@
       {
         background-color: rgb(172,212,115);
         height: 83px;
+        border-radius: 0px;
       }
 
       .navbar-default .navbar-collapse, .navbar-default .navbar-form

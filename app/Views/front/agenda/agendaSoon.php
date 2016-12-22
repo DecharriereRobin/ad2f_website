@@ -2,18 +2,15 @@
 
 <?php $this->start('main_content') ?>
 
-<!-- OPEN MAIN-->
-  <main>
-    <div class="container">
-      	<div class="row">
-        	<div class="col-xs-12">
-          	<h1 class="page_title">
-             	<hr>
-            	ÉVÉNEMENTS À VENIR
-          	</h1>
-        	</div>
-		</div> <!-- Close Row -->
+<main>
+    <div class="container-fluid">
 
+        <div class="row">
+            <div class="col-xs-12">
+                   <h1 class="page_title_main"><hr> ÉVÉNEMENTS Å VENIR</h1>
+            </div>
+        </div>
+        
         <?php
         foreach($events as $event){
             $date =(new \DateTime('now -1 day'))->format('Y-m-d');
@@ -22,39 +19,36 @@
                                      $path = $media->imageEvent($id);
                 ?>
         <div class="row">
-            <div class="col-xs-12 entete_evenements">
-                <p>
-                    <i class="glyphicon glyphicon-calendar"></i>
-                        <span class="date">!! <?php echo $event['date'] ?> !!</span>
-
-                        <span class="categorie pull-right">!! <?php echo $event['category'] ?> !!</span>
-                </p>
-            </div>
-        </div> <!-- Close Row -->
-
-        <div class="row">
-            <div class="evenements_img">
-                <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>">
-            </div>
-        </div>
-        <div class="row">
             <div class="col-xs-12">
-            <h3><?php echo $event['title'] ?>!</h3>
-                <p class="paragraphe_text">
-                    <?php echo $event['content'] ?>
-                </p>
+
+                <div class="entete_evenements ">
+                    <p>
+                        <i class="glyphicon glyphicon-calendar"></i>
+                            <span class="date"><?php echo $event['date'] ?></span>
+                            <span class="categorie pull-right"><?php echo $event['category'] ?></span>
+                    </p>
+
+                </div>
             </div>
-        </div> <!-- Close Row -->
 
-        <?php
-    }//fin if
-}//fin foreach     ?>
+                <div class="col-xs-12 evenements_img" >
+                    <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>" alt="photo d'un événement à venir des deux faubourgs" class="img-responsive" > 
+                </div>
 
+                <div class="col-xs-12">
+                    <h3><?php echo $event['title'] ?></h3>
+                        <p class="paragraphe_text">
+                            <?php echo $event['content'] ?>
+                        </p>
+                </div>
+        </div> <!-- Close ROW -->
+    <?php
+                } // Fin If
+        }// Fin foreach  
+    ?>
+    </div> <!-- Close CONTAINER-FLUID -->
 
-
-
-    </div> <!-- Close Container -->
-  </main>
+</main>
 <!-- CLOSE MAIN-->
 
 <?php $this->stop('main_content') ?>

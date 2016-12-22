@@ -31,6 +31,12 @@ class MapController extends \W\Controller\Controller
         $places = new Place();
         echo json_encode($places->findAll());
     }
+    public function JsonbyID($id)
+    {
+        $places = new Place();
+        echo json_encode($places->find($id));
+        $this->redirectToRoute('map_Show');
+    }
 
 
 

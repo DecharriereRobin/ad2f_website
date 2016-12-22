@@ -48,14 +48,24 @@ function initMap(){
 
 } //fin fonction initmap
 
+
 $(document).ready(function(){
    $(".centerMap").click(function(){
         // on centre sur le lieu, il faut recupérer la latitude et la longitude
         $('body').animate({scrollTop: $("#map").offset().top}, 'slow');
-         var latlng =$(this).attr('name');
-         console.log(latlng);
-         //console.log({lat: 50.6178874, lng: 3.0352417000000287});
-         // map.setCenter($(this).attr('name'));
+
+        $.ajax({
+            type: "GET",
+            url: $(this).prev().attr('href'),
+            dataType: 'json',
+            success: function(data){
+               var LatLng = new google.maps.LatLng(data['lat'], data['lng']);
+               map.setCenter(LatLng);
+            }// fin fonction datas
+
+        });// fin ajax
+
+
 
         });
 });// fin JQUERY

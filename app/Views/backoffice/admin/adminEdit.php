@@ -4,6 +4,10 @@
 <?php $this->start('main_content') ?>
 
 <p>Pour l edition, le mot de passe n'est pas obligatoire</p>
+<?php if(!empty($errorMessages)){
+echo '<div class="alert alert-danger">'.implode('<br>', $errorMessages).'</div>';
+    }?>
+
 
 <!-- Formulaire d'edition d'un administateur -->
 
@@ -19,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="email">Email :</label>
-            <input value="<?= $admin['email'] ?>" id="email" name="email" type="email" class="form-control" >
+            <input value="<?= $admin['email'] ?>" id="email" name="email" type="text" class="form-control" >
         </div>
         <div class="form-group">
             <label for="password">Mot de passe :</label>

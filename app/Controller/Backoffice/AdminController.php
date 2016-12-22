@@ -53,28 +53,35 @@ class AdminController extends \W\Controller\Controller
 
 			if (empty($_POST['email'])) {
 				$errorMessages[] = 'L\'email est obligatoire. Merci de l\'indiquer.';
-				$errorClass['address'] = 'has-error';
+				$errorClass['email'] = 'has-error';
 			}
 
 			if (empty($_POST['password'])) {
-				$errorMessages[] = 'L\'adresse est obligatoire. Merci de l\'indiquer.';
-				$errorClass['address'] = 'has-error';
+				$errorMessages[] = 'Le mot de passe est obligatoire. Merci de l\'indiquer.';
+				$errorClass['password'] = 'has-error';
 			}
 
 			if ($_POST['password'] !== $_POST['cf-password']) {
 				$errorMessages[] = 'Les deux mots de passe ne correspondent pas. Merci recommencer';
-				$errorClass['address'] = 'has-error';
+				$errorClass['cf-password'] = 'has-error';
+			}
+			// verifier que l'email n'existe pas dans la base de donnée
+			$emailexist = $users->emailExists($_POST['email']);
+			if($emailexist == true){
+				$errorMessages[] = 'L\'utilisateur existe déjà';
+				$errorClass['email'] = 'has-error';
+			}
+
+			if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false){
+
+				$errorMessages[] = 'L\'email n\'est  pas valide';
+				$errorClass['email'] = 'has-error';
 			}
 
 				// si le nombre message d'erreur est de Zero
 			if(count($errorMessages) == 0)
 			{
 
-				// verifier que l'email n'existe pas dans la base de donnée
-				$emailexist = $users->emailExists($_POST['email']);
-				if($emailexist == true){
-					$message = "<div class='alert alert-danger'>L utilisateur existe déjà.</div>";
-	            }
                 // Ajout à la bdd
                 $admins->insert([
                     'firstname' => trim($_POST['firstname']),
@@ -100,15 +107,11 @@ class AdminController extends \W\Controller\Controller
 				$message = "<div class='alert alert-success'>Le membre a bien été créé.</div>";
 
 			}
-		
+
 				//$this->redirectToRoute('backoffice_AdminView');
         } // fin if isset
 		$this->show('backoffice/admin/adminCreate', ['message'=>$message, 'errorMessages' => $errorMessages, 'hasError' => $errorClass]);
 	} // fin public function create
-
-
-
-
 
 
 	// edit
@@ -118,9 +121,36 @@ class AdminController extends \W\Controller\Controller
 		$admins = new Admins();
 		$auth = new Auth();
 		$message="";
+		$errorMessages=[];
+		$errorClass=[];
+
+
         //Editer la table
 		if(isset($_POST['EditAdmin'])){
-            if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email'])) {
+			$users=new Users();
+
+			if (empty($_POST['firstname'])) {
+				$errorMessages[] = 'Le nom est obligatoire. Merci de l\'indiquer.';
+				$errorClass['firstname'] = 'has-error';
+			}
+
+			if (empty($_POST['lastname'])) {
+				$errorMessages[] = 'Le prénom est obligatoire. Merci de l\'indiquer.';
+				$errorClass['lastname'] = 'has-error';
+			}
+
+			if ($_POST['password'] !== $_POST['cf-password']) {
+				$errorMessages[] = 'Les deux mots de passe ne correspondent pas. Merci recommencer';
+				$errorClass['password'] = 'has-error';
+			}
+
+			if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false){
+
+				$errorMessages[] = 'L\'email n\'est  pas valide';
+				$errorClass['email'] = 'has-error';
+			}
+
+            if(count($errorMessages) == 0){
                 // Ajout à la bdd
                 $admins->update([
                     'firstname' => trim($_POST['firstname']),
@@ -131,12 +161,10 @@ class AdminController extends \W\Controller\Controller
 				//redirection vers page de vue
 				//$this->redirectToRoute('backoffice_AdminView');
 				$message = "<div class='alert alert-success'>L'administrateurs a bien été modifié.</div>";
-				}else{
-					$message = "<div class='alert alert-danger'>L'administrateurs n'a pas été modifié.</div>";
 				}
-			}
+			} // fin if isset admin
 	//	afficher la vue
-	$this->show('backoffice/admin/adminEdit', ['admin' => $admins->find($id), 'message'=>$message]);
+	$this->show('backoffice/admin/adminEdit', ['admin' => $admins->find($id), 'message'=>$message, 'errorMessages'=>$errorMessages, 'hasError' => $errorClass]);
 	}
 	/**
 	 * Supprimer un administrateurs

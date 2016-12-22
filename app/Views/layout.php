@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('front/css/style_main_section.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('front/css/style_footer.css') ?>">
   <!-- Slider -->
-   <link rel="stylesheet" href="<?= $this->assetUrl('front/slider/css/responsiveslider.css') ?>">
-
+   <link rel="stylesheet" href="<?= $this->assetUrl('front/slider/css/responsiveslides.css') ?>">
   <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">

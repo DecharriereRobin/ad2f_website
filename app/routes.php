@@ -18,10 +18,14 @@
 	    //ASSOCIATION AGENDA MENU
 	    ['GET', '/agenda/soon'   , 'Front\\Agenda#showSoon'   , 'agenda_soon'],
 	    ['GET', '/agenda/meeting', 'Front\\Agenda#showMeeting', 'agenda_meeting'],
+        
+        //PARTICIPER
+	    ['GET', '/participer/braderie'   , 'Front\\Participer#garageSuscribe'   , 'participer_garage'],
 
 	    //INTERACTIVE MAP
 	    ['GET', '/front/map', 'Front\\Map#showMap', 'map_Show'],
 	    ['GET', '/front/map/json', 'Front\\Map#Json', 'map_JSON'],
+        ['GET', '/front/map/jsonbyId/[i:id]', 'Front\\Map#JsonbyID', 'map_JSONbyID'],
 
     /*--------------------------------------------------BACKOFFICE ROUTES---------------------------------------------------------*/
         // BACKOFFICE HOME
