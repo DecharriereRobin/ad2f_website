@@ -35,7 +35,7 @@ class AssociationController extends Controller
 			$mail->addAddress('vincentjenni@gmail.com');
 			$mail->Subject = $_POST['subject'];
 			$mail->Body = $_POST['message'];
-			var_dump($mail->send());
+			//var_dump($mail->send());
 			$message = "Votre question à bien été envoyé";
 		}
 		$this->show('front/association/contact', ['associations' => $associations->findAll(), 'message' => $message]);

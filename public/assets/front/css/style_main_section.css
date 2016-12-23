@@ -27,8 +27,8 @@
 
     .entete_evenements
     {
-        width: 96%;
-        margin-left: 2%;
+        width: 94%;
+        margin-left: 3%;
         border-top: 1px solid grey;
         border-bottom: 1px solid grey;
         padding-top: 10px;
@@ -40,7 +40,7 @@
     .evenements_img
     {
         width: 96%;
-        height: 150px;
+        height: auto;
         margin-left: 2%;
         overflow: hidden;
         margin-bottom: 2%;
@@ -128,6 +128,16 @@
 width: 100% !important;
 }
 
+.boncoin_soon_xs
+{
+    font-size: 0.5em;
+}
+
+.boncoin_soon_sm
+{
+    font-size: 2em;
+}
+
 
 /*----------------GOOGLE -----------------------*/
    .google-maps {
@@ -152,13 +162,10 @@ width: 100% !important;
 }
 
 
-
-
-
-
-
-
-
+.presentation
+{
+    margin-top: 0%;
+}
 
 
 @media (max-width: 767px)
@@ -166,6 +173,10 @@ width: 100% !important;
 
 /*---------------------- Page ASSOCIATION/PRESENTATION EXTRA-SMALL ------------------------------*/
 
+    .presentation
+    {
+        margin-top: 0%;
+    }
     /* title */
     .page_title_main 
     {
@@ -412,6 +423,17 @@ width: 100% !important;
     }
 
 
+    .newsletter_input
+    {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 8%;
+        border-radius: 4px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
 
 
     /*----------- Page ASSOCIATION/CONTACT AND ASSOCIATION/ADHÉSION SMALL AND MEDIUM ------------------------------*/
@@ -489,134 +511,14 @@ width: 100% !important;
         margin-top: 8.5%;
     }
 
-
-
-
-
-
-
+    .boncoin_soon_sm
+    {
+    font-size: 2em;
+    margin-left: 13%;
+    }
 
 
 } /*--------------------- CLOSE MEDIA QUERIES SMALL AND MEDIUM --------------*/
-/**********************************************************************************/
-
-
-/*---------------------------- OPEN MEDIA QUERIES LARGE ---------------*/
-/*
-@media (min-width: 1200px)
-{
-    .navbar-default
-    {
-        background-color: rgb(172,212,115);
-        height: 83px;
-        border-color: rgb(172,212,115);
-        border-radius: 0px;
-    }
-
-    .page_title 
-    {
-        text-align: center;
-        font-family: 'Amatic SC', cursive;
-        font-size: 3.5em;
-        margin-bottom: 5%;
-    }
-
-    hr
-    {
-        width: 60%;
-    }
-    /* paragraphe 
-    .paragraphe_text
-    {
-        width: 88%;
-        margin: 0 auto;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.4em;
-        font-weight: bold;
-        text-align: justify;
-    }
-    /* block newsletter et facebook 
-
-    .newsletter
-    {
-        height: auto;
-        background: url(../img/formulaire.png);
-        margin-top: 0%;
-    }
-
-    .newsletter_title
-    {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-        margin-top: 4%;
-        margin-bottom: 4%;  
-        padding-top: 2%;
-        font-family: 'Amatic SC', cursive;
-        font-size: 1.7em;
-        text-align: center;
-        border-radius: 5px;
-        letter-spacing: 3px;
-        padding: 0%;
-        font-weight: bold;
-    }
-
-    .newsletter_input
-    {
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 5%;
-        border-radius: 4px;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.2em;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    button.submit_newsletter
-    {
-        width: 60%;
-        margin-left: 20%;
-        font-family: 'Amatic SC', cursive;
-        font-size: 1.5em;
-        padding: 0%;
-        font-weight: bold;
-        border-color: lightgrey;
-    }
-
-    .btn-default {
-        color: black;
-        background-color: #fff;
-        border-color: #fff;
-    }
-    .btn-default:hover
-    {
-        color: white;
-        background-color: rgba(172,212,115,0.9);
-        border-color: rgba(172,212,115,0.9);
-    }
-
-    .title_facebook
-    {
-        margin-top: 8%;
-        font-family: 'Amatic SC', cursive;
-        text-align: center;
-    }
-
-    .div_img_facebook
-    {
-        width: 96%;
-        margin: 0 auto;
-        margin-bottom: 2%;
-        text-align: center;
-    }
-
-
-
-
-
-
-
 
 /*----------------- Page ASSOCIATION / ADHESION -------------------------------*/
         
@@ -676,11 +578,12 @@ width: 100% !important;
 /* braderie inscription */
 .page_title_braderie_inscrire
 {
-            text-align: center;
+        text-align: center;
+        text-decoration: underline;
         font-family: 'Amatic SC', cursive;
-        font-size: 3em;
+        font-size: 2.5em;
         margin-top: 0%;
-        margin-bottom: 1%;
+        margin-bottom: 3%;
 }
 
 

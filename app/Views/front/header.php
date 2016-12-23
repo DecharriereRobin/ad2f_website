@@ -51,7 +51,7 @@
                 <p class="para_title">
                   LE BON COIN
                 </p>               
-                    <p class="boncoin_soon"">(COMMING SOON)</p>
+                    <p class="boncoin_soon_xs">(COMMING SOON)</p>
               </div>
             </div> <!-- Close Dropdown -->
           </nav> <!-- Close Nav -->
@@ -135,7 +135,7 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LE&nbsp;BON&nbsp;COIN</a>
               <ul class="dropdown-menu ul_dropdown_boncoin">
-                <li class="boncoin_soon">(COMING SOON)</li>
+                <li class="boncoin_soon_sm">(COMING SOON)</li>
               </ul>
           </li>
 
@@ -166,7 +166,9 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav nav-justified navbar-nav center-block">
 
-          <li class="dropdown active">
+          <li class="dropdown <?= ($w_current_route == 'association_home') ? 'active' : '';?> 
+                              <?= ($w_current_route == 'association_contact') ? 'active' : '';?>
+                              <?= ($w_current_route == 'association_adhesion') ? 'active' : '';?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">L'ASSOCIATION</a>
               <ul class="dropdown-menu ul_dropdown_association">
                 <li><a href="<?= $this->url('association_home') ?>">PRÉSENTATION</a></li>
@@ -175,7 +177,9 @@
               </ul>
           </li>
 
-          <li class="dropdown">
+          <li class="dropdown <?= ($w_current_route == 'eventViewer_carnaval') ? 'active' : '';?>
+                              <?= ($w_current_route == 'eventViewer_fetes') ? 'active' : '';?>
+                              <?= ($w_current_route == 'eventViewer_braderie') ? 'active' : '';?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LES&nbsp;ÉVÉNEMENTS</a>
               <ul class="dropdown-menu ul_dropdown_evenements">
                 <li><a href="<?= $this->url('eventViewer_carnaval') ?>">CARNAVAL</a></li>
@@ -188,7 +192,8 @@
             <img id="logo-navbar-middle" src="<?= $this->assetUrl('front/img/header/logo_lg.png') ?>" width="257" alt="Logo association des 2 faubourgs">
           </li>
 
-          <li class="dropdown">
+          <li class="dropdown <?= ($w_current_route == 'agenda_soon') ? 'active' : '';?>
+                              <?= ($w_current_route == 'agenda_meeting') ? 'active' : '';?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AGENDA</a>
               <ul class="dropdown-menu  ul_dropdown_agenda">
                 <li class=ul_li_agenda><a href="<?= $this->url('agenda_soon') ?>">ÉVÉNEMENTS À VENIR</a></li>
@@ -196,7 +201,8 @@
               </ul>
           </li>
 
-          <li class="dropdown">
+           <li class="dropdown <?= ($w_current_route == 'association_adhesion') ? '' : '';?>
+                              <?= ($w_current_route == 'eventViewer_braderieInscription') ? 'active' : '';?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PARTICIPER</a>
               <ul class="dropdown-menu ul_dropdown_participer">
                 <li><a href="<?= $this->url('association_adhesion') ?>">ADHÉRER À L'ASSO</a></li>

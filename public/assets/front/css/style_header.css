@@ -232,13 +232,18 @@
 
     .ul_dropdown_boncoin
     {
-      margin-left: 1%;
+      margin-left: -6%;
       margin-top: -1%;
     }
 
     .ul_li_agenda
     {
       padding-top: 2%;
+    }
+
+    .ul_li_boincoin_soon_sm
+    {
+      margin-left: -6%;
     }
 
 

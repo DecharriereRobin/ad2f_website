@@ -93,12 +93,12 @@
                 </div>
 
                 <!-- Success message -->
-                <div class="alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Merci pour votre adhésion. Nous vous répondrons dans les plus brefs délais.</div>
+                <!--<div class="alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Merci pour votre adhésion. Nous vous répondrons dans les plus brefs délais.</div>-->
 
                 <!-- Button -->
                 <div class="form-group">
                   <div class="col-xs-12">
-                    <button type="submit" class="btn btn-default btn_form_submit" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" class="btn btn-default btn_form_submit" name="adhesion">Envoyer <span class="glyphicon glyphicon-send"></span></button>
                   </div>
                 </div>
 

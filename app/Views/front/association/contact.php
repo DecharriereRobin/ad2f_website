@@ -47,24 +47,33 @@
             </div>
           </div>
       </div>
+       
+              <div class="form-group">
+          <div class="col-xs-12 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input name="subject" placeholder="sujet" class="form-control"  type="text">
+            </div>
+          </div>
+      </div>
 
        <div class="form-group"> 
           <div class="col-xs-12 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                <textarea name="email" placeholder="Taper votre message ici..." class="form-control"  type="text">
+                <textarea name="message" placeholder="Taper votre message ici..." class="form-control"  type="text">
                 </textarea>
             </div>
           </div>
         </div>
 
       <!-- Success message -->
-      <div class="alert alert-success" role="alert" id="success_message"><i class="glyphicon  glyphicon-thumbs-up"></i> Merci pour votre message. Nous vous répondrons dans les plus brefs délais.
-      </div>
+     <!-- <div class="alert alert-success" role="alert" id="success_message"><i class="glyphicon  glyphicon-thumbs-up"></i> Merci pour votre message. Nous vous répondrons dans les plus brefs délais.
+      </div> -->
 
       <!-- Button -->
       <div class="form-group">
-          <button type="submit" class="btn btn-default btn_form_submit" >Envoyer <span class=" glyphicon glyphicon-send"></span>
+          <button type="submit" class="btn btn-default btn_form_submit" name="SendMail" >Envoyer <span class=" glyphicon glyphicon-send"></span>
           </button>
       </div>
 

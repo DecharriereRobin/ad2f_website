@@ -1,7 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 <?php $this->start('main_content') ?>
-<? php var_dump($imageSlider); ?>
 
 <main>
 
@@ -23,7 +22,7 @@
 </div>
   <div class="row presentation"> <!-- style="margin-top: 6%; -->
       <div class="col-xs-12">
-            <h1 class="page_title_main"><hr>PRÉSENTATION</h1>
+            <h1 class="page_title_main presentation"><hr>PRÉSENTATION</h1>
       </div>
   </div> <!-- Close Row -->
 

@@ -28,7 +28,8 @@
                 ?>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12
+                        col-sm-push-2 col-sm-8">
 
                 <div class="entete_evenements ">
                     <p>
@@ -40,11 +41,14 @@
                 </div>
             </div>
 
-                <div class="col-xs-12 evenements_img" >
+                <div class="col-xs-12
+                            col-sm-8
+                            evenements_img" >
                     <img src="<?= '../..' . $path['path'] ?>" alt="<?php echo $event['title'] ?>" class="img-responsive" > 
                 </div>
 
-                <div class="col-xs-12">
+                <div class="col-xs-12
+                            col-sm-push-2 col-sm-8">
                     <h3><?php echo $event['title'] ?></h3>
                         <p class="paragraphe_text">
                             <?php echo $event['content'] ?>

@@ -124,7 +124,7 @@ class GarageController extends \W\Controller\Controller
     {
 
         if(isset($_POST['garagePrint'])){
-        var_dump('salut');
+        //var_dump('salut');
         $this->show('backoffice/garage/garageList', ['garages' => $garages->findAll()]);
         }
     }

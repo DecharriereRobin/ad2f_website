@@ -10,7 +10,7 @@ class AdminModel extends \W\Model\Model
  		$sth->bindValue(':token', $token);
  		$sth->execute();
  		return $sth->fetch();
-         var_dump( $sth);
+        //var_dump( $sth);
      }
      public function tokenExists($token)
  	{

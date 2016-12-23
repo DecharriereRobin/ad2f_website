@@ -52,7 +52,7 @@
 						    <div class="col-xs-12 inputGroupContainer">
 						    	<div class="input-group">
 						        	<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-						  			<input name="adresse" placeholder="address" class="form-control"  type="text">
+						  			<input name="address" placeholder="address" class="form-control"  type="text">
 						    	</div>
 						 	</div>
 						</div>
@@ -85,12 +85,12 @@
 						</div>
 
 						<!-- Success message --> 
-						<div class="col-md-push-3 col-md-6 alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Merci pour votre message. Nous vous répondrons dans les plus brefs délais.
-						</div>
+						<!-- <div class="col-md-push-3 col-md-6 alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Merci pour votre message. Nous vous répondrons dans les plus brefs délais.
+						</div> -->
 
 						<!-- Button --> 
 						<div class="form-group">
-						    	<button type="submit" class="btn btn-default btn_form_submit" >Envoyer <span class="glyphicon glyphicon-send"></span>
+						    	<button type="submit" class="btn btn-default btn_form_submit" name="SubscribeGarage">Envoyer <span class="glyphicon glyphicon-send"></span>
 						    	</button>
 						  	</div>
 						</div>

@@ -20,7 +20,8 @@
         ?>    
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12
+                        col-sm-push-2 col-sm-8">
 
                 <div class="entete_evenements">
                     <p>
@@ -30,7 +31,8 @@
                     </p>                
                 </div>
 
-                <div class="col-xs-12">
+                <div class="col-xs-12
+                           ">
                     <h3>Réunion du <?php echo $meeting['date'] ?></h3>
                         <p class="paragraphe_text">
                             <?php echo ucfirst($meeting['content'])?>

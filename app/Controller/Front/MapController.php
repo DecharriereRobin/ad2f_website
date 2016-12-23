@@ -20,7 +20,7 @@ class MapController extends \W\Controller\Controller
         if(isset($_GET['categorie'])){
             $categorie = $cat->getPlaceByCategorie('sport');
 
-            var_dump($categorie);
+            //var_dump($categorie);
         }
         $this->show('front/map/', ['place' => $categorie->getPlaceByCategorie('sport'), 'places' => $places->findAll($orderBy = 'categorie')]);
 
